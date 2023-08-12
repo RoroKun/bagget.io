@@ -1,0 +1,11 @@
+.stakeholders {
+  padding-top: 20px;
+  width: 100%;
+  min-height: 800px;
+  background: var(--secondary-bg-gradient);
+}
+
+.stakeholders-wrapper {
+  display: flex;
+  flex-direction: column;
+}
