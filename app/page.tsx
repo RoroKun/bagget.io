@@ -76,6 +76,7 @@ export default function Home() {
                   <Horizontal
                     layout={i % 2 === 0 ? "default" : "alt"}
                     imgURL={problem.url}
+                    imgAlt={problem.imgAlt}
                   >
                     <h3 className={problemStyles.text}>
                       <span className="emph1">{problem.name}</span>{" "}
@@ -137,6 +138,7 @@ export default function Home() {
                     layout={i % 2 === 0 ? "alt" : "default"}
                     imgURL={achievement.img}
                     imgDesign="alt"
+                    imgAlt={achievement.imgAlt}
                   >
                     <div className={achievementsStyles.content}>
                       <div>

@@ -6,11 +6,13 @@ export const Horizontal = ({
   layout,
   imgURL,
   imgDesign = "default",
+  imgAlt,
 }: {
   children: React.ReactNode;
   layout: "default" | "alt";
-  imgURL?: string;
+  imgURL: string;
   imgDesign?: "default" | "alt";
+  imgAlt: string;
 }) => {
   return (
     <div className={layout === "default" ? styles.default : styles.alt}>
@@ -23,8 +25,7 @@ export const Horizontal = ({
         >
           <Image
             src={imgURL}
-            // TODO: fix alt
-            alt={`Image of ${imgURL.substring(1)} as symbolism`}
+            alt={imgAlt}
             fill
             style={{
               objectFit: "cover",
