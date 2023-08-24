@@ -15,7 +15,7 @@ export const teamData = [
   },
   {
     name: "Cesar Rojas",
-    title: "Outreach Lead",
+    title: "Financial & Outreach Lead",
     email: "cesar@bagget.io",
     linkedIn: "cesar-rojas21",
     badgeImg: "/cesar.jpg",
