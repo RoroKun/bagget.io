@@ -113,11 +113,12 @@ export default function Home() {
                   <div className={cardStyles["social-icons"]}>
                     <a
                       href={`https://www.linkedin.com/in/${member.linkedIn}/`}
+                      rel="noopener noreferrer"
                       target="_blank"
                     >
                       <LinkedIn />
                     </a>
-                    <a href={`mailto: ${member.email}`} target="_blank">
+                    <a href={`mailto: ${member.email}`} rel="noopener noreferrer" target="_blank">
                       <Email />
                     </a>
                   </div>
@@ -147,7 +148,7 @@ export default function Home() {
                       </div>
                       <p>{achievement.blurb}</p>
                       {achievement.link && (
-                        <a href={achievement.link} target="_blank">
+                        <a href={achievement.link} rel="noopener noreferrer" target="_blank">
                           <button className="alt-button">
                             <p className="sub-text primary-text">Read more</p>
                           </button>
@@ -170,6 +171,7 @@ export default function Home() {
             </p>
             <a
               href="mailto:rohan@bagget.io?cc=alan@bagget.io;cesar@bagget.io"
+              rel="noopener noreferrer"
               target="_blank"
             >
               <button className="primary-text">chat today!</button>
