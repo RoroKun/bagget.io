@@ -100,11 +100,11 @@ export default function Home() {
               </h2>
               <p className="text-restraint">
                 {/* bagget is a team of... */}
-                We’re CSU, Fullerton computer science students with the passion
-                to create solutions. So that these people can{" "}
+                We are Cal State Fullerton CS majors looking to create custom
+                solutions for this ecosystem - So that our communities can{" "}
                 <span className="emph2">Bag</span> their troubles and{" "}
-                <span className="emph2">Get</span> one step close to alleviate
-                their food insecurity.
+                <span className="emph2">Get</span> one step close to food
+                security.
               </p>
             </div>
             <div className={cardStyles["card-wrapper"]}>
