@@ -8,14 +8,14 @@ export const teamData = [
   },
   {
     name: "Alan Cortez",
-    title: "UI/UX Designer & Frontend Developer",
+    title: "UI/UX Frontend Developer",
     email: "alan@bagget.io",
     linkedIn: "alancortez1337",
     badgeImg: "/alan-img.jpg",
   },
   {
     name: "Cesar Rojas",
-    title: "Financial & Outreach Manager",
+    title: "Outreach Lead",
     email: "cesar@bagget.io",
     linkedIn: "cesar-rojas21",
     badgeImg: "/cesar.jpg",
