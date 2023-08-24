@@ -78,10 +78,13 @@ export default function Home() {
                     imgURL={problem.url}
                     imgAlt={problem.imgAlt}
                   >
-                    <h3 className={problemStyles.text}>
+                    <div className={problemStyles["text-layout"]}>
+                      <p className={problemStyles.text}>
                       <span className="emph1">{problem.name}</span>{" "}
                       {problem.blurb}
-                    </h3>
+                      </p>
+                      <p className={problemStyles.text}>{problem.blurbPT2}</p>
+                    </div>
                   </Horizontal>
                 );
               })}
