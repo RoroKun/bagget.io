@@ -80,8 +80,8 @@ export default function Home() {
                   >
                     <div className={problemStyles["text-layout"]}>
                       <p className={problemStyles.text}>
-                      <span className="emph1">{problem.name}</span>{" "}
-                      {problem.blurb}
+                        <span className="emph1">{problem.name}</span>{" "}
+                        {problem.blurb}
                       </p>
                       <p className={problemStyles.text}>{problem.blurbPT2}</p>
                     </div>
@@ -118,11 +118,17 @@ export default function Home() {
                     <a
                       href={`https://www.linkedin.com/in/${member.linkedIn}/`}
                       rel="noopener noreferrer"
+                      title={`Opens ${member.name}'s LinkedIn profile in a new tab`}
                       target="_blank"
                     >
                       <LinkedIn />
                     </a>
-                    <a href={`mailto: ${member.email}`} rel="noopener noreferrer" target="_blank">
+                    <a
+                      href={`mailto: ${member.email}`}
+                      rel="noopener noreferrer"
+                      title={`Sends an email to ${member.name} in a new tab`}
+                      target="_blank"
+                    >
                       <Email />
                     </a>
                   </div>
@@ -153,7 +159,12 @@ export default function Home() {
                       </div>
                       <p>{achievement.blurb}</p>
                       {achievement.link && (
-                        <a href={achievement.link} rel="noopener noreferrer" target="_blank">
+                        <a
+                          href={achievement.link}
+                          rel="noopener noreferrer"
+                          title={`Opens the official ${achievement.eventName} article in a new tab`}
+                          target="_blank"
+                        >
                           <button className="alt-button">
                             <p className="sub-text primary-text">Read more</p>
                           </button>
@@ -172,11 +183,14 @@ export default function Home() {
             <h2 className="primary-text">Want to help?</h2>
             <p className="primary-text text-restraint">
               To truly create an impactful solution we need to hear everyone’s
-              perspective. If you or someone you know has helped orchestrate Food Banks or Pantries - or if you just want to talk to us! Then we would love to...
+              perspective. If you or someone you know has helped orchestrate
+              Food Banks or Pantries - or if you just want to talk to us! Then
+              we would love to...
             </p>
             <a
               href="mailto:rohan@bagget.io?cc=alan@bagget.io;cesar@bagget.io"
               rel="noopener noreferrer"
+              title={`Sends an email to the Bag/Get team in a new tab`}
               target="_blank"
             >
               <button className="primary-text">chat today!</button>
