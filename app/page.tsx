@@ -166,14 +166,13 @@ export default function Home() {
             <h2 className="primary-text">Want to help?</h2>
             <p className="primary-text text-restraint">
               To truly create an impactful solution we need to hear everyone’s
-              angle. If you or you know anybody who helps orchestrate food banks
-              or pantries and has problems then...
+              perspective. If you or someone you know has helped orchestrate Food Banks or Pantries - or if you just want to talk to us! Then we would love to...
             </p>
             <a
               href="mailto:rohan@bagget.io?cc=alan@bagget.io;cesar@bagget.io"
               target="_blank"
             >
-              <button className="primary-text">We would love to chat</button>
+              <button className="primary-text">chat today!</button>
             </a>
           </div>
         </section>
