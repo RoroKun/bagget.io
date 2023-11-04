@@ -82,31 +82,41 @@
 }
 
 @media screen and (min-width: 300px) {
+  .abs-content {
+    top: -120px;
+  }
   .card {
     --card-w: 300px;
     --card-h: 420px;
-    --img-h: 250px;
+    --img-h: 400px;
     --content-h: 170px;
   }
 }
 /* Ipad, more like Ipaid hahahahahahahahahhahaha */
 @media screen and (min-width: 800px) {
+  .abs-content {
+    top: -100px;
+  }
   .card-wrapper {
     gap: 0px;
   }
   .card {
     --card-h: 450px;
-    --img-h: 300px;
+    --img-h: 400px;
     --content-h: 180px;
   }
 }
 
 @media screen and (min-width: 1600px) {
+  .abs-content {
+    top: -100px;
+  }
   .card-wrapper {
     gap: 20px;
   }
   .card {
     --card-w: 325px;
-    --card-h: 450px;
+    --img-h: 450px;
+    --card-h: 500px;
   }
 }
