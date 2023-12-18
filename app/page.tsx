@@ -20,27 +20,15 @@ import teamStyles from "./styles/team.module.css";
 import cardStyles from "./styles/card.module.css";
 import contactStyles from "./styles/contact.module.css";
 import achievementsStyles from "./styles/achievements.module.css";
+import Hero from "./sections/hero";
+import Stakeholders from "./sections/stakeholders";
 
 export default function Home() {
   return (
     <>
       <main>
-        <section className={heroStyles.hero}>
-          <div className={`${heroStyles["hero-wrapper"]} wrapper`}>
-            <div className={heroStyles["hero-text"]}>
-              <h1 className="primary-text">
-                <span className="emph1">13.5</span> Million
-              </h1>
-              <h2 className="primary-text">
-                American households are{" "}
-                <span className="emph1">food insecure.</span>
-              </h2>
-            </div>
-            <Plate />
-          </div>
-        </section>
-
-        <HeroSVG />
+        <Hero />
+        <Stakeholders/>
         <section className={stakeholderStyles.stakeholders}>
           <div
             className={`${stakeholderStyles["stakeholders-wrapper"]} wrapper secondary-text`}
