@@ -29,32 +29,7 @@ export default function Home() {
       <main>
         <Hero />
         <Stakeholders/>
-        <section className={stakeholderStyles.stakeholders}>
-          <div
-            className={`${stakeholderStyles["stakeholders-wrapper"]} wrapper secondary-text`}
-          >
-            <h2>
-              But to understand the{" "}
-              <span className="emph2">
-                problem, <br /> you
-              </span>{" "}
-              need to understand the <span className="emph2">people...</span>
-            </h2>
-            <div className={cardStyles["card-wrapper"]}>
-              {stakeholderData.map((stakeholder) => (
-                <Card
-                  name={stakeholder.name}
-                  bgImg={stakeholder.backgroundImg}
-                  type="default"
-                >
-                  <h3 className="primary-text">{stakeholder.name}</h3>
-                  <p className="primary-text">{stakeholder.blurb}</p>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-        <ProblemSVG />
+        
         <section className={`${problemStyles.problem} primary-text`}>
           <h2>Under the surface...</h2>
           <div className="wrapper">
