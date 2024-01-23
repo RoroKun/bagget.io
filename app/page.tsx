@@ -22,6 +22,7 @@ import contactStyles from "./styles/contact.module.css";
 import achievementsStyles from "./styles/achievements.module.css";
 import Hero from "./sections/hero";
 import Stakeholders from "./sections/stakeholders";
+import Challenges from "./sections/challenges";
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
       <main>
         <Hero />
         <Stakeholders/>
+        <Challenges />
         
         <section className={`${problemStyles.problem} primary-text`}>
           <h2>Under the surface...</h2>
