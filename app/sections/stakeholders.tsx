@@ -25,7 +25,7 @@ import { steps } from "../content/stakeholders";
 
 export default function Stakeholders() {
   return (
-    <Container maxW={"7xl"} >
+    <Container maxW={"7xl"}>
       <Flex justifyContent={'center'} alignItems={'center'} direction={"column"}>
         <Title />
         <Flex
@@ -39,11 +39,11 @@ export default function Stakeholders() {
         >
             <InfoBlurb />
             <Blob
-              w={'150%'}
-              h={'150%'}
+              w={'100%'}
+              h={'100%'}
               position={'absolute'}
               top={'-20%'}
-              left={0}
+              left={'20%'}
               zIndex={-1}
               color={useColorModeValue('green.50', 'green.400')}
             />
@@ -55,7 +55,7 @@ export default function Stakeholders() {
               marginTop={["20%", "10%", "0%"]}
             >
               <Image
-                alt={'Hero Image'}
+                alt={'Person working in a pantry packaging food'}
                 fit={'cover'}
                 align={'center'}
                 w={'100%'}
