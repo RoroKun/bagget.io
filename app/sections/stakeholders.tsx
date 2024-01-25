@@ -25,46 +25,50 @@ import { steps } from "../content/stakeholders";
 
 export default function Stakeholders() {
   return (
-    <Container maxW={"7xl"}>
-      <Flex justifyContent={'center'} alignItems={'center'} direction={"column"}>
-        <Title />
-        <Flex
-          flex={1}
-          justify={'space-between'}
-          align={'center'}
-          position={'relative'}
-          w={'full'}
-          gap={'10%'}
-          flexWrap={['wrap', 'wrap', 'nowrap']}
-        >
-            <InfoBlurb />
-            <Blob
-              w={'100%'}
-              h={'100%'}
-              position={'absolute'}
-              top={'-20%'}
-              left={'20%'}
-              zIndex={-1}
-              color={useColorModeValue('green.50', 'green.400')}
-            />
-            <Box
-              position={'relative'}
-              height={'full'}
-              width={'full'}
-              overflow={'hidden'}
-              marginTop={["20%", "10%", "0%"]}
-            >
-              <Image
-                alt={'Person working in a pantry packaging food'}
-                fit={'cover'}
-                align={'center'}
+    <Container maxW={"full"} px={0} marginBottom={{ base: 15, md: 35 }}>
+      <Title />
+      <Container maxW={"7xl"}>
+        <Flex justifyContent={'center'} alignItems={'center'} direction={"column"}>
+          <Flex
+            flex={1}
+            justify={'space-between'}
+            align={'center'}
+            position={'relative'}
+            w={'full'}
+            gap={'10%'}
+            flexWrap={['wrap', 'wrap', 'nowrap']}
+            overflow={'hidden'}
+
+          >
+              <InfoBlurb />
+              <Blob
                 w={'100%'}
                 h={'100%'}
-                src={"/stakeholder-img.webp"}
+                position={'absolute'}
+                top={'0%'}
+                right={'-20%'}
+                zIndex={-1}
+                color={useColorModeValue('green.50', 'green.400')}
               />
-            </Box>
-          </Flex>
-      </Flex>
+              <Box
+                position={'relative'}
+                height={'full'}
+                width={'full'}
+                overflow={'hidden'}
+                marginTop={["20%", "10%", "0%"]}
+              >
+                <Image
+                  alt={'Person working in a pantry packaging food'}
+                  fit={'cover'}
+                  align={'center'}
+                  w={'80%'}
+                  h={'80%'}
+                  src={"/stakeholder-img.webp"}
+                />
+              </Box>
+            </Flex>
+        </Flex>
+      </Container>
     </Container>
   );
 }
@@ -74,8 +78,13 @@ function Title() {
     <Stack
       align={"center"}
       spacing={{ base: 8, md: 10 }}
-      py={{ base: 20, md: 28 }}
+      py={{ base: 15, md: 23 }}
       direction={{ base: "column", md: "row" }}
+      bgColor={"green.800"}
+      textAlign={'center'}
+      marginBottom={50}
+      position={'relative'}
+      zIndex={-2}
     >
       <Stack flex={1} spacing={{ base: 5, md: 10 }}>
         <Heading
@@ -83,26 +92,17 @@ function Title() {
           fontWeight={600}
           fontSize={{ base: "3xl", sm: "4xl", lg: "6xl" }}
         >
-          <Text as={"span"} color={"green.400"}>
+          <Text as={"span"} color={"green.100"}>
             There are{" "}
           </Text>
           <Text
             as={"span"}
-            position={"relative"}
-            _after={{
-              content: "''",
-              width: "full",
-              height: "30%",
-              position: "absolute",
-              bottom: 1,
-              left: 0,
-              bg: "green.400",
-              zIndex: -1,
-            }}
+            fontStyle={'italic'}
+            color={'yellow.100'}
           >
-            THREE
+            three
           </Text>
-          <Text as={"span"} color={"green.400"}>
+          <Text as={"span"} color={"green.100"}>
             {" "}impacted parties.
           </Text>
         </Heading>
