@@ -3,6 +3,7 @@
 import {
   Container,
   Stack,
+  HStack,
   Flex,
   Box,
   Heading,
@@ -61,22 +62,22 @@ export default function Hero() {
                 _after={{
                   content: "''",
                   width: 'full',
-                  height: '20%',
+                  height: '10%',
                   position: 'absolute',
                   bottom: 1,
                   left: 0,
-                  bg: 'green.300',
+                  bg: 'yellow.100',
                   zIndex: -1,
                 }}
                 zIndex={2}
-                color={'white'}
+                color={'yellow.100'}
                 fontWeight={700}
                 fontSize={{ base: '5xl', sm: '6xl', lg: '8xl' }}
                 >
                 {highlightedText}
               </Text>
               <br />
-              <Text as={'span'} color={'white'}>
+              <Text as={'span'} color={'green.100'}>
                 {headingAlt}
               </Text>
             </Heading>
@@ -85,9 +86,42 @@ export default function Hero() {
             </Text>
           </Stack>
           
-          {/* <Button bgColor={'green.300'} colorScheme="green" variant='solid' color={'white'} fontSize={{ base: '1xl', sm: '2xl', lg: '4xl' }} padding={"30px"}>
-            Let's understand why...
-          </Button> */}
+          <HStack width={'full'} gap={'25px'}>
+            <Button 
+              bg={'green.100'}
+              variant='solid' 
+              color={'green.800'} 
+              size={'lg'}
+              _hover={{ 
+                bg: 'green.800',
+                color: 'green.100',
+              }}
+              _active={{
+                bg: 'green.800',
+                color: 'green.100',
+                transform: 'scale(0.9)',
+              }}
+            >
+              Become part of the solution
+            </Button>
+            <Button 
+              variant='solid' 
+              color={'green.100'} 
+              variant='ghost' 
+              size={'lg'}
+              _hover={{ 
+                bg: 'green.100',
+                color: 'green.800',
+              }}
+              _active={{
+                bg: 'green.100',
+                color: 'green.800',
+                transform: 'scale(0.9)',
+              }}
+            >
+              Read more
+            </Button>
+          </HStack>
           
         </Stack>
       </Container>
