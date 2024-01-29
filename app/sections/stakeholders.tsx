@@ -25,7 +25,14 @@ import { steps } from "../content/stakeholders";
 
 export default function Stakeholders() {
   return (
-    <Container maxW={"full"} px={0} marginBottom={{ base: 15, md: 35 }}>
+    <Container 
+      maxW={"full"} 
+      px={0} 
+      bgColor={"green.50"} 
+      position={'relative'} 
+      zIndex={-3} 
+      paddingBottom={'5%'}
+    >
       <Title />
       <Container maxW={"7xl"}>
         <Flex justifyContent={'center'} alignItems={'center'} direction={"column"}>
@@ -48,7 +55,7 @@ export default function Stakeholders() {
                 top={'0%'}
                 right={'-20%'}
                 zIndex={-1}
-                color={useColorModeValue('green.50', 'green.400')}
+                color={useColorModeValue('green.100', 'green.400')}
               />
               <Box
                 position={'relative'}
@@ -131,10 +138,11 @@ function InfoBlurb() {
                 <Heading
                   fontWeight={600}
                   fontSize={{ base: "lg", sm: "xl", lg: "3xl" }}
+                  color={'green.800'}
                 >
                   {step.title}
                 </Heading>
-              <Text fontSize={{ base: "md", sm: "lg", lg: "xl" }}>{step.description}</Text>
+              <Text fontSize={{ base: "md", sm: "lg", lg: "xl" }} color={'green.800'}>{step.description}</Text>
           </Box>
 
           <StepSeparator />
