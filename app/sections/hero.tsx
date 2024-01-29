@@ -105,9 +105,7 @@ export default function Hero() {
               Become part of the solution
             </Button>
             <Button 
-              variant='solid' 
               color={'green.100'} 
-              variant='ghost' 
               size={'lg'}
               _hover={{ 
                 bg: 'green.100',
@@ -118,6 +116,7 @@ export default function Hero() {
                 color: 'green.800',
                 transform: 'scale(0.9)',
               }}
+              variant={'ghost'}
             >
               Read more
             </Button>
