@@ -23,6 +23,7 @@ import achievementsStyles from "./styles/achievements.module.css";
 import Hero from "./sections/hero";
 import Stakeholders from "./sections/stakeholders";
 import Challenges from "./sections/challenges";
+import Team from "./sections/team";
 
 export default function Home() {
   return (
@@ -31,32 +32,7 @@ export default function Home() {
         <Hero />
         <Stakeholders/>
         <Challenges />
-        
-        <section className={`${problemStyles.problem} primary-text`}>
-          <h2>Under the surface...</h2>
-          <div className="wrapper">
-            <div className={problemStyles.content}>
-              {problemData.map((problem: problemStuff, i: number) => {
-                return (
-                  <Horizontal
-                    layout={i % 2 === 0 ? "default" : "alt"}
-                    imgURL={problem.url}
-                    imgAlt={problem.imgAlt}
-                  >
-                    <div className={problemStyles["text-layout"]}>
-                      <p className={problemStyles.text}>
-                        <span className="emph1">{problem.name}</span>{" "}
-                        {problem.blurb}
-                      </p>
-                      <p className={problemStyles.text}>{problem.blurbPT2}</p>
-                    </div>
-                  </Horizontal>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-        <TeamSVG />
+        <Team />
         <section className={teamStyles.team}>
           <div className={`${teamStyles.wrapper} wrapper secondary-text`}>
             <div className={teamStyles.content}>
