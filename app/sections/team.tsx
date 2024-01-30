@@ -7,6 +7,7 @@ import {
     Image,
     VStack,
     Stack,
+    SimpleGrid,
   } from '@chakra-ui/react'
 
 import { teamData } from '../content/team';
@@ -23,6 +24,7 @@ export default function Team() {
                 <Container maxW={"7xl"} >
                     <VStack spacing='24px' width={"full"} padding={'5% 0'}>
                         <Title/>
+                        <TeamMembers />
                     </VStack>
                 </Container>
             </Container>
@@ -68,8 +70,44 @@ function Title() {
 
 function TeamMembers() {
     return (
-        <>
-        add grid here
-        </>
+        <SimpleGrid columns={2} spacing={10}>
+            {teamData.map((member) => 
+                <Box
+                    position={'relative'}
+                    height={'300px'}
+                    width={'450px'}
+                >
+                    <Image
+                        alt={`${member.name} picture`}
+                        fit={'cover'}
+                        align={'center'}
+                        borderRadius={'20px'}
+                        w={'100%'}
+                        h={'100%'}
+                        src={member.image}
+                    />
+                    <Box
+                        bg={'green.100'}
+                        position={'absolute'}
+                        top={'75%'}
+                        left={'9%'}
+                        textAlign="center"
+                        width={'80%'}
+                        height={'30%'}
+                        zIndex={4}
+                        color={'green.100'}
+                    >
+                        
+                        <Text
+                            position={'relative'}
+                            zIndex={5}
+                            color={'green.800'}
+                        >
+                            yo mama
+                        </Text>
+                    </Box>
+                </Box>
+            )}
+        </SimpleGrid>
     );
 }
