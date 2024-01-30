@@ -33,51 +33,7 @@ export default function Home() {
         <Stakeholders/>
         <Challenges />
         <Team />
-        <section className={teamStyles.team}>
-          <div className={`${teamStyles.wrapper} wrapper secondary-text`}>
-            <div className={teamStyles.content}>
-              <h2>
-                This is where <span className="emph1">Bag/Get</span> comes in
-              </h2>
-              <p className="text-restraint">
-                {/* bagget is a team of... */}
-                We are Cal State Fullerton CS majors looking to create custom
-                solutions for this ecosystem - So that our communities can{" "}
-                <span className="emph2">Bag</span> their troubles and{" "}
-                <span className="emph2">Get</span> one step close to food
-                security.
-              </p>
-            </div>
-            <div className={cardStyles["card-wrapper"]}>
-              {teamData.map((member) => (
-                <Card name={member.name} bgImg={member.badgeImg} type="alt">
-                  <div>
-                    <h3 className="primary-text">{member.name}</h3>
-                    <p className="sub-text primary-text">{member.title}</p>
-                  </div>
-                  <div className={cardStyles["social-icons"]}>
-                    <a
-                      href={`https://www.linkedin.com/in/${member.linkedIn}/`}
-                      rel="noopener noreferrer"
-                      title={`Opens ${member.name}'s LinkedIn profile in a new tab`}
-                      target="_blank"
-                    >
-                      <LinkedIn />
-                    </a>
-                    <a
-                      href={`mailto: ${member.email}`}
-                      rel="noopener noreferrer"
-                      title={`Sends an email to ${member.name} in a new tab`}
-                      target="_blank"
-                    >
-                      <Email />
-                    </a>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
+        
         <section className={achievementsStyles.achievement}>
           <h2>Our Achievements</h2>
           <div className="wrapper">
