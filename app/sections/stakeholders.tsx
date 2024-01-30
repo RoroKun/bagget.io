@@ -125,7 +125,7 @@ function InfoBlurb() {
       size="lg"
       index={3}
       orientation="vertical"
-      height={["400px", "350px", "500px"]}
+      height={["300px", "250px", "400px"]}
       colorScheme="green"
     >
       {steps.map((step, index) => (
