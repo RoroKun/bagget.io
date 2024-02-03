@@ -19,7 +19,7 @@ import {
   StepStatus,
   Stepper,
 } from "@chakra-ui/react";
-import { steps } from "../content/stakeholders";
+import { steps } from "../data/stakeholders";
 
 
 
@@ -126,7 +126,7 @@ function InfoBlurb() {
       index={3}
       orientation="vertical"
       height={["300px", "250px", "400px"]}
-      colorScheme="green"
+      colorScheme="baggetGreen"
     >
       {steps.map((step, index) => (
         <Step key={index}>
