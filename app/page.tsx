@@ -1,25 +1,3 @@
-import { teamData } from "./content/team";
-import { stakeholderData } from "./content/stakeholders";
-import { problemStuff, problemData } from "./content/problems";
-import { awardData, awardsData } from "./content/achivements";
-import { Card } from "./components/card";
-import {
-  Email,
-  FooterSVG,
-  HeroSVG,
-  LinkedIn,
-  Plate,
-  ProblemSVG,
-  TeamSVG,
-} from "./components/svgs";
-import { Horizontal } from "./components/horitzontal";
-import heroStyles from "./styles/hero.module.css";
-import stakeholderStyles from "./styles/stakeholder.module.css";
-import problemStyles from "./styles/problem.module.css";
-import teamStyles from "./styles/team.module.css";
-import cardStyles from "./styles/card.module.css";
-import contactStyles from "./styles/contact.module.css";
-import achievementsStyles from "./styles/achievements.module.css";
 import Hero from "./sections/hero";
 import Stakeholders from "./sections/stakeholders";
 import Challenges from "./sections/challenges";
@@ -34,66 +12,7 @@ export default function Home() {
         <Challenges />
         <Team />
         
-        <section className={achievementsStyles.achievement}>
-          <h2>Our Achievements</h2>
-          <div className="wrapper">
-            <div className={achievementsStyles["content-wrapper"]}>
-              {awardsData.map((achievement: awardData, i: number) => {
-                return (
-                  <Horizontal
-                    layout={i % 2 === 0 ? "alt" : "default"}
-                    imgURL={achievement.img}
-                    imgDesign="alt"
-                    imgAlt={achievement.imgAlt}
-                  >
-                    <div className={achievementsStyles.content}>
-                      <div>
-                        <h3>{achievement.eventName}</h3>
-                        <p className="sub-text">
-                          <b>{achievement.placement}</b> ·{" "}
-                          {achievement.location} · {achievement.date}
-                        </p>
-                      </div>
-                      <p>{achievement.blurb}</p>
-                      {achievement.link && (
-                        <a
-                          href={achievement.link}
-                          rel="noopener noreferrer"
-                          title={`Opens the official ${achievement.eventName} article in a new tab`}
-                          target="_blank"
-                        >
-                          <button className="alt-button">
-                            <p className="sub-text primary-text">Read more</p>
-                          </button>
-                        </a>
-                      )}
-                    </div>
-                  </Horizontal>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-        <FooterSVG />
-        <section className={contactStyles.contact}>
-          <div className={`${contactStyles["contact-wrapper"]} wrapper`}>
-            <h2 className="primary-text">Want to help?</h2>
-            <p className="primary-text text-restraint">
-              To truly create an impactful solution we need to hear everyone’s
-              perspective. If you or someone you know has helped orchestrate
-              Food Banks or Pantries - or if you just want to talk to us! Then
-              we would love to...
-            </p>
-            <a
-              href="mailto:rohan@bagget.io?cc=alan@bagget.io;cesar@bagget.io"
-              rel="noopener noreferrer"
-              title={`Sends an email to the Bag/Get team in a new tab`}
-              target="_blank"
-            >
-              <button className="primary-text">chat today!</button>
-            </a>
-          </div>
-        </section>
+        
       </main>
       <footer>
         <p className="sub-text primary-text">© 2023 All rights reserved.</p>
