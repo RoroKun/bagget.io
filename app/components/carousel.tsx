@@ -1,6 +1,6 @@
 "use client";
 import styles from "../styles/carousel.module.css";
-import { awardData } from "../content/achivements";
+import { awardData } from "../data/achivements";
 import Image from "next/image";
 import { useState } from "react";
 
