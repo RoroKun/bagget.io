@@ -8,9 +8,10 @@ import {
     VStack,
     Stack,
     SimpleGrid,
+    HStack,
   } from '@chakra-ui/react'
 
-import { teamData } from '../content/team';
+import { teamData } from '../data/team';
 
 export default function Team() {
 
@@ -70,18 +71,19 @@ function Title() {
 
 function TeamMembers() {
     return (
-        <SimpleGrid columns={2} spacing={10}>
-            {teamData.map((member) => 
+        <SimpleGrid columns={2} spacing={20}>
+            {teamData.map((member, id) => 
                 <Box
                     position={'relative'}
-                    height={'300px'}
+                    height={'375px'}
                     width={'450px'}
+                    key={id}
                 >
                     <Image
                         alt={`${member.name} picture`}
                         fit={'cover'}
                         align={'center'}
-                        borderRadius={'20px'}
+                        borderRadius={'40px'}
                         w={'100%'}
                         h={'100%'}
                         src={member.image}
@@ -89,22 +91,37 @@ function TeamMembers() {
                     <Box
                         bg={'green.100'}
                         position={'absolute'}
-                        top={'75%'}
+                        top={'72%'}
                         left={'9%'}
                         textAlign="center"
+                        borderRadius={'20px'}
                         width={'80%'}
-                        height={'30%'}
                         zIndex={4}
                         color={'green.100'}
                     >
-                        
-                        <Text
-                            position={'relative'}
-                            zIndex={5}
-                            color={'green.800'}
-                        >
-                            yo mama
-                        </Text>
+                        <VStack color={'green.800'} padding={'20px 30px'}>
+                            <VStack>
+                                <Heading
+                                    fontSize={'2xl'}
+                                >
+                                    {member.name}
+                                </Heading>
+                                <Text
+                                    position={'relative'}
+                                    fontSize={'xs'}
+                                >
+                                    {member.title}
+                                </Text>
+                            </VStack>
+                            <HStack>
+                                <Text>
+                                    {member.email}
+                                </Text>
+                                <Text>
+                                    {member.linkedIn}
+                                </Text>
+                            </HStack>
+                        </VStack>
                     </Box>
                 </Box>
             )}
