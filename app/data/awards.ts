@@ -9,7 +9,7 @@ export interface awardData {
   imgAlt: string;
 }
 
-export const awardsData: awardData[] = [
+const awards: awardData[] = [
   {
     eventName: "Engineering Social Justice",
     location: "CSU, Fullerton",
@@ -42,4 +42,18 @@ export const awardsData: awardData[] = [
     img: "/sj.webp",
     imgAlt: "Two members of team Bag/Get showing their $5,000 check after winning 3rd place in Sunstone with the panel of judges."
   },
-];
+  {
+    eventName: "Titan Fast Pitch",
+    location: "CSU, Fullerton",
+    date: "11/11/2023",
+    placement: "1st place",
+    // TODO: finish blurb
+    blurb:
+      "asdf",
+    link: "https://news.fullerton.edu/2023/12/student-entrepreneurs-take-first-place-for-food-bank-and-pantry-app/",
+    img: "/titanFastPitch.webp",
+    imgAlt: "Alan and Rohan earned first place and a $3,000 award in Cal State Fullerton’s Titan Fast Pitch competition, hosted by the College of Business and Economics."
+  },
+]
+
+export const awardsData: awardData[] = [...awards, ...awards];
