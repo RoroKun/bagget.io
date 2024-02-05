@@ -9,10 +9,10 @@ export default function Home() {
     <>
       <main>
         <Hero />
-        <Awards />
         <Stakeholders/>
         <Challenges />
         <Team />
+        <Awards />
         
       </main>
     </>
