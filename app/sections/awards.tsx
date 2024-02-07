@@ -75,6 +75,7 @@ function Marquee () {
                                 width={`${imageWidth}px`}
                                 key={id}
                             >
+                                {/* TODO: add fallback loading spinner */}
                                 <Image
                                     alt={award.imgAlt}
                                     borderRadius={'40px'}
