@@ -41,6 +41,7 @@ export default function Hero() {
         position="absolute"
         inset={0}
         zIndex={-2}
+        // TODO: import this shit from the file
         bgImage={"url(https://images.unsplash.com/photo-1599059813005-11265ba4b4ce?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)"}
         filter={"brightness(0.35)"}
         // bg="blackAlpha.500" // Or use opacity, filter, or gradient here
