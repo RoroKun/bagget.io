@@ -4,6 +4,7 @@ import Challenges from "./sections/challenges";
 import Team from "./sections/team";
 import Awards from "./sections/awards";
 import Contact from "./sections/contact";
+import Footer from "./components/footer";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <Awards />
         <Contact />
       </main>
+      <Footer />
     </>
   );
 }
