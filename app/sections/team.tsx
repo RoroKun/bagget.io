@@ -20,6 +20,7 @@ export default function Team() {
             maxW={"full"} 
             bg={'green.50'}
             paddingBottom={'5%'}
+            id="Team"
         >
             <Container maxW={"8xl"} bg={'green.800'} borderRadius={"100px 40px 100px 40px"}>
                 <Container maxW={"7xl"} >
