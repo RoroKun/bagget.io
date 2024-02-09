@@ -17,7 +17,7 @@ export default function Awards() {
             <Container maxW={"8xl"} position={'relative'} overflowX={'hidden'}>
                 <Title />
                 <Marquee />
-                <CTA />
+                {/* <CTA /> */}
             </Container>
         </Container>
     );
@@ -60,6 +60,8 @@ function Marquee () {
             <motion.div
                 animate={{x: [ `calc(0% - 0px)`, `calc(0% - ${marqueeLength}px)`]}}
                 transition={{ duration: 15, repeat: Infinity, ease: "linear"}}
+                // TODO: temporary fix until I make a page for the CTA
+                style={{ paddingBottom: '5%' }}
             >
                 <Flex
                     as={"div"}
