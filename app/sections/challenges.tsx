@@ -51,6 +51,7 @@ export default function Challenges() {
             maxW={"full"} 
             bg={'green.50'}
             paddingBottom={'5%'}
+            id='Challenges'
         >
             <Container maxW={"7xl"} >
                 <VStack spacing='24px' width={"full"}>

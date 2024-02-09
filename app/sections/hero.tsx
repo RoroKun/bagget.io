@@ -35,6 +35,8 @@ export default function Hero() {
     // backgroundSize={'cover'}
     // backgroundPosition={'center center'}
     // zIndex={-2}
+    position={'relative'}
+    zIndex={101}
     >
       <Box
         maxH={'500px'}
@@ -87,8 +89,7 @@ export default function Hero() {
             </Text>
           </Stack>
           
-          <HStack width={'full'} gap={'25px'}>
-            <Button 
+          <Button 
               bg={'green.100'}
               variant='solid' 
               color={'green.800'} 
@@ -105,23 +106,6 @@ export default function Hero() {
             >
               Become part of the solution
             </Button>
-            <Button 
-              color={'green.100'} 
-              size={'lg'}
-              _hover={{ 
-                bg: 'green.100',
-                color: 'green.800',
-              }}
-              _active={{
-                bg: 'green.100',
-                color: 'green.800',
-                transform: 'scale(0.9)',
-              }}
-              variant={'ghost'}
-            >
-              Read more
-            </Button>
-          </HStack>
           
         </Stack>
       </Container>

@@ -6,11 +6,8 @@ import {
   Box,
   Heading,
   Text,
-  Button,
   Image,
   Icon,
-  IconButton,
-  createIcon,
   IconProps,
   useColorModeValue,
   Step,
@@ -32,6 +29,7 @@ export default function Stakeholders() {
       position={'relative'} 
       zIndex={-3} 
       paddingBottom={'5%'}
+      id="Stakeholders"
     >
       <Title />
       <Container maxW={"7xl"}>
