@@ -54,7 +54,7 @@ export default function Hero() {
               bg={'green.100'}
               variant='solid' 
               color={'green.800'} 
-              size={'lg'}
+              fontSize={{ base: 'sm', sm: 'md', lg: 'lg' }}
               _hover={{ 
                 bg: 'green.800',
                 color: 'green.100',
