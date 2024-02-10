@@ -1,6 +1,26 @@
+"use client"
+
 import { Text, Box, Container, Heading, Image, VStack, Button, Flex } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+
 
 export default function Contact() {
+    const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+          };
+      
+          window.addEventListener('resize', handleResize);
+
+          return () => {
+            window.removeEventListener('resize', handleResize);
+          }
+    }, []);
+
+    let videoSize = windowWidth < 1100 ? { maxWidth: 'unset', height: '100%'} : { maxWidth: '100%', height: 'unset'}
+
     return(
         <Container 
             maxW={'full'} 
@@ -10,8 +30,7 @@ export default function Contact() {
             padding={0}
         >
             <Box
-                maxH={'100%'}
-                maxHeight={'100%'}
+                height={'100%'}
                 position="absolute"
                 inset={0}
                 filter={"brightness(0.2)"}
@@ -27,7 +46,7 @@ export default function Contact() {
                     right={0}
                     zIndex={10}
                 />
-                <video height="100%" width="100%"  muted loop autoPlay>
+                <video style={videoSize}  muted loop autoPlay>
                     <source src="packing-food.webm" type="video/webm" />
                     {/* TODO: replace with a loading spinner */}
                     Your browser does not support the video tag.
