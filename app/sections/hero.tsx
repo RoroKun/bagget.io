@@ -16,6 +16,7 @@ import {
   IconProps,
   useColorModeValue,
 } from '@chakra-ui/react'
+import { RedirectLink } from '../components/link'
 
 export default function Hero() {
 
@@ -49,25 +50,29 @@ export default function Hero() {
             alignItems={'flex-start'}
             gap={'40px'}
           >
-            <HeroTitle />       
-            <Button 
-              bg={'green.100'}
-              variant='solid' 
-              color={'green.800'} 
-              fontSize={{ base: 'sm', sm: 'md', lg: 'lg' }}
-              _hover={{ 
-                bg: 'green.800',
-                color: 'green.100',
-              }}
-              _active={{
-                bg: 'green.800',
-                color: 'green.100',
-                transform: 'scale(0.9)',
-              }}
+            <HeroTitle />    
+            <RedirectLink
+                link='mailto:rohan@bagget.io?cc=alan@bagget.io;cesar@bagget.io'
+                title='Sends an email to the Bag/Get team in a new tab'
             >
-              Become part of the solution
-            </Button>
-
+                <Button 
+                    bg={'green.100'}
+                    variant='solid' 
+                    color={'green.800'} 
+                    size={'lg'}
+                    _hover={{ 
+                        bg: 'green.800',
+                        color: 'green.100',
+                    }}
+                    _active={{
+                        bg: 'green.800',
+                        color: 'green.100',
+                        transform: 'scale(0.9)',
+                    }}
+                >
+                    Become part of the solution
+                </Button>
+            </RedirectLink>   
           </Flex>
           <Stack
             align={'center'}

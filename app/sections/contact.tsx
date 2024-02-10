@@ -90,6 +90,10 @@ export default function Contact() {
                         Food Banks or Pantries - or if you just want to talk to us! 
                         Then we would love to...
                     </Text>
+                    <RedirectLink
+                        link='mailto:rohan@bagget.io?cc=alan@bagget.io;cesar@bagget.io'
+                        title='Sends an email to the Bag/Get team in a new tab'
+                    >
                     <Button 
                         bg={'green.100'}
                         variant='solid' 
@@ -107,6 +111,7 @@ export default function Contact() {
                     >
                         chat today!
                     </Button>
+                    </RedirectLink>
                 </Flex>
             </Container>  
             <Box
