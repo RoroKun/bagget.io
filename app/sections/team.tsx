@@ -93,8 +93,8 @@ function TeamMembers() {
             {teamData.map((member, id) => 
                 <Box
                     position={'relative'}
-                    height={['275px', '375px', '375px']}
-                    width={['250px', '350px', '350px']}
+                    height={['275px', '375px', '325px', '375px']}
+                    width={['250px', '350px', '300px', '350px']}
                     key={id}
                 >
                     <Image
@@ -124,13 +124,13 @@ function TeamMembers() {
                                 paddingBottom={'10px'}
                             >
                                 <Heading
-                                    fontSize={['lg','xl','2xl']}
+                                    fontSize={['lg','xl', 'lg','2xl']}
                                 >
                                     {member.name}
                                 </Heading>
                                 <Text
                                     position={'relative'}
-                                    fontSize={['10px','xs','xs']}
+                                    fontSize={['10px','xs', '10px', 'xs']}
                                     _after={{
                                         content: "''",
                                         width: ['150px','200px','200px'],

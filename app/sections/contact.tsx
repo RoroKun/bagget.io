@@ -1,15 +1,18 @@
 "use client"
 
-import { Text, Box, Container, Heading, Image, VStack, Button, Flex } from "@chakra-ui/react";
+import { Text, Box, Container, Heading, Button, Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import { RedirectLink } from "../components/link";
 
 
 export default function Contact() {
     const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+    const [heightWidth, setHeightWidth] = useState<number>(window.innerHeight);
 
     useEffect(() => {
         const handleResize = () => {
             setWindowWidth(window.innerWidth);
+            setHeightWidth(window.innerHeight);
           };
       
           window.addEventListener('resize', handleResize);
@@ -19,12 +22,12 @@ export default function Contact() {
           }
     }, []);
 
-    let videoSize = windowWidth < 1100 ? { maxWidth: 'unset', height: '100%'} : { maxWidth: '100%', height: 'unset'}
+    let videoSize = windowWidth < heightWidth ? { maxWidth: 'unset', height: '100%'} : { maxWidth: '100%', height: 'unset'}
 
     return(
         <Container 
             maxW={'full'} 
-            height={"90vh"}
+            height={["90vh","90vh","60vh","90vh"]}
             bg={'green.800'}
             position={'relative'}
             padding={0}
@@ -94,23 +97,23 @@ export default function Contact() {
                         link='mailto:rohan@bagget.io?cc=alan@bagget.io;cesar@bagget.io'
                         title='Sends an email to the Bag/Get team in a new tab'
                     >
-                    <Button 
-                        bg={'green.100'}
-                        variant='solid' 
-                        color={'green.800'} 
-                        size={'lg'}
-                        _hover={{ 
-                            bg: 'green.800',
-                            color: 'green.100',
-                        }}
-                        _active={{
-                            bg: 'green.800',
-                            color: 'green.100',
-                            transform: 'scale(0.9)',
-                        }}
-                    >
-                        chat today!
-                    </Button>
+                        <Button 
+                            bg={'green.100'}
+                            variant='solid' 
+                            color={'green.800'} 
+                            size={'lg'}
+                            _hover={{ 
+                                bg: 'green.800',
+                                color: 'green.100',
+                            }}
+                            _active={{
+                                bg: 'green.800',
+                                color: 'green.100',
+                                transform: 'scale(0.9)',
+                            }}
+                        >
+                            chat today!
+                        </Button>
                     </RedirectLink>
                 </Flex>
             </Container>  

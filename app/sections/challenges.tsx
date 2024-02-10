@@ -53,9 +53,9 @@ export default function Challenges() {
                                     alignItems={'center'} 
                                     width={'full'}
                                     height={'full'}
-                                    gap={['30px', '0px', '0px']}
+                                    gap={`30px`}
                                 >
-                                    <VStack maxWidth={'450px'} alignItems={'self-start'}>
+                                    <VStack maxWidth={['450px','450px','350px','450px']} alignItems={'self-start'}>
                                         <Heading 
                                             lineHeight={1.1}
                                             fontSize={{ base: "xl", sm: "2xl", lg: "3xl" }}
