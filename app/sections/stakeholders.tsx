@@ -29,7 +29,7 @@ export default function Stakeholders() {
       zIndex={-3} 
       paddingBottom={'5%'}
       id="Stakeholders"
-    >
+          >
       <Title />
       <Container maxW={"7xl"}>
         <Flex justifyContent={'center'} alignItems={'center'} direction={"column"}>
@@ -42,15 +42,14 @@ export default function Stakeholders() {
             gap={'10%'}
             flexWrap={['wrap', 'wrap', 'nowrap']}
             overflow={'hidden'}
-
           >
               <InfoBlurb />
               <Blob
-                w={'100%'}
+                w={['70%', '80%', '60%']}
                 h={'100%'}
                 position={'absolute'}
-                top={'0%'}
-                right={'-20%'}
+                top={['20%', '20%', '0%']}
+                right={['10%', '10%', '0%']}
                 zIndex={-1}
                 color={useColorModeValue('green.100', 'green.400')}
               />
@@ -58,8 +57,8 @@ export default function Stakeholders() {
                 position={'relative'}
                 height={'full'}
                 width={'full'}
-                overflow={'hidden'}
-                marginTop={["20%", "10%", "0%"]}
+                marginTop={["0%", "10%", "0%"]}
+                marginBottom={["25%", "20%", "0%"]}
               >
                 <Image
                   alt={'Person working in a pantry packaging food'}
@@ -68,6 +67,9 @@ export default function Stakeholders() {
                   w={'80%'}
                   h={'80%'}
                   src={"/stakeholder-img.webp"}
+                  position={'relative'}
+                  left={'50%'}
+                  transform={'translateX(-50%)'}
                 />
               </Box>
             </Flex>
