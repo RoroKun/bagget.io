@@ -40,7 +40,7 @@ export default function Challenges() {
                                 width={"full"} 
                                 bgColor={challenge.bgColor} 
                                 padding={['10% 15%', '5% 15%', '5% 10%']}
-                                key={i}
+                                key={`marquee-card-${i}`}
                                 borderRadius={['40px', '80px', '80px']}
                             >
                                 <Stack 
@@ -54,8 +54,13 @@ export default function Challenges() {
                                     width={'full'}
                                     height={'full'}
                                     gap={`30px`}
+                                    key={`content-wrapper-${i}`}
                                 >
-                                    <VStack maxWidth={['450px','450px','350px','450px']} alignItems={'self-start'}>
+                                    <VStack 
+                                        maxWidth={['450px','450px','350px','450px']} 
+                                        alignItems={'self-start'} 
+                                        key={`text-content-${i}`}
+                                    >
                                         <Heading 
                                             lineHeight={1.1}
                                             fontSize={{ base: "xl", sm: "2xl", lg: "3xl" }}
@@ -81,6 +86,7 @@ export default function Challenges() {
                                         height={['150px', '300px', '300px']}
                                         width={['100%', '100%', '450px']}
                                         overflow={'hidden'}
+                                        key={`image-box-${i}`}
                                     >
                                         <Image
                                         alt={`${challenge.title} picture`}
@@ -90,6 +96,7 @@ export default function Challenges() {
                                         w={'100%'}
                                         h={'100%'}
                                         src={challenge.image}
+                                        key={`image-${i}`}
                                         />
                                     </Box>
                                 </Stack>
