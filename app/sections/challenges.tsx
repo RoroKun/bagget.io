@@ -19,7 +19,7 @@ export default function Challenges() {
         <Container 
             maxW={"full"} 
             bg={'green.50'}
-            paddingBottom={'5%'}
+            padding={['10% 0%', '10% 0%', '2% 0%']}
             id='Challenges'
         >
             <Container maxW={"7xl"} >
@@ -28,6 +28,7 @@ export default function Challenges() {
                     lineHeight={1.1}
                     fontWeight={600}
                     fontSize={{ base: "3xl", sm: "4xl", lg: "6xl" }}
+                    textAlign={'center'}
                 >
                     <Text as={"span"} color={"green.900"}>
                         However, under the surface...
@@ -38,22 +39,26 @@ export default function Challenges() {
                             <Card 
                                 width={"full"} 
                                 bgColor={challenge.bgColor} 
-                                height={['200px', '400px']}
+                                padding={['10% 15%', '5% 15%', '5% 10%']}
                                 key={i}
-                                borderRadius={'80px'}
+                                borderRadius={['40px', '80px', '80px']}
                             >
                                 <Stack 
                                     direction={[
                                         `${i % 2 == 0 ? 'column' : 'column-reverse'}`,
+                                        `${i % 2 == 0 ? 'column' : 'column-reverse'}`,
                                         `${i % 2 == 0 ? 'row' : 'row-reverse'}`
                                     ]} 
-                                    justifyContent={'space-around'} 
+                                    justifyContent={'space-between'} 
                                     alignItems={'center'} 
+                                    width={'full'}
                                     height={'full'}
+                                    gap={['30px', '0px', '0px']}
                                 >
                                     <VStack maxWidth={'450px'} alignItems={'self-start'}>
                                         <Heading 
                                             lineHeight={1.1}
+                                            fontSize={{ base: "xl", sm: "2xl", lg: "3xl" }}
                                         >
                                             <Text as={"span"} color={"green.800"}>
                                             {challenge.title} {" "}
@@ -65,7 +70,7 @@ export default function Challenges() {
                                         <Text 
                                             as={"span"} 
                                             color={"green.800"} 
-                                            fontSize={"xl"}
+                                            fontSize={{ base: "sm", sm: "lg", lg: "xl" }}
                                             fontWeight={400}
                                         >
                                             {challenge.blurb}
@@ -73,8 +78,8 @@ export default function Challenges() {
                                     </VStack>
                                     <Box
                                         position={'relative'}
-                                        height={'300px'}
-                                        width={'450px'}
+                                        height={['150px', '300px', '300px']}
+                                        width={['100%', '100%', '450px']}
                                         overflow={'hidden'}
                                     >
                                         <Image
