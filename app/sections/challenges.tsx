@@ -73,7 +73,15 @@ export default function Challenges() {
                                 key={i}
                                 borderRadius={'80px'}
                             >
-                                <Stack direction={['column', 'row']} justifyContent={'space-around'} alignItems={'center'} height={'full'}>
+                                <Stack 
+                                    direction={[
+                                        `${i % 2 == 0 ? 'column' : 'column-reverse'}`,
+                                        `${i % 2 == 0 ? 'row' : 'row-reverse'}`
+                                    ]} 
+                                    justifyContent={'space-around'} 
+                                    alignItems={'center'} 
+                                    height={'full'}
+                                >
                                     <VStack maxWidth={'450px'} alignItems={'self-start'}>
                                         <Heading 
                                             lineHeight={1.1}
@@ -99,7 +107,6 @@ export default function Challenges() {
                                         height={'300px'}
                                         width={'450px'}
                                         overflow={'hidden'}
-                                        // marginTop={["20%", "10%", "0%"]}
                                     >
                                         <Image
                                         alt={`${challenge.title} picture`}
