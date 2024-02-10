@@ -70,12 +70,11 @@ function Marquee () {
                     top={'20px'}
                 >
                     {awardsData.map((award: awardData, id: number) => 
-                        <VStack> 
+                        <VStack key={`marquee-card-${id}`}> 
                             <Box
                                 position={'relative'}
                                 height={`${imageHeight}px`}
                                 width={`${imageWidth}px`}
-                                key={id}
                             >
                                 {/* TODO: add fallback loading spinner */}
                                 <Image

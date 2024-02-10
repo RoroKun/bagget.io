@@ -51,17 +51,17 @@ export const Email = (props: IconProps) => {
                 xmlns="http://www.w3.org/2000/svg" 
                 d="M70.8091 16.0322H14.6958C11.0064 16.0322 8.01562 19.023 8.01562 22.7124V62.7934C8.01562 66.4827 11.0064 69.4735 14.6958 69.4735H70.8091C74.4985 69.4735 77.4893 66.4827 77.4893 62.7934V22.7124C77.4893 19.023 74.4985 16.0322 70.8091 16.0322Z" 
                 stroke="currentColor" 
-                stroke-width="5.34413" 
-                stroke-linecap="round" 
-                stroke-linejoin="round"
+                strokeWidth="5.34413" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
             />
             <path 
                 xmlns="http://www.w3.org/2000/svg" 
                 d="M18.7051 26.7207L42.7537 45.4252L66.8022 26.7207" 
                 stroke="currentColor" 
-                stroke-width="5.34413" 
-                stroke-linecap="round" 
-                stroke-linejoin="round"
+                strokeWidth="5.34413" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
             />
         </Icon>
     )
