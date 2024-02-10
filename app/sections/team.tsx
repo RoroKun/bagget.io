@@ -9,9 +9,12 @@ import {
     Stack,
     SimpleGrid,
     HStack,
+    useColorModeValue,
   } from '@chakra-ui/react'
 
 import { teamData } from '../data/team';
+import { Email, LinkedIn } from '../components/svgs';
+import { RedirectLink } from '../components/link';
 
 export default function Team() {
 
@@ -76,13 +79,14 @@ function TeamMembers() {
             {teamData.map((member, id) => 
                 <Box
                     position={'relative'}
-                    height={'375px'}
-                    width={'450px'}
+                    height={'475px'}
+                    width={'400px'}
                     key={id}
                 >
                     <Image
                         alt={`${member.name} picture`}
                         fit={'cover'}
+                        objectPosition={'50% 0%'}
                         align={'center'}
                         borderRadius={'40px'}
                         w={'100%'}
@@ -92,7 +96,7 @@ function TeamMembers() {
                     <Box
                         bg={'green.100'}
                         position={'absolute'}
-                        top={'72%'}
+                        top={'65%'}
                         left={'9%'}
                         textAlign="center"
                         borderRadius={'20px'}
@@ -101,7 +105,21 @@ function TeamMembers() {
                         color={'green.100'}
                     >
                         <VStack color={'green.800'} padding={'20px 30px'}>
-                            <VStack>
+                            <VStack
+                                _after={{
+                                    content: "''",
+                                    width: '80%',
+                                    height: '2px',
+                                    position: 'absolute',
+                                    top: '42%',
+                                    left: '50%',
+                                    transform: 'translateX(-50%)',
+                                    bg: 'green.800',
+                                    borderRadius: '20px',
+                                    zIndex: -1,
+                                }}
+                                paddingBottom={'10px'}
+                            >
                                 <Heading
                                     fontSize={'2xl'}
                                 >
@@ -114,14 +132,59 @@ function TeamMembers() {
                                     {member.title}
                                 </Text>
                             </VStack>
-                            <HStack>
-                                <Text>
-                                    {member.email}
-                                </Text>
-                                <Text>
-                                    {member.linkedIn}
-                                </Text>
-                            </HStack>
+                            <VStack
+                                justifyContent={'flex-start'}
+                                alignItems={'flex-start'}
+                            >
+                                <RedirectLink
+                                    link={`https://www.linkedin.com/in/${member.linkedIn}/`}
+                                    title={`Opens ${member.name}'s LinkedIn profile in a new tab`}
+                                >
+                                    <HStack
+                                        height={'40px'}
+                                        justifyContent={'center'}
+                                        alignItems={'center'}
+                                        gap={'10px'}
+                                    >
+                                            <Box
+                                                width={'30px'}
+                                                height={'30px'}
+                                            >
+                                                <LinkedIn
+                                                    w={'100%'}
+                                                    h={'100%'}
+                                                />
+                                            </Box>
+                                            <Text>
+                                                {member.linkedIn}
+                                            </Text>
+                                    </HStack>
+                                </RedirectLink>
+                                <RedirectLink
+                                    link={`mailto: ${member.email}`}
+                                    title={`Sends an email to ${member.name} in a new tab`}
+                                >
+                                    <HStack
+                                        height={'40px'}
+                                        justifyContent={'center'}
+                                        alignItems={'center'}
+                                        gap={'10px'}
+                                    >
+                                        <Box
+                                            width={'30px'}
+                                            height={'30px'}
+                                        >
+                                            <Email
+                                                w={'100%'}
+                                                h={'100%'}
+                                            />
+                                        </Box>
+                                        <Text>
+                                            {member.email}
+                                        </Text>
+                                    </HStack>
+                                </RedirectLink>
+                            </VStack>
                         </VStack>
                     </Box>
                 </Box>
