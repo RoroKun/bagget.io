@@ -2,7 +2,7 @@ import NextLink from 'next/link'
 import { Box, Link, Text } from "@chakra-ui/react";
 
 
-export default function NiceLink({path} : {path: string}) {
+export function JumpLink({path} : {path: string}) {
     return(
         <Link as={NextLink} href={path} textDecoration="none">
             <Box
@@ -19,6 +19,21 @@ export default function NiceLink({path} : {path: string}) {
                     The People
                 </Text>
             </Box>
+        </Link>
+    );
+}
+
+export function RedirectLink({link, title, children}: {link: string; title: string; children: React.ReactNode}) {
+    return(
+        <Link 
+            as={NextLink} 
+            href={link} 
+            rel="noopener noreferrer"
+            title={title}
+            textDecoration="none"
+            target="_blank"
+        >
+            {children}
         </Link>
     );
 }
