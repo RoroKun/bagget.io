@@ -6,7 +6,6 @@ export interface challenge {
     bgColor: string;
 }
 
-
 export const challengesData: challenge[] = [
     {
         title: "Food Banks",
