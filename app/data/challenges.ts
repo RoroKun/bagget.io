@@ -18,7 +18,7 @@ export const challengesData: challenge[] = [
     {
         title: "Food Pantries",
         accordianTitle: "are faced with",
-        blurb: "difficulty in getting and retaining volunteers, maintaining engagement with their donor base, applying to pertinent grants, and replacing phone calls/emails/paperwork with one intuitive digital experience.",
+        blurb: "difficulty in getting and retaining volunteers, maintaining engagement with their donor base, manually applying to lengthy grant applications, and replacing phone calls/emails/paperwork with one intuitive digital experience.",
         image: "/fp-challenge.webp",
         bgColor: 'green.200'
     },
