@@ -2,14 +2,11 @@ import {
     Box,
     Container,
     Text,
-    Card,
     Heading,
     Image,
     VStack,
-    Stack,
     SimpleGrid,
     HStack,
-    useColorModeValue,
   } from '@chakra-ui/react'
 
 import { teamData } from '../data/team';

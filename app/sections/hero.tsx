@@ -3,18 +3,11 @@
 import {
   Container,
   Stack,
-  HStack,
   Flex,
   Box,
   Heading,
   Text,
   Button,
-  Image,
-  Icon,
-  IconButton,
-  createIcon,
-  IconProps,
-  useColorModeValue,
 } from '@chakra-ui/react'
 import { RedirectLink } from '../components/link'
 
