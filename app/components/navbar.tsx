@@ -1,7 +1,7 @@
 "use client"
 
 import { Button, Container, Flex, HStack, Text } from "@chakra-ui/react";
-import NiceLink from "./link";
+import { JumpLink } from "./link";
 
 export default function Nav() {
     return(
@@ -51,7 +51,7 @@ function NavItems() {
         <HStack
             gap={'30px'}
         >
-            <NiceLink path="#Stakeholders"/>
+            <JumpLink path="#Stakeholders"/>
             {/* <Link as={NextLink} href='#Stakeholders'>
                 
             </Link>
