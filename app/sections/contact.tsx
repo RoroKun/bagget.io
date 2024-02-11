@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import { Text, Box, Container, Heading, Button, Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
@@ -6,8 +6,8 @@ import { RedirectLink } from "../components/link";
 
 
 export default function Contact() {
-    const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
-    const [heightWidth, setHeightWidth] = useState<number>(window.innerHeight);
+    const [windowWidth, setWindowWidth] = useState<number>(-1);
+    const [heightWidth, setHeightWidth] = useState<number>(-1);
 
     useEffect(() => {
         const handleResize = () => {
