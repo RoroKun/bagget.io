@@ -47,9 +47,8 @@ const awards: awardData[] = [
     location: "CSU, Fullerton",
     date: "11/11/2023",
     placement: "1st place",
-    // TODO: finish blurb
     blurb:
-      "asdf",
+      "Bag/Get secures first place in Titan Fast Pitch 2023 securing seed money to continue development",
     link: "https://news.fullerton.edu/2023/12/student-entrepreneurs-take-first-place-for-food-bank-and-pantry-app/",
     img: "/titanFastPitch.webp",
     imgAlt: "Alan and Rohan earned first place and a $3,000 award in Cal State Fullerton’s Titan Fast Pitch competition, hosted by the College of Business and Economics."
