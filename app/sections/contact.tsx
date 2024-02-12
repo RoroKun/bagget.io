@@ -3,6 +3,7 @@
 import { Text, Box, Container, Heading, Button, Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { RedirectLink } from "../components/link";
+import Video from "../components/video";
 
 
 export default function Contact() {
@@ -49,11 +50,7 @@ export default function Contact() {
                     right={0}
                     zIndex={10}
                 />
-                <video style={videoSize}  muted loop autoPlay>
-                    <source src="packing-food.webm" type="video/webm" />
-                    {/* TODO: replace with a loading spinner */}
-                    Your browser does not support the video tag.
-                </video>
+                <Video />
             </Box>
             <Container maxW={"7xl"} height={"100%"} position={"relative"} zIndex={10}>
                 <Flex
