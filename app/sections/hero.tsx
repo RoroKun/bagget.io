@@ -44,7 +44,7 @@ export default function Hero() {
           >
             <HeroTitle />    
             <RedirectLink
-                link='mailto:rohan@bagget.io?cc=alan@bagget.io;cesar@bagget.io'
+                link='mailto:rohan@bagget.io?cc=alan@bagget.io;cesar@bagget.io;michael@bagget.io'
                 title='Sends an email to the Bag/Get team in a new tab'
             >
                 <Button 
