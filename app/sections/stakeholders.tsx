@@ -13,8 +13,8 @@ import {
   StepSeparator,
   StepStatus,
   Stepper,
-} from "@chakra-ui/react";
-import { steps } from "../data/stakeholders";
+  } from "@chakra-ui/react";
+import { stakeholderData } from "../data/stakeholders";
 import { Blob } from "../components/svgs";
 
 
@@ -127,7 +127,7 @@ function InfoBlurb() {
       height={["300px", "250px", "400px"]}
       colorScheme="baggetGreen"
     >
-      {steps.map((step, index) => (
+      {stakeholderData.map((stakeholder, index) => (
         <Step key={index}>
           <StepIndicator>
             <StepStatus complete={<></>} incomplete={<></>} active={<></>} />
@@ -139,9 +139,9 @@ function InfoBlurb() {
                   fontSize={{ base: "lg", sm: "xl", lg: "3xl" }}
                   color={'green.800'}
                 >
-                  {step.title}
+                  {stakeholder.title}
                 </Heading>
-              <Text fontSize={{ base: "md", sm: "lg", lg: "xl" }} color={'green.800'}>{step.description}</Text>
+              <Text fontSize={{ base: "md", sm: "lg", lg: "xl" }} color={'green.800'}>{stakeholder.description}</Text>
           </Box>
 
           <StepSeparator />
