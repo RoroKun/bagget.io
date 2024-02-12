@@ -5,11 +5,9 @@ import { JumpLink } from "./link";
 
 export default function Nav() {
     return(
-        // Hydration bs check layout.tsx
         <Container 
             as={'header'}
             maxW={'full'} 
-            // height={"10vh"}
             position={'fixed'}
             top={'10px'}
             padding={0}
