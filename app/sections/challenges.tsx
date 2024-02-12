@@ -9,6 +9,7 @@ import {
     Image,
     VStack,
     Stack,
+    Skeleton,
   } from '@chakra-ui/react'
 import { challengesData } from '../data/challenges'
 
@@ -97,6 +98,21 @@ export default function Challenges() {
                                         h={'100%'}
                                         src={challenge.image}
                                         key={`image-${i}`}
+                                        fallback={
+                                            <Box
+                                                w={'100%'}
+                                                h={'100%'}
+                                            > 
+                                                <Skeleton
+                                                    borderRadius={'40px'}
+                                                    height={'100%'}
+                                                    startColor="green.200"
+                                                    endColor="green.400"
+                                                >
+                                                    <Text> loading image... </Text>
+                                                </Skeleton>
+                                            </Box>
+                                        }
                                         />
                                     </Box>
                                 </Stack>

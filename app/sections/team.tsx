@@ -7,6 +7,7 @@ import {
     VStack,
     SimpleGrid,
     HStack,
+    Skeleton,
   } from '@chakra-ui/react'
 
 import { teamData } from '../data/team';
@@ -103,6 +104,21 @@ function TeamMembers() {
                         w={'100%'}
                         h={'100%'}
                         src={member.image}
+                        fallback={
+                            <Box
+                                w={'100%'}
+                                h={'100%'}
+                            > 
+                                <Skeleton
+                                    borderRadius={'40px'}
+                                    height={'100%'}
+                                    startColor="green.200"
+                                    endColor="green.400"
+                                >
+                                    <Text> loading image... </Text>
+                                </Skeleton>
+                            </Box>
+                        }
                     />
                     <Box
                         bg={'green.100'}
