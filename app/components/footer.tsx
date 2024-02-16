@@ -19,7 +19,7 @@ export default function Footer() {
                     color={"green.100"}
                     fontSize={{ base: "sm", sm: "md", lg: "lg" }}
                 >
-                    © 2023 All rights reserved.
+                    © 2024 All rights reserved.
                 </Text>
             </Flex>
         </Container>
