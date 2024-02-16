@@ -10,8 +10,13 @@ import {
     VStack,
     Stack,
     Skeleton,
+    List,
+    ListItem,
+    ListIcon,
+    Icon,
   } from '@chakra-ui/react'
 import { challengesData } from '../data/challenges'
+import { PointIcon } from '../customThemes'
 
 
 export default function Challenges() {
@@ -65,22 +70,13 @@ export default function Challenges() {
                                         <Heading 
                                             lineHeight={1.1}
                                             fontSize={{ base: "xl", sm: "2xl", lg: "3xl" }}
+                                            paddingBottom="10px"
                                         >
                                             <Text as={"span"} color={"green.800"}>
-                                            {challenge.title} {" "}
-                                            </Text>
-                                            <Text as={"span"} color={"green.800"}>
-                                            {challenge.accordianTitle}
+                                            {challenge.title}
                                             </Text>
                                         </Heading>
-                                        <Text 
-                                            as={"span"} 
-                                            color={"green.800"} 
-                                            fontSize={{ base: "sm", sm: "lg", lg: "xl" }}
-                                            fontWeight={400}
-                                        >
-                                            {challenge.blurb}
-                                        </Text>
+                                        <Blurb blurbPoints={challenge.blurb}/>
                                     </VStack>
                                     <Box
                                         position={'relative'}
@@ -122,5 +118,25 @@ export default function Challenges() {
                 </VStack>
             </Container>
         </Container>
+    )
+}
+
+function Blurb({blurbPoints}: {blurbPoints: string[]}) {
+    return (
+        <List spacing={3}>
+            {blurbPoints.map((point) => 
+                <ListItem>
+                    <ListIcon as={PointIcon} color="green.800"/>
+                    <Text 
+                        as={"span"} 
+                        color={"green.800"} 
+                        fontSize={{ base: "sm", sm: "lg", lg: "xl" }}
+                        fontWeight={400}
+                    >
+                        {point}
+                    </Text>
+                </ListItem>
+            )}
+        </List>
     )
 }
