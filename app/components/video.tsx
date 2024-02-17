@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 export default function Video() {
     const [windowWidth, setWindowWidth] = useState<number>(-1);
     const [heightWidth, setHeightWidth] = useState<number>(-1);
-    const [videoLoaded, setVideoLoaded] = useState(false);
+    // const [videoLoaded, setVideoLoaded] = useState(false);
 
     useEffect(() => {
         const handleResize = () => {
@@ -15,18 +15,8 @@ export default function Video() {
     
         window.addEventListener('resize', handleResize);
 
-        const videoElement = document.getElementById("videoElement");
-        const handleVideoLoaded = () => {
-            setVideoLoaded(true);
-        }
-
-        // if (videoElement) {
-        //     videoElement.addEventListener("loadeddata", handleVideoLoaded);
-        // }
-
         return () => {
             window.removeEventListener('resize', handleResize);
-            // videoElement && videoElement.removeEventListener("loadeddata", handleVideoLoaded);
         }
     }, []);
 
@@ -34,9 +24,9 @@ export default function Video() {
 
     return (
         <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: videoLoaded ? 1 : 0 }}
-            transition={{ duration: 0.5 }}
+            // initial={{ opacity: 0 }}
+            // animate={{ opacity: videoLoaded ? 1 : 0 }}
+            // transition={{ duration: 0.5 }}
         >
             <video style={videoSize}  muted loop autoPlay>
                 <source src="packing-food.webm" type="video/webm" />
