@@ -26,9 +26,8 @@ export default function Hero() {
         position="absolute"
         inset={0}
         zIndex={-2}
-        // TODO: import this shit from the file
-        // TODO: add parallax
-        bgImage={"url(https://images.unsplash.com/photo-1599059813005-11265ba4b4ce?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)"}
+        bgImage={"/hero-img.webp"}
+        backgroundSize={'cover'}
         filter={"brightness(0.35)"}
       />
       <Container maxW={'7xl'}>
@@ -45,7 +44,7 @@ export default function Hero() {
           >
             <HeroTitle />    
             <RedirectLink
-                link='mailto:rohan@bagget.io?cc=alan@bagget.io;cesar@bagget.io'
+                link='mailto:rohan@bagget.io?cc=alan@bagget.io;cesar@bagget.io;michael@bagget.io'
                 title='Sends an email to the Bag/Get team in a new tab'
             >
                 <Button 

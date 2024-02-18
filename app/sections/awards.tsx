@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, Image, Text, Container, Heading, HStack, Flex, VStack, Button } from "@chakra-ui/react";
+import { Box, Image, Text, Container, Heading, HStack, Flex, VStack, Button, Spinner, Skeleton } from "@chakra-ui/react";
 import { awardData, awardsData } from "../data/awards";
 import { motion } from "framer-motion";
 
@@ -60,7 +60,6 @@ function Marquee () {
             <motion.div
                 animate={{x: [ `calc(0% - 0px)`, `calc(0% - ${marqueeLength}px)`]}}
                 transition={{ duration: 25, repeat: Infinity, ease: "linear"}}
-                // TODO: temporary fix until I make a page for the CTA
                 style={{ paddingBottom: '5%' }}
             >
                 <Flex
@@ -76,7 +75,6 @@ function Marquee () {
                                 height={`${imageHeight}px`}
                                 width={`${imageWidth}px`}
                             >
-                                {/* TODO: add fallback loading spinner */}
                                 <Image
                                     alt={award.imgAlt}
                                     borderRadius={'40px'}
@@ -88,6 +86,24 @@ function Marquee () {
                                     position={"relative"}
                                     left={"50%"}
                                     transform={'translateX(-50%)'}
+                                    fallback={
+                                        <Box
+                                            w={'90%'}
+                                            h={'90%'}
+                                            position={"relative"}
+                                            left={"50%"}
+                                            transform={'translateX(-50%)'}
+                                        > 
+                                            <Skeleton
+                                                borderRadius={'40px'}
+                                                height={'100%'}
+                                                startColor="green.200"
+                                                endColor="green.400"
+                                            >
+                                                <Text> loading image... </Text>
+                                            </Skeleton>
+                                        </Box>
+                                    }
                                 />
                             </Box>
                             <VStack

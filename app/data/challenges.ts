@@ -1,31 +1,38 @@
 export interface challenge {
     title: string;
-    accordianTitle: string;
-    blurb: string;
+    blurb: string[];
     image: string;
     bgColor: string;
 }
 
 export const challengesData: challenge[] = [
     {
-        title: "Food Banks",
-        accordianTitle: "struggle to",
-        blurb: "collect data & effectively communicate with partnered pantries. Banks desire client data from partnered pantries in order to understand and serve their community, but this data is often lost or withheld. Instead of having streamlined communication with partner agencies, many food banks still rely on personnel to handle relationships with dozens of other pantries - a strenuous and inefficient process.",
+        title: "Food Banks struggle to...",
+        blurb: [
+            "Collect and understand data to better serve the community",
+            "Heavy reliance on understaffed personnel to communicate with partner agencies, resulting in long lead times & lost relationships"
+        ],
         image: "/fb-challenge.webp",
         bgColor: 'green.100'
     },
     {
-        title: "Food Pantries",
-        accordianTitle: "are faced with",
-        blurb: "difficulty in getting and retaining volunteers, maintaining engagement with their donor base, manually applying to lengthy grant applications, and replacing phone calls/emails/paperwork with one intuitive digital experience.",
+        title: "Food Pantries are faced with...",
+        blurb: [
+            "Difficulty in getting and retaining volunteers",
+            "Maintaining engagement with their donor base",
+            "Manually applying to lengthy grant applications",
+            "Replacing phone calls/emails/paperwork with one intuitive digital experience",
+        ],
         image: "/fp-challenge.webp",
         bgColor: 'green.200'
     },
     {
-        title: "The Community",
-        accordianTitle: "is left helpless due to",
-        blurb: "the lack of up-to-date information, having to wait in haphazard lines, and inconsistencies at large. In the end, they're put off by the undignified experience they face.",
-        image: "/community-challenge.webp",
+        title: "The Community is left helpless due to...",
+        blurb: [
+            "The lack of up-to-date information about their local pantries and food agencies",
+            "Inevitably long & haphazard lines at distribution locations due to poor client scheduling and slow intakes",
+            "Vastly varied check-in procedures pantry to pantry",
+        ],image: "/community-challenge.webp",
         bgColor: 'green.100'
     }
 ]
