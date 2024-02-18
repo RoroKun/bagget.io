@@ -10,7 +10,7 @@ export const challengesData: challenge[] = [
         title: "Food Banks struggle to...",
         blurb: [
             "Collect and understand data to better serve the community",
-            "Maintain relationships and operations with short-staffed personnelHeavy reliance on understaffed personnel to communicate with partner agencies, resulting in long lead times & lost relationships"
+            "Heavy reliance on understaffed personnel to communicate with partner agencies, resulting in long lead times & lost relationships"
         ],
         image: "/fb-challenge.webp",
         bgColor: 'green.100'
@@ -21,7 +21,7 @@ export const challengesData: challenge[] = [
             "Difficulty in getting and retaining volunteers",
             "Maintaining engagement with their donor base",
             "Manually applying to lengthy grant applications",
-            "Replacing phone calls/emails/paperwork with one intuitive digital experience.",
+            "Replacing phone calls/emails/paperwork with one intuitive digital experience",
         ],
         image: "/fp-challenge.webp",
         bgColor: 'green.200'
