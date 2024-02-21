@@ -21,10 +21,17 @@ export default function EmailModal() {
   const initialRef = useRef(null)
   const finalRef = useRef(null)
 
+  const APITESTCALL = async () => {
+    await fetch('/api/email', {
+      method: 'POST'
+      // body
+    })
+  }
+
   return (
     <>
       <Button 
-        onClick={onOpen}
+        onClick={APITESTCALL}
         bg={'green.100'}
         variant='solid' 
         color={'green.800'} 
