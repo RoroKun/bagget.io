@@ -14,11 +14,16 @@ const transporter = nodemailer.createTransport({
   auth: {
     // TODO: replace with environment variables
     user: "stupidemail",
-    pass: "stupidpassword",
+    pass: "stupidpass",
   },
 });
 
-
+// TODO: MAKE IT GLOBAL
+interface infoData {
+  name: string;
+  from: string;
+  message: string;
+}
  
 export default async function handler(
   req: NextApiRequest,
@@ -28,14 +33,20 @@ export default async function handler(
 
     // TODO: destructure req.body into object for below object  
 
+    const bodyInfo: infoData = req.body;
+
+    // alert(bodyInfo)
+    console.log(bodyInfo, typeof(bodyInfo))
+
     const info = await transporter.sendMail({
-      from: '"Fred Foo 👻" <alan@bagget.io>', // sender address
-      to: "alan@bagget.io, cesar@bagget.io, rohan@bagget.io, michael@bagget.io", // list of receivers
-      subject: "Hello ✔", // Subject line
-      text: "Hello world?", // plain text body
-      html: "<b>Hello world?</b>", // html body
+      from: `"${bodyInfo.name}" ${bodyInfo.from}`, // sender address
+      // to: "alan@bagget.io, cesar@bagget.io, rohan@bagget.io, michael@bagget.io", // list of receivers
+      to: "alan@bagget.io", // list of receivers
+      subject: "Email Form Test ✔", // Subject line
+      text: `${bodyInfo.message}`, // plain text body
+      html: `<p>${bodyInfo.message}</p>`, // html body
     }); // add some then/catch error handling
 
-    res.status(200).send({message: "Sent Email!"})
+    res.status(200).send({message: `Sent Email!${info.messageId}`})
   }
 }
