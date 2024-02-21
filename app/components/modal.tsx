@@ -73,6 +73,7 @@ export default function EmailModal() {
         finalFocusRef={finalRef}
         isOpen={isOpen}
         onClose={onClose}
+        size={['sm','lg','xl']}
       >
         <ModalOverlay />
         <ModalContent>
@@ -112,10 +113,6 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
     <Formik
       initialValues={{ subject: '', name: '', email: '', message: '' }}
       onSubmit={(values, actions) => {
-        // setTimeout(() => {
-        //   alert(JSON.stringify(values, null, 2))
-        //   actions.setSubmitting(false)
-        // }, 1000)
 
         let emailInfo = {
           name: values.name,
@@ -127,7 +124,7 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
         submit(emailInfo)
       }}
     >
-      {(props) => (
+      {(props: any) => (
         <Form>
           <VStack>
             <Container height={'100px'} padding={'unset'}>
@@ -147,30 +144,28 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
                 )}
               </Field>
             </Container>
-            <HStack width={'full'}>
-              <Container height={'125px'} padding={'unset'}>
-                <Field name='name' validate={sanitizeInput}>
-                  {({ field, form }: { field: any; form: any }) => (
-                    <FormControl isInvalid={form.errors.name && form.touched.name}>
-                      <FormLabel>Name</FormLabel>
-                      <Input {...field} placeholder='name' />
-                      <FormErrorMessage>{form.errors.name}</FormErrorMessage>
-                    </FormControl>
-                  )}
-                </Field>
-              </Container>
-              <Container height={'125px'} padding={'unset'}>
-                <Field name='email' validate={sanitizeInput}>
-                  {({ field, form }: { field: any; form: any }) => (
-                    <FormControl isInvalid={form.errors.email && form.touched.email}>
-                      <FormLabel>Email</FormLabel>
-                      <Input {...field} placeholder='email' />
-                      <FormErrorMessage>{form.errors.email}</FormErrorMessage>
-                    </FormControl>
-                  )}
-                </Field>
-              </Container>
-            </HStack>
+            <Container height={'100px'} padding={'unset'}>
+              <Field name='name' validate={sanitizeInput}>
+                {({ field, form }: { field: any; form: any }) => (
+                  <FormControl isInvalid={form.errors.name && form.touched.name}>
+                    <FormLabel>Name</FormLabel>
+                    <Input {...field} placeholder='name' />
+                    <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                  </FormControl>
+                )}
+              </Field>
+            </Container>
+            <Container height={'125px'} padding={'unset'}>
+              <Field name='email' validate={sanitizeInput}>
+                {({ field, form }: { field: any; form: any }) => (
+                  <FormControl isInvalid={form.errors.email && form.touched.email}>
+                    <FormLabel>Email</FormLabel>
+                    <Input {...field} placeholder='email' />
+                    <FormErrorMessage>{form.errors.email}</FormErrorMessage>
+                  </FormControl>
+                )}
+              </Field>
+            </Container>
             <Container height={'140px'} padding={'unset'}>
               <Field name='message' validate={sanitizeInput}>
                 {({ field, form }: { field: any; form: any }) => (
