@@ -10,11 +10,9 @@ import {
   Button,
 } from '@chakra-ui/react'
 import { RedirectLink } from '../components/link'
+import EmailModal from '../components/modal'
 
 export default function Hero() {
-
-
-
   return (
     <Container
     maxW={'100%'}
@@ -43,28 +41,12 @@ export default function Hero() {
             gap={'40px'}
           >
             <HeroTitle />    
-            <RedirectLink
+            <EmailModal />
+            {/* <RedirectLink
                 link='mailto:rohan@bagget.io?cc=alan@bagget.io;cesar@bagget.io;michael@bagget.io'
                 title='Sends an email to the Bag/Get team in a new tab'
             >
-                <Button 
-                    bg={'green.100'}
-                    variant='solid' 
-                    color={'green.800'} 
-                    size={'lg'}
-                    _hover={{ 
-                        bg: 'green.800',
-                        color: 'green.100',
-                    }}
-                    _active={{
-                        bg: 'green.800',
-                        color: 'green.100',
-                        transform: 'scale(0.9)',
-                    }}
-                >
-                    Become part of the solution
-                </Button>
-            </RedirectLink>   
+            </RedirectLink>    */}
           </Flex>
           <Stack
             align={'center'}
