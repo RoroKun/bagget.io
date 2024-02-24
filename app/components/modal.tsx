@@ -4,7 +4,6 @@ import {
     ModalOverlay,
     ModalContent,
     ModalHeader,
-    ModalFooter,
     ModalBody,
     ModalCloseButton,
     useDisclosure,
@@ -17,8 +16,6 @@ import {
     VStack,
     Container,
     Textarea,
-    Stack,
-    Select, 
 } from "@chakra-ui/react"
 import { Field, Form, Formik } from 'formik'
 
@@ -79,13 +76,6 @@ export default function EmailModal() {
           <ModalBody pb={6}>
             <EmailForm submit={(info)=> APITESTCALL(info)}/>
           </ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme='blue' mr={3}>
-              Save
-            </Button>
-            <Button onClick={onClose}>Cancel</Button>
-          </ModalFooter>
         </ModalContent>
       </Modal>
     </>
@@ -115,7 +105,6 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
 
     return emailError
   }
-
 
   return(
     <Formik
@@ -197,11 +186,12 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
           </VStack>
           <Button
             mt={4}
+            width={'full'}
             colorScheme='teal'
             isLoading={props.isSubmitting}
             type='submit'
           >
-            Submit
+            Submit Email
           </Button>
         </Form>
       )}
