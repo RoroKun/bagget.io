@@ -4,6 +4,7 @@ import { Text, Box, Container, Heading, Button, Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { RedirectLink } from "../components/link";
 import Video from "../components/video";
+import EmailModal from "../components/modal";
 
 
 export default function Contact() {
@@ -90,28 +91,7 @@ export default function Contact() {
                         Food Banks or Pantries - or if you just want to talk to us! 
                         Then we would love to...
                     </Text>
-                    <RedirectLink
-                        link='mailto:rohan@bagget.io?cc=alan@bagget.io;cesar@bagget.io;michael@bagget.io'
-                        title='Sends an email to the Bag/Get team in a new tab'
-                    >
-                        <Button 
-                            bg={'green.100'}
-                            variant='solid' 
-                            color={'green.800'} 
-                            size={'lg'}
-                            _hover={{ 
-                                bg: 'green.800',
-                                color: 'green.100',
-                            }}
-                            _active={{
-                                bg: 'green.800',
-                                color: 'green.100',
-                                transform: 'scale(0.9)',
-                            }}
-                        >
-                            chat today!
-                        </Button>
-                    </RedirectLink>
+                    <EmailModal />
                 </Flex>
             </Container>  
             <Box
