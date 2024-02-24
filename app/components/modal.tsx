@@ -81,6 +81,7 @@ export default function EmailModal() {
         finalFocusRef={finalRef}
         isOpen={isOpen}
         onClose={onClose}
+        size={['sm','lg','xl']}
       >
         <ModalOverlay />
         <ModalContent>
@@ -136,7 +137,7 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
         submit(emailInfo)
       }}
     >
-      {(props) => (
+      {(props: any) => (
         <Form>
           <VStack>
             <Container height={'100px'} padding={'unset'}>
