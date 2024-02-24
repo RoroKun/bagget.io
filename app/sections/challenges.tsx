@@ -13,9 +13,8 @@ import {
     List,
     ListItem,
     ListIcon,
-    Icon,
   } from '@chakra-ui/react'
-import { challengesData } from '../data/challenges'
+import { challengesData } from '../../data/challenges'
 import { PointIcon } from '../customThemes'
 
 
@@ -73,10 +72,10 @@ export default function Challenges() {
                                             paddingBottom="10px"
                                         >
                                             <Text as={"span"} color={"green.800"}>
-                                            {challenge.title}
+                                                {challenge.title}
                                             </Text>
                                         </Heading>
-                                        <Blurb blurbPoints={challenge.blurb}/>
+                                        <Blurb blurbPoints={challenge.blurb} cardNum={i}/>
                                     </VStack>
                                     <Box
                                         position={'relative'}
@@ -121,11 +120,11 @@ export default function Challenges() {
     )
 }
 
-function Blurb({blurbPoints}: {blurbPoints: string[]}) {
+function Blurb({blurbPoints, cardNum}: {blurbPoints: string[]; cardNum: number}) {
     return (
         <List spacing={3}>
-            {blurbPoints.map((point) => 
-                <ListItem>
+            {blurbPoints.map((point, i) => 
+                <ListItem key={`card-${cardNum}-point-${i}`}>
                     <ListIcon as={PointIcon} color="green.800"/>
                     <Text 
                         as={"span"} 
