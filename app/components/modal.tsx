@@ -74,7 +74,7 @@ export default function EmailModal() {
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Create your account</ModalHeader>
+          <ModalHeader>Send Email</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <EmailForm submit={(info)=> APITESTCALL(info)}/>
