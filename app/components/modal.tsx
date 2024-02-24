@@ -37,9 +37,12 @@ export default function EmailModal() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(info, null, 2)
+    }).then((res)=>{
+      if(res.status === 200) {
+        // TODO: add toast here to tell person their email was sent
+        onClose();
+      }
     })
-    // TODO: send a toast upon a status 200 code and then close the modal
-    onClose();
   }
 
   return (
