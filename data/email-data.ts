@@ -8,8 +8,13 @@ export interface infoData {
 type subject = { [key: string]: string };
 
 export const subjects: subject = {
-    subject1: "Request in Interview",
-    subject2: "Question Regarding team",
-    subject3: "Other"
+    interviewRequest: "Request in Interview",
+    teamQuestion: "Question Regarding team",
+    other: "Other"
 }
 
+export const subjectOptions = Object.keys(subjects)
+
+export const xssRegex = /[<>"'&]/
+
+export const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
