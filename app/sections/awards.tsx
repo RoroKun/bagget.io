@@ -1,7 +1,7 @@
 'use client'
 
 import { Box, Image, Text, Container, Heading, HStack, Flex, VStack, Button, Spinner, Skeleton } from "@chakra-ui/react";
-import { awardData, awardsData } from "../data/awards";
+import { awardData, awardsData } from "@/data/awards";
 import { motion } from "framer-motion";
 
 

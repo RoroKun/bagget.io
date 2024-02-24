@@ -14,7 +14,7 @@ import {
   StepStatus,
   Stepper,
   } from "@chakra-ui/react";
-import { stakeholderData } from "../data/stakeholders";
+import { stakeholderData } from "@/data/stakeholders";
 import { Blob } from "../components/svgs";
 
 

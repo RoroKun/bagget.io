@@ -10,7 +10,7 @@ import {
     Skeleton,
   } from '@chakra-ui/react'
 
-import { teamData } from '../data/team';
+import { teamData } from '@/data/team';
 import { Email, LinkedIn } from '../components/svgs';
 import { RedirectLink } from '../components/link';
 
