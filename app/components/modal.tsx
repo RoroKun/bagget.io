@@ -1,3 +1,4 @@
+import { infoData } from "@/data/email-data"
 import { 
     Modal, 
     ModalOverlay,
@@ -22,12 +23,6 @@ import {
 import { Field, Form, Formik } from 'formik'
 
 import { useRef } from "react"
-
-interface infoData {
-  name: string;
-  from: string;
-  message: string;
-}
 
 export default function EmailModal() {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -112,15 +107,11 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
     <Formik
       initialValues={{ subject: '', name: '', email: '', message: '' }}
       onSubmit={(values, actions) => {
-        // setTimeout(() => {
-        //   alert(JSON.stringify(values, null, 2))
-        //   actions.setSubmitting(false)
-        // }, 1000)
 
         let emailInfo = {
           name: values.name,
           from: values.email,
-          // subject: values.subject // TODO: FIX
+          subject: values.subject,
           message: values.message
         }
 
