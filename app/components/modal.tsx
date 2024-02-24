@@ -1,4 +1,4 @@
-import { emailRegex, infoData, subjectOptions, subjects, xssRegex } from "@/data/email-data"
+import { emailRegex, infoData, xssRegex } from "@/data/email-data"
 import { 
     Modal, 
     ModalOverlay,
@@ -116,14 +116,6 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
     return emailError
   }
 
-  function validateDropDown(value: any) {
-    let dropDownError: string | undefined
-    if (!value) {
-      dropDownError = 'Please select an option'
-    }
-    return dropDownError
-  }
-
 
   return(
     <Formik
@@ -146,17 +138,11 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
         <Form>
           <VStack>
             <Container height={'100px'} padding={'unset'}>
-              <Field name='subject' validate={validateDropDown}>
+              <Field name='subject' validate={sanitizeInput}>
                 {({ field, form }: { field: any; form: any }) => (
                   <FormControl isInvalid={form.errors.subject && form.touched.subject}>
-                    <FormLabel>Subject</FormLabel>
-                    <Stack spacing={3}>
-                    <Select {...field} placeholder='Select an Email Subject'>
-                      {subjectOptions.map((subject, i) => 
-                        <option value={subject} key={`option-${i+1}`}>{subjects[subject]}</option>
-                      )}
-                    </Select>
-                    </Stack>
+                    <FormLabel>Email Subject</FormLabel>
+                    <Input {...field} placeholder='Enter email subject' />
                     <FormErrorMessage>{form.errors.subject}</FormErrorMessage>
                   </FormControl>
                 )}

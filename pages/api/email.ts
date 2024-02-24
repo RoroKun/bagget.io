@@ -1,4 +1,4 @@
-import { infoData, subjects } from "@/data/email-data";
+import { infoData } from "@/data/email-data";
 import { NextApiRequest, NextApiResponse } from "next";
 const nodemailer = require('nodemailer');
  
@@ -35,7 +35,7 @@ export default async function handler(
       from: `"${bodyInfo.name}" ${bodyInfo.from}`, // sender address
       // to: "alan@bagget.io, cesar@bagget.io, rohan@bagget.io, michael@bagget.io", // list of receivers
       to: "alan@bagget.io", // test email
-      subject: subjects[bodyInfo.subject], // Subject line
+      subject: bodyInfo.subject, // Subject line
       text: `${bodyInfo.message}`, // plain text body
       html: `<p>${bodyInfo.message}</p>`, // html body
     }); // add some then/catch error handling
