@@ -93,17 +93,36 @@ export default function EmailModal() {
 }
 
 function EmailForm({submit}: {submit: (info: infoData) => void}) {
+  
   function sanitizeInput(value: any) {
-    let error
-    const regexPattern = /[<>"'&]/
+    let sanitizeError: string | undefined
     if (!value) {
-      error = 'Name is required'
-    } else if (regexPattern.test(value)) {
-      error = "Input contains unacceptable characters"
+      sanitizeError = 'Field is required'
+    } else if (xssRegex.test(value)) {
+      sanitizeError = "Input contains unacceptable characters"
     }
-    return error
+    return sanitizeError
   }
-  // TODO: sanitize email
+
+  function sanitizeEmail(value: any) {
+    let emailError: string | undefined
+    emailError = sanitizeInput(value)
+    if(emailError) {
+      return emailError
+    } else if (!emailRegex.test(value)) {
+      emailError = "Invalid email"
+    }
+
+    return emailError
+  }
+
+  function validateDropDown(value: any) {
+    let dropDownError: string | undefined
+    if (!value) {
+      dropDownError = 'Please select an option'
+    }
+    return dropDownError
+  }
 
 
   return(
