@@ -1,3 +1,4 @@
+import { infoData, subjects } from "@/data/email-data";
 import { NextApiRequest, NextApiResponse } from "next";
 const nodemailer = require('nodemailer');
  
@@ -12,18 +13,10 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    // TODO: replace with environment variables
-    user: "stupidemail",
-    pass: "stupidpass",
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
   },
 });
-
-// TODO: MAKE IT GLOBAL
-interface infoData {
-  name: string;
-  from: string;
-  message: string;
-}
  
 export default async function handler(
   req: NextApiRequest,
@@ -41,8 +34,8 @@ export default async function handler(
     const info = await transporter.sendMail({
       from: `"${bodyInfo.name}" ${bodyInfo.from}`, // sender address
       // to: "alan@bagget.io, cesar@bagget.io, rohan@bagget.io, michael@bagget.io", // list of receivers
-      to: "alan@bagget.io", // list of receivers
-      subject: "Email Form Test ✔", // Subject line
+      to: "alan@bagget.io", // test email
+      subject: subjects[bodyInfo.subject], // Subject line
       text: `${bodyInfo.message}`, // plain text body
       html: `<p>${bodyInfo.message}</p>`, // html body
     }); // add some then/catch error handling
