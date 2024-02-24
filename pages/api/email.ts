@@ -43,7 +43,7 @@ export default async function handler(
     const info = await transporter.sendMail({
       from: bodyInfo.from, // sender address
       to: memberEmailsKey[bodyInfo.recipient], // test email
-      cc: otherRecipients, // list of receivers
+      // cc: otherRecipients, // list of receivers
       subject: bodyInfo.subject, // Subject line
       text: `${bodyInfo.message}`, // plain text body
       html: htmlMessage, // html body
