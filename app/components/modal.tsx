@@ -17,6 +17,7 @@ import {
     Container,
     Textarea,
 } from "@chakra-ui/react"
+import toast, { Toaster } from 'react-hot-toast';
 import { Field, Form, Formik } from 'formik'
 
 import { useRef } from "react"
@@ -27,23 +28,35 @@ export default function EmailModal() {
   const initialRef = useRef(null)
   const finalRef = useRef(null)
 
-  const APITESTCALL = async (info: infoData) => {
+  const sendEmail = async (info: infoData) => {
+    
     await fetch('/api/email', {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(info, null, 2)
-    }).then((res)=>{
-      if(res.status === 200) {
-        // TODO: add toast here to tell person their email was sent
-        onClose();
+    }).then( async (res)=> {
+      if(!res.ok) {
+        const errMessage = await res.text();
+
+        throw new Error(errMessage)
       }
+
+      return res.text();
+    })
+    .then((message)=>{
+      toast.success(message)
+      onClose();
+    }).catch((err) => {
+      toast.error(`Failed Sending: Invalid Email 🫠`)
+      onClose();
     })
   }
 
   return (
     <>
+      <Toaster />
       <Button 
         onClick={onOpen}
         bg={'green.100'}
@@ -74,7 +87,7 @@ export default function EmailModal() {
           <ModalHeader>Send Email</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
-            <EmailForm submit={(info)=> APITESTCALL(info)}/>
+            <EmailForm submit={(info)=> sendEmail(info)}/>
           </ModalBody>
         </ModalContent>
       </Modal>
