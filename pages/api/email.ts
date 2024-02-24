@@ -1,4 +1,4 @@
-import { infoData } from "@/data/email-data";
+import { infoData, memberEmails, memberEmailsKey } from "@/data/email-data";
 import { NextApiRequest, NextApiResponse } from "next";
 const nodemailer = require('nodemailer');
  
@@ -17,6 +17,7 @@ const transporter = nodemailer.createTransport({
     pass: process.env.EMAIL_PASS,
   },
 });
+
  
 export default async function handler(
   req: NextApiRequest,
@@ -26,18 +27,23 @@ export default async function handler(
 
     const bodyInfo: infoData = req.body;
 
+    const otherRecipients = memberEmails.filter((email) => email != memberEmailsKey[bodyInfo.recipient]).join(', ')
+
     const htmlMessage = `
       <div>
+        <p><b>FROM:</b> ${bodyInfo.subject}</p>  
         <p><b>NAME:</b> ${bodyInfo.name}</p>
-        <p><b>EMAIL:</b> ${bodyInfo.from}</p>
+        <p><b>FROM:</b> ${bodyInfo.from}</p>
+        <p><b>RECIPIENT:</b> ${memberEmailsKey[bodyInfo.recipient]}</p>
+        <p><b>CC:</b> ${otherRecipients}</p>
         <p><b>MESSAGE:</b> ${bodyInfo.message}</p>
       </div>
     `
 
     const info = await transporter.sendMail({
-      from: `"${bodyInfo.name}" ${bodyInfo.from}`, // sender address
-      // to: "alan@bagget.io, cesar@bagget.io, rohan@bagget.io, michael@bagget.io", // list of receivers
-      to: "alan@bagget.io", // test email
+      from: bodyInfo.from, // sender address
+      to: memberEmailsKey[bodyInfo.recipient], // test email
+      cc: otherRecipients, // list of receivers
       subject: bodyInfo.subject, // Subject line
       text: `${bodyInfo.message}`, // plain text body
       html: htmlMessage, // html body

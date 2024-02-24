@@ -1,4 +1,4 @@
-import { emailRegex, infoData, xssRegex } from "@/data/email-data"
+import { emailRegex, infoData, memberOptions, members, xssRegex } from "@/data/email-data"
 import { 
     Modal, 
     ModalOverlay,
@@ -16,6 +16,8 @@ import {
     VStack,
     Container,
     Textarea,
+    Select,
+    Stack,
 } from "@chakra-ui/react"
 import toast, { Toaster } from 'react-hot-toast';
 import { Field, Form, Formik } from 'formik'
@@ -46,10 +48,12 @@ export default function EmailModal() {
       return res.text();
     })
     .then((message)=>{
-      toast.success(message)
+      toast.success('Successfully sent email!')
+      // console.log(message)
       onClose();
     }).catch((err) => {
       toast.error(`Failed Sending: Invalid Email 🫠`)
+      // console.log(err)
       onClose();
     })
   }
@@ -120,9 +124,17 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
     return emailError
   }
 
+  function validateDropDown(value: any) {
+    let dropDownError: string | undefined
+    if (!value) {
+      dropDownError = 'Please select an option'
+    }
+    return dropDownError
+  }
+
   return(
     <Formik
-      initialValues={{ subject: '', fname: '', lname: '', email: '', message: '' }}
+      initialValues={{ subject: '', recipient: '', fname: '', lname: '', email: '', message: '' }}
       onSubmit={(values, actions) => {
 
         const fullname = values.fname + " " + values.lname
@@ -130,6 +142,7 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
         const emailInfo = {
           name: fullname,
           from: values.email,
+          recipient: values.recipient,
           subject: values.subject,
           message: values.message
         }
@@ -151,8 +164,25 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
                 )}
               </Field>
             </Container>
+            <Container height={'100px'} padding={'unset'}>
+              <Field name='recipient' validate={validateDropDown}>
+                {({ field, form }: { field: any; form: any }) => (
+                  <FormControl isInvalid={form.errors.recipient && form.touched.recipient}>
+                    <FormLabel>Email Recipient</FormLabel>
+                    <Stack spacing={3}>
+                      <Select {...field} placeholder='Select a recipient'>
+                        {memberOptions.map((member, i) => 
+                          <option value={member} key={`option-${i+1}`}>{members[member]}</option>
+                        )}
+                      </Select>
+                    </Stack>
+                    <FormErrorMessage>{form.errors.recipient}</FormErrorMessage>
+                  </FormControl>
+                )}
+              </Field>
+            </Container>
             <HStack width={'full'}>
-              <Container height={'125px'} padding={'unset'}>
+              <Container height={'100px'} padding={'unset'}>
                 <Field name='fname' validate={sanitizeInput}>
                   {({ field, form }: { field: any; form: any }) => (
                     <FormControl isInvalid={form.errors.fname && form.touched.fname}>
@@ -163,7 +193,7 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
                   )}
                 </Field>
               </Container>
-              <Container height={'125px'} padding={'unset'}>
+              <Container height={'100px'} padding={'unset'}>
                 <Field name='lname' validate={sanitizeInput}>
                   {({ field, form }: { field: any; form: any }) => (
                     <FormControl isInvalid={form.errors.lname && form.touched.lname}>
