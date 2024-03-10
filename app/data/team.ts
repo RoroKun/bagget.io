@@ -21,7 +21,7 @@ export const teamData = [
     image: "/cesar-hs.webp",
   },
   {
-    name: "Michael Chunn",
+    name: "Michael Chhun",
     title: "Backend Developer",
     email: "michael@bagget.io",
     linkedIn: "michaelchhun",
