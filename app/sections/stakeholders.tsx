@@ -144,31 +144,32 @@ function InfoBlurb() {
       colorScheme="baggetGreen"
     >
       {stakeholderData.map((stakeholder, index) => (
-        <Step key={index}>
-          <StepIndicator>
-            <StepStatus complete={<></>} incomplete={<></>} active={<></>} />
-          </StepIndicator>
-          <Box flexShrink="0" width={'90%'}>
-              <motion.div
-                variants={fadeVariant({yBot: 50, yTop: 0, duration: 1.1, delay: 0.5})}
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{ once: true, amount: 0.8 }}
-              >
-                
-              </motion.div>
-                <Heading
-                  fontWeight={600}
-                  fontSize={{ base: "lg", sm: "xl", lg: "3xl" }}
-                  color={'green.800'}
-                >
-                  {stakeholder.title}
-                </Heading>
-              <Text fontSize={{ base: "md", sm: "lg", lg: "xl" }} color={'green.800'}>{stakeholder.description}</Text>
-          </Box>
+          <motion.div
+            variants={fadeVariant({yBot: 50, yTop: 0, duration: 1.1, delay: index / 0.99})}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true}} 
+            key={index}
+          >
+            
+            <Step>
+              <StepIndicator>
+                <StepStatus complete={<></>} incomplete={<></>} active={<></>} />
+              </StepIndicator>
+              <Box flexShrink="0" width={'90%'}>
+                    <Heading
+                      fontWeight={600}
+                      fontSize={{ base: "lg", sm: "xl", lg: "3xl" }}
+                      color={'green.800'}
+                    >
+                      {stakeholder.title}
+                    </Heading>
+                  <Text fontSize={{ base: "md", sm: "lg", lg: "xl" }} color={'green.800'}>{stakeholder.description}</Text>
+              </Box>
 
-          <StepSeparator />
-        </Step>
+              <StepSeparator />
+            </Step>
+          </motion.div>
       ))}
     </Stepper>
   );
