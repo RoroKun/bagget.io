@@ -15,7 +15,7 @@ import {
     ListIcon,
   } from '@chakra-ui/react'
 import { challengesData } from '@/data/challenges'
-import { PointIcon } from '../customThemes'
+import { PointIcon } from '../styles/customThemes'
 
 
 export default function Challenges() {
