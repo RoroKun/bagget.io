@@ -49,7 +49,7 @@ export default async function handler(
       html: htmlMessage, // html body
     }, (error: any, info: any) => {
       if (error) {
-        res.status(554).send({message: `Email failed 🫠 Error Message: ${error.response}`})
+        res.status(error.status).send({message: `Email failed 🫠 Error Message: ${error.response}`})
       } else {
         res.status(200).send({message: `Email sent successfully! \nMessage id: ${info.messageId}`})
       }

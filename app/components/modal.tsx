@@ -53,7 +53,7 @@ export default function EmailModal() {
       onClose();
     }).catch((err) => {
       toast.error(`Failed Sending: Invalid Email 🫠`)
-      // console.log(err)
+      console.log(err)
       onClose();
     })
   }
