@@ -7,10 +7,10 @@ import {
   Box,
   Heading,
   Text,
-  Button,
 } from '@chakra-ui/react'
-import { RedirectLink } from '../components/link'
 import EmailModal from '../components/modal'
+import { motion } from "framer-motion"
+import { fadeVariant } from '../styles/scrollAnimations'
 
 export default function Hero() {
   return (
@@ -41,7 +41,14 @@ export default function Hero() {
             gap={'40px'}
           >
             <HeroTitle />    
-            <EmailModal />
+            <motion.div
+              variants={fadeVariant({yBot: 50, yTop: 0, duration: 1.1, delay: 0.5})}
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={{ once: true, amount: 0.8 }}
+            > 
+              <EmailModal />
+            </motion.div>
           </Flex>
           <Stack
             align={'center'}
@@ -58,8 +65,6 @@ export default function Hero() {
 }
 
 function HeroTitle() {
-
-  
   const highlightedText = "13.5 million"
   const headingAlt = "American households are food insecure."
   const source = "- U.S. Department of Agriculture"
@@ -73,34 +78,55 @@ function HeroTitle() {
         fontWeight={600}
         fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }}
       >
-        <Text
-          as={'span'}
-          position={'relative'}
-          _after={{
-            content: "''",
-            width: 'full',
-            height: '10%',
-            position: 'absolute',
-            bottom: 1,
-            left: 0,
-            bg: 'yellow.100',
-            zIndex: -1,
-          }}
-          zIndex={2}
-          color={'yellow.100'}
-          fontWeight={700}
-          fontSize={{ base: '5xl', sm: '6xl', lg: '8xl' }}
-          >
-          {highlightedText}
-        </Text>
+        <motion.div
+          variants={fadeVariant({yBot: 0, yTop: 50, duration: 1.0})}
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.8 }}
+        >
+          <Text
+            as={'span'}
+            position={'relative'}
+            _after={{
+              content: "''",
+              width: 'full',
+              height: '10%',
+              position: 'absolute',
+              bottom: 1,
+              left: 0,
+              bg: 'yellow.100',
+              zIndex: -1,
+            }}
+            zIndex={2}
+            color={'yellow.100'}
+            fontWeight={700}
+            fontSize={{ base: '5xl', sm: '6xl', lg: '8xl' }}
+            >
+            {highlightedText}
+          </Text>
+        </motion.div>
         <br />
-        <Text as={'span'} color={'green.100'}>
-          {headingAlt}
-        </Text>
+        <motion.div
+          variants={fadeVariant({yBot: 50, yTop: 0, duration: 1.1, delay: 0.5})}
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.8 }}
+        >
+          <Text as={'span'} color={'green.100'}>
+            {headingAlt}
+          </Text>
+        </motion.div>
       </Heading>
-      <Text color={'gray.400'} fontSize={'sm'} fontStyle={'italic'}>
-        {source}
-      </Text>
+      <motion.div
+        variants={fadeVariant({yBot: 50, yTop: 0, duration: 1.1, delay: 0.5})}
+        initial="offscreen"
+        whileInView="onscreen"
+        viewport={{ once: true, amount: 0.8 }}
+      >
+        <Text color={'gray.400'} fontSize={'sm'} fontStyle={'italic'}>
+          {source}
+        </Text>
+      </motion.div>
     </Stack>
 
   )

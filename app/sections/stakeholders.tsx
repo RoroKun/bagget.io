@@ -16,6 +16,8 @@ import {
   } from "@chakra-ui/react";
 import { stakeholderData } from "@/data/stakeholders";
 import { Blob } from "../components/svgs";
+import { motion } from "framer-motion"
+import { fadeVariant } from '../styles/scrollAnimations'
 
 
 
@@ -44,34 +46,48 @@ export default function Stakeholders() {
             overflow={'hidden'}
           >
               <InfoBlurb />
-              <Blob
-                w={['70%', '80%', '60%']}
-                h={'100%'}
-                position={'absolute'}
-                top={['20%', '20%', '0%']}
-                right={['10%', '10%', '0%']}
-                zIndex={-1}
-                color={useColorModeValue('green.100', 'green.400')}
-              />
-              <Box
-                position={'relative'}
-                height={'full'}
-                width={'full'}
-                marginTop={["0%", "10%", "0%"]}
-                marginBottom={["25%", "20%", "0%"]}
-              >
-                <Image
-                  alt={'Person working in a pantry packaging food'}
-                  fit={'cover'}
-                  align={'center'}
-                  w={'80%'}
-                  h={'80%'}
-                  src={"/stakeholder-img.webp"}
+                <motion.div
+                  variants={fadeVariant({yBot: 0, yTop: 0, duration: 1.1, delay: 0.2})}
+                  initial="offscreen"
+                  whileInView="onscreen"
+                  viewport={{ once: true, amount: 0.8 }}
+                >
+                  <Blob
+                    w={['70%', '80%', '60%']}
+                    h={'100%'}
+                    position={'absolute'}
+                    top={['20%', '20%', '0%']}
+                    right={['10%', '10%', '0%']}
+                    zIndex={-1}
+                    color={useColorModeValue('green.100', 'green.400')}
+                  />
+                </motion.div>
+                <Box
                   position={'relative'}
-                  left={'50%'}
-                  transform={'translateX(-50%)'}
-                />
-              </Box>
+                  height={'full'}
+                  width={'full'}
+                  marginTop={["0%", "10%", "0%"]}
+                  marginBottom={["25%", "20%", "0%"]}
+                >
+                <motion.div
+                  variants={fadeVariant({yBot: 0, yTop: 0, duration: 1.1, delay: 0.2})}
+                  initial="offscreen"
+                  whileInView="onscreen"
+                  viewport={{ once: true, amount: 0.8 }}
+                >
+                  <Image
+                    alt={'Person working in a pantry packaging food'}
+                    fit={'cover'}
+                    align={'center'}
+                    w={'80%'}
+                    h={'80%'}
+                    src={"/stakeholder-img.webp"}
+                    position={'relative'}
+                    left={'50%'}
+                    transform={'translateX(-50%)'}
+                  />
+              </motion.div>
+                </Box>
             </Flex>
         </Flex>
       </Container>
@@ -132,8 +148,15 @@ function InfoBlurb() {
           <StepIndicator>
             <StepStatus complete={<></>} incomplete={<></>} active={<></>} />
           </StepIndicator>
-
           <Box flexShrink="0" width={'90%'}>
+              <motion.div
+                variants={fadeVariant({yBot: 50, yTop: 0, duration: 1.1, delay: 0.5})}
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true, amount: 0.8 }}
+              >
+                
+              </motion.div>
                 <Heading
                   fontWeight={600}
                   fontSize={{ base: "lg", sm: "xl", lg: "3xl" }}
