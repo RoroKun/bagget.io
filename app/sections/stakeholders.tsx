@@ -145,7 +145,7 @@ function InfoBlurb() {
     >
       {stakeholderData.map((stakeholder, index) => (
           <motion.div
-            variants={fadeVariant({yBot: 50, yTop: 0, duration: 1.1, delay: index / 0.99})}
+            variants={fadeVariant({yBot: 50, yTop: 0, duration: 1.1, delay: (index / 0.99)-0.15})}
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true}} 
