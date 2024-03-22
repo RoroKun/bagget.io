@@ -31,7 +31,7 @@ export default function Stakeholders() {
       zIndex={-3} 
       paddingBottom={'5%'}
       id="Stakeholders"
-          >
+    >
       <Title />
       <Container maxW={"7xl"}>
         <Flex justifyContent={'center'} alignItems={'center'} direction={"column"}>
@@ -109,25 +109,32 @@ function Title() {
       zIndex={-2}
     >
       <Stack flex={1} spacing={{ base: 5, md: 10 }}>
-        <Heading
-          lineHeight={1.1}
-          fontWeight={600}
-          fontSize={{ base: "3xl", sm: "4xl", lg: "6xl" }}
+        <motion.div
+            variants={fadeVariant({yBot: 0, yTop: 0, duration: 1.1, delay: 1.25})}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
         >
-          <Text as={"span"} color={"green.100"}>
-            There are{" "}
-          </Text>
-          <Text
-            as={"span"}
-            fontStyle={'italic'}
-            color={'yellow.100'}
+          <Heading
+            lineHeight={1.1}
+            fontWeight={600}
+            fontSize={{ base: "3xl", sm: "4xl", lg: "6xl" }}
           >
-            three
-          </Text>
-          <Text as={"span"} color={"green.100"}>
-            {" "}impacted parties.
-          </Text>
-        </Heading>
+            <Text as={"span"} color={"green.100"}>
+              There are{" "}
+            </Text>
+            <Text
+              as={"span"}
+              fontStyle={'italic'}
+              color={'yellow.100'}
+            >
+              three
+            </Text>
+            <Text as={"span"} color={"green.100"}>
+              {" "}impacted parties.
+            </Text>
+          </Heading>
+        </motion.div>
       </Stack>
     </Stack>
   );
