@@ -66,27 +66,27 @@ export default function Stakeholders() {
                   position={'relative'}
                   height={'full'}
                   width={'full'}
-                  marginTop={["0%", "10%", "0%"]}
-                  marginBottom={["25%", "20%", "0%"]}
+                  marginTop={["-20%", "10%", "0%"]}
+                  marginBottom={["45%", "20%", "0%"]}
                 >
-                <motion.div
-                  variants={fadeVariant({yBot: 0, yTop: 0, duration: 1.1, delay: 0.2})}
-                  initial="offscreen"
-                  whileInView="onscreen"
-                  viewport={{ once: true, amount: 0.8 }}
-                >
-                  <Image
-                    alt={'Person working in a pantry packaging food'}
-                    fit={'cover'}
-                    align={'center'}
-                    w={'80%'}
-                    h={'80%'}
-                    src={"/stakeholder-img.webp"}
-                    position={'relative'}
-                    left={'50%'}
-                    transform={'translateX(-50%)'}
-                  />
-              </motion.div>
+                  <motion.div
+                    variants={fadeVariant({yBot: 0, yTop: 0, duration: 1.1, delay: 0.2})}
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    viewport={{ once: true}}
+                  >
+                    <Image
+                      alt={'Person working in a pantry packaging food'}
+                      fit={'cover'}
+                      align={'center'}
+                      w={'100%'}
+                      h={'100%'}
+                      src={"/stakeholder-img.webp"}
+                      position={'relative'}
+                      left={'50%'}
+                      transform={'translateX(-50%)'}
+                    />
+                  </motion.div>
                 </Box>
             </Flex>
         </Flex>
@@ -152,7 +152,7 @@ function InfoBlurb() {
     >
       {stakeholderData.map((stakeholder, index) => (
           <motion.div
-            variants={fadeVariant({yBot: 50, yTop: 0, duration: 1.1, delay: (index / 0.99)-0.15})}
+            variants={fadeVariant({yBot: 50, yTop: 0, duration: 1.1, delay:  (index / 3) + 0.75})}
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true}} 

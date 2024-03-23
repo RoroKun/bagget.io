@@ -79,7 +79,7 @@ function HeroTitle() {
         fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }}
       >
         <motion.div
-          variants={fadeVariant({yBot: 0, yTop: 50, duration: 1.0})}
+          variants={fadeVariant({yBot: 50, yTop: 0, duration: 1.0})}
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.8 }}
