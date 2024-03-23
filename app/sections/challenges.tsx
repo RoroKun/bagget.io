@@ -15,7 +15,9 @@ import {
     ListIcon,
   } from '@chakra-ui/react'
 import { challengesData } from '@/data/challenges'
-import { PointIcon } from '../customThemes'
+import { PointIcon } from '../styles/customThemes'
+import { motion } from "framer-motion"
+import { fadeVariant } from '../styles/scrollAnimations'
 
 
 export default function Challenges() {
@@ -35,83 +37,97 @@ export default function Challenges() {
                     fontSize={{ base: "3xl", sm: "4xl", lg: "6xl" }}
                     textAlign={'center'}
                 >
+                <motion.div
+                    variants={fadeVariant({yBot: 0, yTop: 0, duration: 1.1, delay: 0.2})}
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    viewport={{ once: true, amount: 0.8 }}
+                >
                     <Text as={"span"} color={"green.900"}>
                         However, under the surface...
                     </Text>
+                </motion.div>
                 </Heading>
                     {challengesData.map((challenge, i) => {
                         return (
-                            <Card 
-                                width={"full"} 
-                                bgColor={challenge.bgColor} 
-                                padding={['10% 15%', '5% 15%', '5% 10%']}
+                            <motion.div
+                                variants={fadeVariant({yBot: 100, yTop: 0, duration: 0.9,})}
+                                initial="offscreen"
+                                whileInView="onscreen"
+                                viewport={{ once: true, amount: 0.8 }}
                                 key={`marquee-card-${i}`}
-                                borderRadius={['40px', '80px', '80px']}
+                                style={{width:'100%'}}
                             >
-                                <Stack 
-                                    direction={[
-                                        `${i % 2 == 0 ? 'column' : 'column-reverse'}`,
-                                        `${i % 2 == 0 ? 'column' : 'column-reverse'}`,
-                                        `${i % 2 == 0 ? 'row' : 'row-reverse'}`
-                                    ]} 
-                                    justifyContent={'space-between'} 
-                                    alignItems={'center'} 
-                                    width={'full'}
-                                    height={'full'}
-                                    gap={`30px`}
-                                    key={`content-wrapper-${i}`}
+                                <Card 
+                                    bgColor={challenge.bgColor} 
+                                    padding={['10% 15%', '5% 15%', '5% 10%']}
+                                    borderRadius={['40px', '80px', '80px']}
                                 >
-                                    <VStack 
-                                        maxWidth={['450px','450px','350px','450px']} 
-                                        alignItems={'self-start'} 
-                                        key={`text-content-${i}`}
+                                    <Stack 
+                                        direction={[
+                                            `${i % 2 == 0 ? 'column' : 'column-reverse'}`,
+                                            `${i % 2 == 0 ? 'column' : 'column-reverse'}`,
+                                            `${i % 2 == 0 ? 'row' : 'row-reverse'}`
+                                        ]} 
+                                        justifyContent={'space-between'} 
+                                        alignItems={'center'} 
+                                        width={'full'}
+                                        height={'full'}
+                                        gap={`30px`}
+                                        key={`content-wrapper-${i}`}
                                     >
-                                        <Heading 
-                                            lineHeight={1.1}
-                                            fontSize={{ base: "xl", sm: "2xl", lg: "3xl" }}
-                                            paddingBottom="10px"
+                                        <VStack 
+                                            maxWidth={['450px','450px','350px','450px']} 
+                                            alignItems={'self-start'} 
+                                            key={`text-content-${i}`}
                                         >
-                                            <Text as={"span"} color={"green.800"}>
-                                                {challenge.title}
-                                            </Text>
-                                        </Heading>
-                                        <Blurb blurbPoints={challenge.blurb} cardNum={i}/>
-                                    </VStack>
-                                    <Box
-                                        position={'relative'}
-                                        height={['150px', '300px', '300px']}
-                                        width={['100%', '100%', '450px']}
-                                        overflow={'hidden'}
-                                        key={`image-box-${i}`}
-                                    >
-                                        <Image
-                                        alt={`${challenge.title} picture`}
-                                        fit={'cover'}
-                                        align={'center'}
-                                        borderRadius={'20px'}
-                                        w={'100%'}
-                                        h={'100%'}
-                                        src={challenge.image}
-                                        key={`image-${i}`}
-                                        fallback={
-                                            <Box
-                                                w={'100%'}
-                                                h={'100%'}
-                                            > 
-                                                <Skeleton
-                                                    borderRadius={'40px'}
-                                                    height={'100%'}
-                                                    startColor="green.200"
-                                                    endColor="green.400"
-                                                >
-                                                    <Text> loading image... </Text>
-                                                </Skeleton>
-                                            </Box>
-                                        }
-                                        />
-                                    </Box>
-                                </Stack>
-                            </Card>
+                                            <Heading 
+                                                lineHeight={1.1}
+                                                fontSize={{ base: "xl", sm: "2xl", lg: "3xl" }}
+                                                paddingBottom="10px"
+                                            >
+                                                <Text as={"span"} color={"green.800"}>
+                                                    {challenge.title}
+                                                </Text>
+                                            </Heading>
+                                            <Blurb blurbPoints={challenge.blurb} cardNum={i}/>
+                                        </VStack>
+                                        <Box
+                                            position={'relative'}
+                                            height={['150px', '300px', '300px']}
+                                            width={['100%', '100%', '450px']}
+                                            overflow={'hidden'}
+                                            key={`image-box-${i}`}
+                                        >
+                                            <Image
+                                            alt={`${challenge.title} picture`}
+                                            fit={'cover'}
+                                            align={'center'}
+                                            borderRadius={'20px'}
+                                            w={'100%'}
+                                            h={'100%'}
+                                            src={challenge.image}
+                                            key={`image-${i}`}
+                                            fallback={
+                                                <Box
+                                                    w={'100%'}
+                                                    h={'100%'}
+                                                > 
+                                                    <Skeleton
+                                                        borderRadius={'40px'}
+                                                        height={'100%'}
+                                                        startColor="green.200"
+                                                        endColor="green.400"
+                                                    >
+                                                        <Text> loading image... </Text>
+                                                    </Skeleton>
+                                                </Box>
+                                            }
+                                            />
+                                        </Box>
+                                    </Stack>
+                                </Card>
+                            </motion.div>
                         )
                     })}
                 </VStack>

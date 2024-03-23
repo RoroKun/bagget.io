@@ -1,3 +1,5 @@
+"use client"
+
 import {
     Box,
     Container,
@@ -11,8 +13,10 @@ import {
   } from '@chakra-ui/react'
 
 import { teamData } from '@/data/team';
-import { Email, LinkedIn } from '../components/svgs';
+import { BackgroundLogo, Email, LinkedIn } from '../components/svgs';
 import { RedirectLink } from '../components/link';
+import { motion } from "framer-motion"
+import { fadeVariant } from '../styles/scrollAnimations'
 
 export default function Team() {
 
@@ -22,6 +26,8 @@ export default function Team() {
             bg={'green.50'}
             paddingBottom={'5%'}
             id="Team"
+            position="relative"
+            zIndex={10}
         >
             <Container 
                 maxW={"8xl"} 
@@ -39,7 +45,14 @@ export default function Team() {
                         paddingTop={'5%'} 
                         paddingBottom={['25%', '15%', '15%']}
                     >
-                        <Title/>
+                        <motion.div
+                            variants={fadeVariant({yBot: 0, yTop: 0, duration: 1.1, delay: 0.2})}
+                            initial="offscreen"
+                            whileInView="onscreen"
+                            viewport={{ once: true, amount: 0.8 }}
+                        >
+                            <Title/>
+                        </motion.div>
                         <TeamMembers />
                     </VStack>
                 </Container>
@@ -87,142 +100,159 @@ function Title() {
 
 function TeamMembers() {
     return (
-        <SimpleGrid columns={[1, 1, 2]} spacing={20}>
-            {teamData.map((member, id) => 
-                <Box
-                    position={'relative'}
-                    height={['275px', '375px', '325px', '375px']}
-                    width={['250px', '350px', '300px', '350px']}
-                    key={id}
-                >
-                    <Image
-                        alt={`${member.name} picture`}
-                        fit={'cover'}
-                        objectPosition={'50% 0%'}
-                        align={'center'}
-                        borderRadius={'40px'}
-                        w={'100%'}
-                        h={'100%'}
-                        src={member.image}
-                        fallback={
-                            <Box
+        <Container maxW={"full"} position={'relative'}>
+            <Box position={'absolute'} width={'full'} height={'full'} left={'1.25%'}>
+                <BackgroundLogo
+                    w={'100%'}
+                    h={'100%'}
+                />
+            </Box>
+            <SimpleGrid columns={[1, 1, 2]} rowGap={20} columnGap={10} width={'full'} justifyItems="center" alignItems="center">
+                {teamData.map((member, id) => 
+                    <Box
+                        position={'relative'}
+                        height={['275px', '375px', '325px', '375px']}
+                        width={['250px', '350px', '300px', '350px']}
+                        key={id}
+                    >
+                        <motion.div
+                            variants={fadeVariant({yBot: 100, yTop: 0, duration: 0.9, delay: (id / 3) + 0.25})}
+                            initial="offscreen"
+                            whileInView="onscreen"
+                            viewport={{ once: true}}
+                            style={{width:'100%', height:'100%'}}
+                        >
+                            <Image
+                                alt={`${member.name} picture`}
+                                fit={'cover'}
+                                objectPosition={'50% 0%'}
+                                align={'center'}
+                                borderRadius={'40px'}
+                                bg={'green.200'}
                                 w={'100%'}
                                 h={'100%'}
-                            > 
-                                <Skeleton
-                                    borderRadius={'40px'}
-                                    height={'100%'}
-                                    startColor="green.200"
-                                    endColor="green.400"
-                                >
-                                    <Text> loading image... </Text>
-                                </Skeleton>
-                            </Box>
-                        }
-                    />
-                    <Box
-                        bg={'green.100'}
-                        position={'absolute'}
-                        top={'65%'}
-                        left={'9%'}
-                        textAlign="center"
-                        borderRadius={'20px'}
-                        width={'80%'}
-                        zIndex={4}
-                        color={'green.100'}
-                    >
-                        <VStack color={'green.800'} padding={['10px 15px','20px 30px','20px 30px']}>
-                            <VStack
-                                
-                                paddingBottom={'10px'}
-                            >
-                                <Heading
-                                    fontSize={['lg','xl', 'lg','2xl']}
-                                >
-                                    {member.name}
-                                </Heading>
-                                <Text
-                                    position={'relative'}
-                                    fontSize={['10px','xs', '10px', 'xs']}
-                                    _after={{
-                                        content: "''",
-                                        width: ['150px','200px','200px'],
-                                        height: '2px',
-                                        position: 'absolute',
-                                        bottom: '-70%',
-                                        left: '50%',
-                                        transform: 'translateX(-50%)',
-                                        bg: 'green.800',
-                                        borderRadius: '20px',
-                                        zIndex: -1,
-                                    }}
-                                >
-                                    {member.title}
-                                </Text>
-                            </VStack>
-                            <VStack
-                                justifyContent={'flex-start'}
-                                alignItems={'flex-start'}
-                            >
-                                <RedirectLink
-                                    link={`mailto: ${member.email}`}
-                                    title={`Sends an email to ${member.name} in a new tab`}
-                                >
-                                    <HStack
-                                        height={['20px','40px','40px']}
-                                        justifyContent={'center'}
-                                        alignItems={'center'}
-                                        gap={'10px'}
-                                    >
-                                        <Box
-                                            width={['20px','30px','30px']}
-                                            height={'30px'}
+                                src={member.image}
+                                fallback={
+                                    <Box
+                                        w={'100%'}
+                                        h={'100%'}
+                                    > 
+                                        <Skeleton
+                                            borderRadius={'40px'}
+                                            height={'100%'}
+                                            startColor="green.200"
+                                            endColor="green.400"
                                         >
-                                            <Email
-                                                w={'100%'}
-                                                h={'100%'}
-                                            />
-                                        </Box>
+                                            <Text> loading image... </Text>
+                                        </Skeleton>
+                                    </Box>
+                                }
+                            />
+                            <Box
+                                bg={'green.100'}
+                                position={'absolute'}
+                                top={'65%'}
+                                left={'9%'}
+                                textAlign="center"
+                                borderRadius={'20px'}
+                                width={'80%'}
+                                zIndex={4}
+                                color={'green.100'}
+                            >
+                                <VStack color={'green.800'} padding={['10px 15px','20px 30px','20px 30px']}>
+                                    <VStack
+                                        
+                                        paddingBottom={'10px'}
+                                    >
+                                        <Heading
+                                            fontSize={['lg','xl', 'lg','2xl']}
+                                        >
+                                            {member.name}
+                                        </Heading>
                                         <Text
-                                            fontSize={{ base: "xs", sm: "sm", lg: "md" }}
+                                            position={'relative'}
+                                            fontSize={['10px','xs', '10px', 'xs']}
+                                            _after={{
+                                                content: "''",
+                                                width: ['150px','200px','200px'],
+                                                height: '2px',
+                                                position: 'absolute',
+                                                bottom: '-70%',
+                                                left: '50%',
+                                                transform: 'translateX(-50%)',
+                                                bg: 'green.800',
+                                                borderRadius: '20px',
+                                                zIndex: -1,
+                                            }}
                                         >
-                                            {member.email}
+                                            {member.title}
                                         </Text>
-                                    </HStack>
-                                </RedirectLink>
-                                
-                                <RedirectLink
-                                    link={`https://www.linkedin.com/in/${member.linkedIn}/`}
-                                    title={`Opens ${member.name}'s LinkedIn profile in a new tab`}
-                                >
-                                    <HStack
-                                        height={'40px'}
-                                        justifyContent={'center'}
-                                        alignItems={'center'}
-                                        gap={'10px'}
+                                    </VStack>
+                                    <VStack
+                                        justifyContent={'flex-start'}
+                                        alignItems={'flex-start'}
                                     >
-                                            <Box
-                                                width={['20px','30px','30px']}
-                                                height={'30px'}
+                                        <RedirectLink
+                                            link={`mailto: ${member.email}`}
+                                            title={`Sends an email to ${member.name} in a new tab`}
+                                        >
+                                            <HStack
+                                                height={['20px','40px','40px']}
+                                                justifyContent={'center'}
+                                                alignItems={'center'}
+                                                gap={'10px'}
                                             >
-                                                <LinkedIn
-                                                    w={'100%'}
-                                                    h={'100%'}
-                                                />
-                                            </Box>
-                                            <Text
-                                                fontSize={{ base: "xs", sm: "sm", lg: "md" }}
+                                                <Box
+                                                    width={['20px','30px','30px']}
+                                                    height={'30px'}
+                                                >
+                                                    <Email
+                                                        w={'100%'}
+                                                        h={'100%'}
+                                                    />
+                                                </Box>
+                                                <Text
+                                                    fontSize={{ base: "xs", sm: "sm", lg: "md" }}
+                                                >
+                                                    {member.email}
+                                                </Text>
+                                            </HStack>
+                                        </RedirectLink>
+                                        
+                                        <RedirectLink
+                                            link={`https://www.linkedin.com/in/${member.linkedIn}/`}
+                                            title={`Opens ${member.name}'s LinkedIn profile in a new tab`}
+                                        >
+                                            <HStack
+                                                height={'40px'}
+                                                justifyContent={'center'}
+                                                alignItems={'center'}
+                                                gap={'10px'}
                                             >
-                                                {member.linkedIn}
-                                            </Text>
-                                    </HStack>
-                                </RedirectLink>
-                                
-                            </VStack>
-                        </VStack>
+                                                    <Box
+                                                        width={['20px','30px','30px']}
+                                                        height={'30px'}
+                                                    >
+                                                        <LinkedIn
+                                                            w={'100%'}
+                                                            h={'100%'}
+                                                        />
+                                                    </Box>
+                                                    <Text
+                                                        fontSize={{ base: "xs", sm: "sm", lg: "md" }}
+                                                    >
+                                                        {member.linkedIn}
+                                                    </Text>
+                                            </HStack>
+                                        </RedirectLink>
+                                        
+                                    </VStack>
+                                </VStack>
+                            </Box>
+                        </motion.div>
                     </Box>
-                </Box>
-            )}
-        </SimpleGrid>
+                )}
+            </SimpleGrid>
+        </Container>
     );
 }

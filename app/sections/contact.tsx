@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { RedirectLink } from "../components/link";
 import Video from "../components/video";
 import EmailModal from "../components/modal";
+import { motion } from "framer-motion"
+import { fadeVariant } from '../styles/scrollAnimations'
 
 
 export default function Contact() {
@@ -61,37 +63,40 @@ export default function Contact() {
                     flexDirection={'column'}
                     gap={"50px"}
                 >
-                    <Heading
-                        lineHeight={1.1}
-                        fontWeight={600}
-                        fontSize={{ base: "3xl", sm: "4xl", lg: "6xl" }}
+                    <motion.div
+                        variants={fadeVariant({yBot: 0, yTop: 0, duration: 1.1})}
+                        initial="offscreen"
+                        whileInView="onscreen"
+                        viewport={{ once: true}}
                     >
-                        <Text as={"span"} color={"green.100"}>
-                            We need{" "}
-                        </Text>
+                        <Title/>
+                    </motion.div>
+                    <motion.div
+                        variants={fadeVariant({yBot: 0, yTop: 0, duration: 2, delay: 1})}
+                        initial="offscreen"
+                        whileInView="onscreen"
+                        viewport={{ once: true}}
+                        style={{width: "80%"}}
+                    >
                         <Text
-                            as={"span"}
-                            fontStyle={'italic'}
-                            color={'yellow.100'}
+                            color={"green.100"}
+                            fontSize={{ base: "md", sm: "lg", lg: "xl" }}
+                            textAlign={"center"}
                         >
-                            your
+                            To truly create an impactful solution we need to hear everyone’s 
+                            perspective. If you or someone you know has helped orchestrate 
+                            Food Banks or Pantries - or if you just want to talk to us! 
+                            Then we would love to...
                         </Text>
-                        <Text as={"span"} color={"green.100"}>
-                            {" "}help.
-                        </Text>
-                    </Heading>
-                    <Text
-                        width={'80%'}
-                        color={"green.100"}
-                        fontSize={{ base: "md", sm: "lg", lg: "xl" }}
-                        textAlign={"center"}
+                    </motion.div>
+                    <motion.div
+                        variants={fadeVariant({yBot: 0, yTop: 0, duration: 2.1, delay: 1.75})}
+                        initial="offscreen"
+                        whileInView="onscreen"
+                        viewport={{ once: true}}
                     >
-                        To truly create an impactful solution we need to hear everyone’s 
-                        perspective. If you or someone you know has helped orchestrate 
-                        Food Banks or Pantries - or if you just want to talk to us! 
-                        Then we would love to...
-                    </Text>
-                    <EmailModal />
+                        <EmailModal />
+                    </motion.div>
                 </Flex>
             </Container>  
             <Box
@@ -105,4 +110,28 @@ export default function Contact() {
             />
         </Container>
     );
+}
+
+function Title() {
+    return(
+        <Heading
+            lineHeight={1.1}
+            fontWeight={600}
+            fontSize={{ base: "3xl", sm: "4xl", lg: "6xl" }}
+        >
+            <Text as={"span"} color={"green.100"}>
+                We need{" "}
+            </Text>
+            <Text
+                as={"span"}
+                fontStyle={'italic'}
+                color={'yellow.100'}
+            >
+                your
+            </Text>
+            <Text as={"span"} color={"green.100"}>
+                {" "}help.
+            </Text>
+        </Heading>
+    )
 }

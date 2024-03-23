@@ -3,7 +3,7 @@
 import { Box, Image, Text, Container, Heading, HStack, Flex, VStack, Button, Spinner, Skeleton } from "@chakra-ui/react";
 import { awardData, awardsData } from "@/data/awards";
 import { motion } from "framer-motion";
-
+import { fadeVariant } from '../styles/scrollAnimations'
 
 export default function Awards() {
 
@@ -15,7 +15,14 @@ export default function Awards() {
             padding={0}
         >
             <Container maxW={"8xl"} position={'relative'} overflowX={'hidden'}>
-                <Title />
+                <motion.div
+                    variants={fadeVariant({yBot: 0, yTop: 0, duration: 1.1, delay: 0.2})}
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    viewport={{ once: true, amount: 0.8 }}
+                >   
+                    <Title />
+                </motion.div>
                 <Marquee />
                 {/* <CTA /> */}
             </Container>
@@ -33,9 +40,9 @@ function Title() {
             fontSize={{ base: "3xl", sm: "4xl", lg: "6xl" }}
             paddingBottom={'5%'}
         >
-            <Text as={"span"} color={"green.900"}>
-                See how far we've come
-            </Text>
+                <Text as={"span"} color={"green.900"}>
+                    See how far we've come.
+                </Text>
         </Heading>
     );
 }
