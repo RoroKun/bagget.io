@@ -13,7 +13,7 @@ import {
   } from '@chakra-ui/react'
 
 import { teamData } from '@/data/team';
-import { Email, LinkedIn } from '../components/svgs';
+import { BackgroundLogo, Email, LinkedIn } from '../components/svgs';
 import { RedirectLink } from '../components/link';
 import { motion } from "framer-motion"
 import { fadeVariant } from '../styles/scrollAnimations'
