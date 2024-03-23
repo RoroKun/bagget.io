@@ -90,7 +90,7 @@ export default function Contact() {
                         </Text>
                     </motion.div>
                     <motion.div
-                        variants={fadeVariant({yBot: 0, yTop: 0, duration: 2.1, delay: 2.5})}
+                        variants={fadeVariant({yBot: 0, yTop: 0, duration: 2.1, delay: 1.75})}
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true}}
