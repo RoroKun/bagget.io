@@ -77,7 +77,7 @@ export default function Contact() {
                         whileInView="onscreen"
                         viewport={{ once: true}}
                     >
-                        <EmailModal />
+                        <EmailModal ctaPhrase="chat today!"/>
                     </motion.div>
                 </Flex>
             </Container>  

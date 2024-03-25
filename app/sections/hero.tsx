@@ -47,7 +47,7 @@ export default function Hero() {
               whileInView="onscreen"
               viewport={{ once: true, amount: 0.8 }}
             > 
-              <EmailModal />
+              <EmailModal ctaPhrase='Become part of the solution'/>
             </motion.div>
           </Flex>
           <Stack

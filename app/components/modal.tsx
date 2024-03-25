@@ -24,7 +24,7 @@ import { Field, Form, Formik } from 'formik'
 
 import { useRef } from "react"
 
-export default function EmailModal() {
+export default function EmailModal({ctaPhrase}: {ctaPhrase: string}) {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const initialRef = useRef(null)
@@ -62,23 +62,23 @@ export default function EmailModal() {
     <>
       <Toaster />
       <Button 
-        onClick={onOpen}
-        bg={'green.100'}
-        variant='solid' 
-        color={'green.800'} 
-        size={'lg'}
-        _hover={{ 
-            bg: 'green.800',
-            color: 'green.100',
-        }}
-        _active={{
-            bg: 'green.800',
-            color: 'green.100',
-            transform: 'scale(0.9)',
-        }}
-    >
-        Become part of the solution
-    </Button>
+          onClick={onOpen}
+          bg={'green.100'}
+          variant='solid' 
+          color={'green.800'} 
+          size={'lg'}
+          _hover={{ 
+              bg: 'green.800',
+              color: 'green.100',
+          }}
+          _active={{
+              bg: 'green.800',
+              color: 'green.100',
+              transform: 'scale(0.9)',
+          }}
+      >
+          {ctaPhrase}
+      </Button>
 
       <Modal
         initialFocusRef={initialRef}
