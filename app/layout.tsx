@@ -38,12 +38,12 @@ export const metadata: Metadata = {
     "Sunstone 2023",
   ],
   icons: {
-    icon: "/favicon.svg",
+    icon: "/favicon.ico",
     shortcut: "/favicon.svg",
     apple: "/favicon.svg",
     other: {
       rel: "bag-get-icon",
-      url: "/favicon.svg",
+      url: "/favicon.ico",
     },
   },
 };

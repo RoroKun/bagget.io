@@ -3,7 +3,7 @@
 
 import { CacheProvider } from '@chakra-ui/next-js'
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
-import { baggetGreen } from './customThemes'
+import { baggetGreen } from './styles/customThemes'
 
 
 const customThemes = extendTheme({

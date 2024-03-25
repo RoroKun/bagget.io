@@ -5,7 +5,7 @@ export default function Footer() {
         <Container 
             as={'footer'}
             maxW={'full'} 
-            height={'5vh'}
+            height={'65px'}
             bg={'green.800'}
             position={'relative'}
             padding={0}
