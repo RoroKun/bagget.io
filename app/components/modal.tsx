@@ -88,8 +88,11 @@ export default function EmailModal({ctaPhrase}: {ctaPhrase: string}) {
         size={['sm','lg','xl']}
       >
         <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Send Email</ModalHeader>
+        <ModalContent 
+          bg={'green.50'}
+          color={'green.800'}
+        >
+          <ModalHeader>Email Bag/Get</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <EmailForm submit={(info)=> sendEmail(info)}/>
@@ -158,7 +161,7 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
                 {({ field, form }: { field: any; form: any }) => (
                   <FormControl isInvalid={form.errors.subject && form.touched.subject}>
                     <FormLabel>Email Subject</FormLabel>
-                    <Input {...field} placeholder='Enter email subject' />
+                    <Input {...field} placeholder='Enter email subject' borderColor="green.800" _placeholder={{ color: "green.800" }}/>
                     <FormErrorMessage>{form.errors.subject}</FormErrorMessage>
                   </FormControl>
                 )}
@@ -170,7 +173,7 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
                   <FormControl isInvalid={form.errors.recipient && form.touched.recipient}>
                     <FormLabel>Email Recipient</FormLabel>
                     <Stack spacing={3}>
-                      <Select {...field} placeholder='Select a recipient'>
+                      <Select {...field} placeholder='Select a recipient' borderColor="green.800" _placeholder={{ color: "green.800" }}>
                         {memberOptions.map((member, i) => 
                           <option value={member} key={`option-${i+1}`}>{members[member]}</option>
                         )}
@@ -187,7 +190,7 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
                   {({ field, form }: { field: any; form: any }) => (
                     <FormControl isInvalid={form.errors.fname && form.touched.fname}>
                       <FormLabel>First Name</FormLabel>
-                      <Input {...field} id="fname" placeholder='Enter first name' />
+                      <Input {...field} id="fname" placeholder='Enter first name' borderColor="green.800" _placeholder={{ color: "green.800" }} />
                       <FormErrorMessage>{form.errors.fname}</FormErrorMessage>
                     </FormControl>
                   )}
@@ -198,7 +201,7 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
                   {({ field, form }: { field: any; form: any }) => (
                     <FormControl isInvalid={form.errors.lname && form.touched.lname}>
                       <FormLabel>Last Name</FormLabel>
-                      <Input {...field} placeholder='Enter last name' />
+                      <Input {...field} placeholder='Enter last name' borderColor="green.800" _placeholder={{ color: "green.800" }}/>
                       <FormErrorMessage>{form.errors.lname}</FormErrorMessage>
                     </FormControl>
                   )}
@@ -210,7 +213,7 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
                 {({ field, form }: { field: any; form: any }) => (
                   <FormControl isInvalid={form.errors.email && form.touched.email}>
                     <FormLabel>Email</FormLabel>
-                    <Input {...field} placeholder='Enter email' />
+                    <Input {...field} placeholder='Enter email' borderColor="green.800" _placeholder={{ color: "green.800" }}/>
                     <FormErrorMessage>{form.errors.email}</FormErrorMessage>
                   </FormControl>
                 )}
@@ -221,22 +224,35 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
                 {({ field, form }: { field: any; form: any }) => (
                   <FormControl isInvalid={form.errors.message && form.touched.message}>
                     <FormLabel>Message</FormLabel>
-                    <Textarea {...field} placeholder='What would you like to talk about?' draggable='false' resize='none'/>
+                    <Textarea {...field} placeholder='What would you like to talk about?' draggable='false' resize='none' borderColor="green.800" _placeholder={{ color: "green.800" }}/>
                     <FormErrorMessage>{form.errors.message}</FormErrorMessage>
                   </FormControl>
                 )}
               </Field>
             </Container>
           </VStack>
-          <Button
-            mt={4}
-            width={'full'}
-            colorScheme='teal'
-            isLoading={props.isSubmitting}
-            type='submit'
+          <Button 
+              type='submit'
+              width={'full'}
+              isLoading={props.isSubmitting}
+              mt={4}
+              bg={'green.100'}
+              variant='solid' 
+              color={'green.800'} 
+              size={'lg'}
+              _hover={{ 
+                  bg: 'green.800',
+                  color: 'green.100',
+              }}
+              _active={{
+                  bg: 'green.800',
+                  color: 'green.100',
+                  transform: 'scale(0.9)',
+              }}
           >
-            Submit Email
+              Send Email
           </Button>
+
         </Form>
       )}
     </Formik>
