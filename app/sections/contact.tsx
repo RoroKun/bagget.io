@@ -77,7 +77,29 @@ export default function Contact() {
                         whileInView="onscreen"
                         viewport={{ once: true}}
                     >
-                        <EmailModal ctaPhrase="chat today!"/>
+                        {/* <EmailModal ctaPhrase="chat today!"/> */}
+                        <RedirectLink
+                        link='mailto:rohan@bagget.io?cc=alan@bagget.io;cesar@bagget.io;michael@bagget.io'
+                        title='Sends an email to the Bag/Get team in a new tab'
+                    >
+                        <Button 
+                            bg={'green.100'}
+                            variant='solid' 
+                            color={'green.800'} 
+                            size={'lg'}
+                            _hover={{ 
+                                bg: 'green.800',
+                                color: 'green.100',
+                            }}
+                            _active={{
+                                bg: 'green.800',
+                                color: 'green.100',
+                                transform: 'scale(0.9)',
+                            }}
+                        >
+                            chat today!
+                        </Button>
+                    </RedirectLink>
                     </motion.div>
                 </Flex>
             </Container>  
