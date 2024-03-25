@@ -157,8 +157,7 @@ function InfoBlurb() {
       colorScheme="baggetGreen"
     >
       {stakeholderData.map((stakeholder, index) => (
-            
-            <Step>
+            <Step key={`stakeholder=${index}`}>
               <StepIndicator>
                 <StepStatus complete={<></>} incomplete={<></>} active={<></>} />
               </StepIndicator>
