@@ -47,7 +47,7 @@ export default function Stakeholders() {
           >
               <InfoBlurb />
                 <motion.div
-                  variants={fadeVariant({yBot: 0, yTop: 0, duration: 1.25})}
+                  variants={fadeVariant({yBot: 0, yTop: 0, duration: 1.25, delay: 0.75})}
                   initial="offscreen"
                   whileInView="onscreen"
                   viewport={{ once: true, amount: 0.8 }}
@@ -70,7 +70,7 @@ export default function Stakeholders() {
                   marginBottom={["45%", "20%", "0%"]}
                 >
                   <motion.div
-                    variants={fadeVariant({yBot: 0, yTop: 0, duration: 0.5})}
+                    variants={fadeVariant({yBot: 0, yTop: 0, duration: 0.5, delay: 0.75})}
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true}}
@@ -110,7 +110,7 @@ function Title() {
     >
       <Stack flex={1} spacing={{ base: 5, md: 10 }}>
         <motion.div
-            variants={fadeVariant({yBot: 0, yTop: 0, duration: 0.5})}
+            variants={fadeVariant({yBot: 0, yTop: 0, duration: 0.5, delay: 0.75})}
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.8 }}
@@ -144,7 +144,7 @@ function InfoBlurb() {
 
   return (
     <motion.div
-      variants={fadeVariant({yBot: 5, yTop: 0, duration: 0.5})}
+      variants={fadeVariant({yBot: 5, yTop: 0, duration: 0.5, delay: 0.75})}
       initial="offscreen"
       whileInView="onscreen"
       viewport={{ once: true}} 
