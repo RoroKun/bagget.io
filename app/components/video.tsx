@@ -3,11 +3,16 @@ import { useEffect, useState } from "react";
 
 
 export default function Video() {
-    const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
-    const [heightWidth, setHeightWidth] = useState<number>(window.innerHeight);
+    const [windowWidth, setWindowWidth] = useState<number>(0);
+    const [heightWidth, setHeightWidth] = useState<number>(0);
     // const [videoLoaded, setVideoLoaded] = useState(false);
 
     useEffect(() => {
+        if (typeof window !== 'undefined') {
+            setWindowWidth(window.innerWidth);
+            setHeightWidth(window.innerHeight);
+        }
+        
         const handleResize = () => {
             setWindowWidth(window.innerWidth);
             setHeightWidth(window.innerHeight);
