@@ -42,7 +42,7 @@ export default function Hero() {
           >
             <HeroTitle />    
             <motion.div
-              variants={fadeVariant({yBot: 50, yTop: 0, duration: 1.1, delay: 0.5})}
+              variants={fadeVariant({yBot: 5, yTop: 0, duration: 1.1, delay: 0.5})}
               initial="offscreen"
               whileInView="onscreen"
               viewport={{ once: true, amount: 0.8 }}
@@ -79,7 +79,7 @@ function HeroTitle() {
         fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }}
       >
         <motion.div
-          variants={fadeVariant({yBot: 50, yTop: 0, duration: 1.0})}
+          variants={fadeVariant({yBot: 5, yTop: 0, duration: 1.0})}
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.8 }}
@@ -107,7 +107,7 @@ function HeroTitle() {
         </motion.div>
         <br />
         <motion.div
-          variants={fadeVariant({yBot: 50, yTop: 0, duration: 1.1, delay: 0.5})}
+          variants={fadeVariant({yBot: 5, yTop: 0, duration: 1.1, delay: 0.5})}
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.8 }}
@@ -118,7 +118,7 @@ function HeroTitle() {
         </motion.div>
       </Heading>
       <motion.div
-        variants={fadeVariant({yBot: 50, yTop: 0, duration: 1.1, delay: 0.5})}
+        variants={fadeVariant({yBot: 5, yTop: 0, duration: 1.1, delay: 0.5})}
         initial="offscreen"
         whileInView="onscreen"
         viewport={{ once: true, amount: 0.8 }}

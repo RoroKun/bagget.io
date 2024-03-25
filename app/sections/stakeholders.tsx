@@ -47,7 +47,7 @@ export default function Stakeholders() {
           >
               <InfoBlurb />
                 <motion.div
-                  variants={fadeVariant({yBot: 0, yTop: 0, duration: 1.1, delay: 0.2})}
+                  variants={fadeVariant({yBot: 0, yTop: 0, duration: 1.25})}
                   initial="offscreen"
                   whileInView="onscreen"
                   viewport={{ once: true, amount: 0.8 }}
@@ -70,7 +70,7 @@ export default function Stakeholders() {
                   marginBottom={["45%", "20%", "0%"]}
                 >
                   <motion.div
-                    variants={fadeVariant({yBot: 0, yTop: 0, duration: 1.1, delay: 0.2})}
+                    variants={fadeVariant({yBot: 0, yTop: 0, duration: 0.5})}
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true}}
@@ -110,7 +110,7 @@ function Title() {
     >
       <Stack flex={1} spacing={{ base: 5, md: 10 }}>
         <motion.div
-            variants={fadeVariant({yBot: 0, yTop: 0, duration: 1.1, delay: 1.25})}
+            variants={fadeVariant({yBot: 0, yTop: 0, duration: 0.5})}
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.8 }}
@@ -143,6 +143,12 @@ function Title() {
 function InfoBlurb() {
 
   return (
+    <motion.div
+      variants={fadeVariant({yBot: 5, yTop: 0, duration: 0.5})}
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true}} 
+    >
     <Stepper
       size="lg"
       index={3}
@@ -151,13 +157,6 @@ function InfoBlurb() {
       colorScheme="baggetGreen"
     >
       {stakeholderData.map((stakeholder, index) => (
-          <motion.div
-            variants={fadeVariant({yBot: 50, yTop: 0, duration: 1.1, delay:  (index / 3) + 0.75})}
-            initial="offscreen"
-            whileInView="onscreen"
-            viewport={{ once: true}} 
-            key={index}
-          >
             
             <Step>
               <StepIndicator>
@@ -176,9 +175,9 @@ function InfoBlurb() {
 
               <StepSeparator />
             </Step>
-          </motion.div>
       ))}
     </Stepper>
+      </motion.div>
   );
 }
 

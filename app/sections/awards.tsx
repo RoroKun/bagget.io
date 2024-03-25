@@ -16,7 +16,7 @@ export default function Awards() {
         >
             <Container maxW={"8xl"} position={'relative'} overflowX={'hidden'}>
                 <motion.div
-                    variants={fadeVariant({yBot: 0, yTop: 0, duration: 1.1, delay: 0.2})}
+                    variants={fadeVariant({yBot: 0, yTop: 0, duration: 0.5})}
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.8 }}

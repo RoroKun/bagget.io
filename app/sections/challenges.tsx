@@ -38,10 +38,10 @@ export default function Challenges() {
                     textAlign={'center'}
                 >
                 <motion.div
-                    variants={fadeVariant({yBot: 0, yTop: 0, duration: 1.1, delay: 0.2})}
+                    variants={fadeVariant({yBot: 0, yTop: 0, duration: 0.5})}
                     initial="offscreen"
                     whileInView="onscreen"
-                    viewport={{ once: true, amount: 0.8 }}
+                    viewport={{ once: true}}
                 >
                     <Text as={"span"} color={"green.900"}>
                         However, under the surface...
@@ -51,10 +51,10 @@ export default function Challenges() {
                     {challengesData.map((challenge, i) => {
                         return (
                             <motion.div
-                                variants={fadeVariant({yBot: 100, yTop: 0, duration: 0.9,})}
+                                variants={fadeVariant({yBot: 50, yTop: 0, duration: 0.75})}
                                 initial="offscreen"
                                 whileInView="onscreen"
-                                viewport={{ once: true, amount: 0.8 }}
+                                viewport={{ once: true}}
                                 key={`marquee-card-${i}`}
                                 style={{width:'100%'}}
                             >

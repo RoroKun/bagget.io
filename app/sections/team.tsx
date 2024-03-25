@@ -42,11 +42,11 @@ export default function Team() {
                     <VStack 
                         spacing='24px' 
                         width={"full"} 
-                        paddingTop={'5%'} 
+                        paddingTop={['10%', '5%', '5%']} 
                         paddingBottom={['25%', '15%', '15%']}
                     >
                         <motion.div
-                            variants={fadeVariant({yBot: 0, yTop: 0, duration: 1.1, delay: 0.2})}
+                            variants={fadeVariant({yBot: 0, yTop: 0, duration: 0.5})}
                             initial="offscreen"
                             whileInView="onscreen"
                             viewport={{ once: true, amount: 0.8 }}
@@ -116,7 +116,7 @@ function TeamMembers() {
                         key={id}
                     >
                         <motion.div
-                            variants={fadeVariant({yBot: 100, yTop: 0, duration: 0.9, delay: (id / 3) + 0.25})}
+                            variants={fadeVariant({yBot: 100, yTop: 0, duration: 0.75})}
                             initial="offscreen"
                             whileInView="onscreen"
                             viewport={{ once: true}}
