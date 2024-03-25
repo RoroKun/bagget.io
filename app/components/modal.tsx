@@ -1,4 +1,4 @@
-import { emailRegex, infoData, memberOptions, members, xssRegex } from "@/data/email-data"
+import { emailRegex, infoData, phoneRegex, xssRegex } from "@/data/email-data"
 import { 
     Modal, 
     ModalOverlay,
@@ -16,13 +16,11 @@ import {
     VStack,
     Container,
     Textarea,
-    Select,
-    Stack,
 } from "@chakra-ui/react"
 import toast, { Toaster } from 'react-hot-toast';
 import { Field, Form, Formik } from 'formik'
-
-import { useRef } from "react"
+import { useRef, useState } from "react"
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function EmailModal({ctaPhrase}: {ctaPhrase: string}) {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -104,7 +102,21 @@ export default function EmailModal({ctaPhrase}: {ctaPhrase: string}) {
 }
 
 function EmailForm({submit}: {submit: (info: infoData) => void}) {
-  
+  const [phone, setPhone] = useState<string>('');
+
+  function handlePhoneSyntax (e: React.ChangeEvent<HTMLInputElement>) {
+    const phoneNumber = e.target.value;
+    if(phoneNumber.length === 3 || phoneNumber.length === 7) {
+      const hyphenatedPhone = phoneNumber + '-';
+      setPhone(hyphenatedPhone)
+    } else if(false) {
+
+    } else {
+      setPhone(phoneNumber)
+    }
+  }
+
+
   function sanitizeInput(value: any) {
     let sanitizeError: string | undefined
     if (!value) {
@@ -114,7 +126,17 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
     }
     return sanitizeError
   }
-
+  
+  function sanitizePhone(value: any) {
+    let sanitizeError: string | undefined
+    if (xssRegex.test(value)) {
+      sanitizeError = "Input contains unacceptable characters"
+    } else if(phoneRegex.test(value)) {
+      sanitizeError = "Invalid Phone Number"
+    }
+    return sanitizeError
+  }
+  
   function sanitizeEmail(value: any) {
     let emailError: string | undefined
     emailError = sanitizeInput(value)
@@ -127,17 +149,9 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
     return emailError
   }
 
-  function validateDropDown(value: any) {
-    let dropDownError: string | undefined
-    if (!value) {
-      dropDownError = 'Please select an option'
-    }
-    return dropDownError
-  }
-
   return(
     <Formik
-      initialValues={{ subject: '', recipient: '', fname: '', lname: '', email: '', message: '' }}
+      initialValues={{ subject: '', fname: '', lname: '', email: '', message: '', phone: '' }}
       onSubmit={(values, actions) => {
 
         const fullname = values.fname + " " + values.lname
@@ -145,9 +159,9 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
         const emailInfo = {
           name: fullname,
           from: values.email,
-          recipient: values.recipient,
           subject: values.subject,
-          message: values.message
+          message: values.message,
+          phone: values.phone
         }
 
         submit(emailInfo)
@@ -156,65 +170,59 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
       {(props: any) => (
         <Form>
           <VStack>
+          <HStack width={'full'}>
+            <Container height={'100px'} padding={'unset'}>
+              <Field name='fname' validate={sanitizeInput}>
+                {({ field, form }: { field: any; form: any }) => (
+                  <FormControl isInvalid={form.errors.fname && form.touched.fname}>
+                    <FormLabel>First Name<b>*</b></FormLabel>
+                    <Input {...field} id="fname" placeholder='Enter first name' borderColor="green.800" _placeholder={{ color: "green.800" }} />
+                    <FormErrorMessage>{form.errors.fname}</FormErrorMessage>
+                  </FormControl>
+                )}
+              </Field>
+            </Container>
+            <Container height={'100px'} padding={'unset'}>
+              <Field name='lname' validate={sanitizeInput}>
+                {({ field, form }: { field: any; form: any }) => (
+                  <FormControl isInvalid={form.errors.lname && form.touched.lname}>
+                    <FormLabel>Last Name<b>*</b></FormLabel>
+                    <Input {...field} placeholder='Enter last name' borderColor="green.800" _placeholder={{ color: "green.800" }}/>
+                    <FormErrorMessage>{form.errors.lname}</FormErrorMessage>
+                  </FormControl>
+                )}
+              </Field>
+            </Container>
+          </HStack>
+          <Container height={'100px'} padding={'unset'}>
+              <Field name='email' validate={sanitizeEmail}>
+                {({ field, form }: { field: any; form: any }) => (
+                  <FormControl isInvalid={form.errors.email && form.touched.email}>
+                    <FormLabel>Email<b>*</b></FormLabel>
+                    <Input {...field} placeholder='Your email address' borderColor="green.800" _placeholder={{ color: "green.800" }}/>
+                    <FormErrorMessage>{form.errors.email}</FormErrorMessage>
+                  </FormControl>
+                )}
+              </Field>
+            </Container>
+            <Container height={'100px'} padding={'unset'}>
+              <Field name='phone' validate={sanitizePhone}>
+                {({ field, form }: { field: any; form: any }) => (
+                  <FormControl isInvalid={form.errors.phone && form.touched.phone}>
+                    <FormLabel>Phone Number (Optional)</FormLabel>
+                    <Input {...field} placeholder='Your phone number' borderColor="green.800" _placeholder={{ color: "green.800" }} onChange={(e) => handlePhoneSyntax(e)} value={phone}/>
+                    <FormErrorMessage>{form.errors.phone}</FormErrorMessage>
+                  </FormControl>
+                )}
+              </Field>
+            </Container>
             <Container height={'100px'} padding={'unset'}>
               <Field name='subject' validate={sanitizeInput}>
                 {({ field, form }: { field: any; form: any }) => (
                   <FormControl isInvalid={form.errors.subject && form.touched.subject}>
-                    <FormLabel>Email Subject</FormLabel>
+                    <FormLabel>Subject<b>*</b></FormLabel>
                     <Input {...field} placeholder='Enter email subject' borderColor="green.800" _placeholder={{ color: "green.800" }}/>
                     <FormErrorMessage>{form.errors.subject}</FormErrorMessage>
-                  </FormControl>
-                )}
-              </Field>
-            </Container>
-            <Container height={'100px'} padding={'unset'}>
-              <Field name='recipient' validate={validateDropDown}>
-                {({ field, form }: { field: any; form: any }) => (
-                  <FormControl isInvalid={form.errors.recipient && form.touched.recipient}>
-                    <FormLabel>Email Recipient</FormLabel>
-                    <Stack spacing={3}>
-                      <Select {...field} placeholder='Select a recipient' borderColor="green.800" _placeholder={{ color: "green.800" }}>
-                        {memberOptions.map((member, i) => 
-                          <option value={member} key={`option-${i+1}`}>{members[member]}</option>
-                        )}
-                      </Select>
-                    </Stack>
-                    <FormErrorMessage>{form.errors.recipient}</FormErrorMessage>
-                  </FormControl>
-                )}
-              </Field>
-            </Container>
-            <HStack width={'full'}>
-              <Container height={'100px'} padding={'unset'}>
-                <Field name='fname' validate={sanitizeInput}>
-                  {({ field, form }: { field: any; form: any }) => (
-                    <FormControl isInvalid={form.errors.fname && form.touched.fname}>
-                      <FormLabel>First Name</FormLabel>
-                      <Input {...field} id="fname" placeholder='Enter first name' borderColor="green.800" _placeholder={{ color: "green.800" }} />
-                      <FormErrorMessage>{form.errors.fname}</FormErrorMessage>
-                    </FormControl>
-                  )}
-                </Field>
-              </Container>
-              <Container height={'100px'} padding={'unset'}>
-                <Field name='lname' validate={sanitizeInput}>
-                  {({ field, form }: { field: any; form: any }) => (
-                    <FormControl isInvalid={form.errors.lname && form.touched.lname}>
-                      <FormLabel>Last Name</FormLabel>
-                      <Input {...field} placeholder='Enter last name' borderColor="green.800" _placeholder={{ color: "green.800" }}/>
-                      <FormErrorMessage>{form.errors.lname}</FormErrorMessage>
-                    </FormControl>
-                  )}
-                </Field>
-              </Container>
-            </HStack>
-            <Container height={'125px'} padding={'unset'}>
-              <Field name='email' validate={sanitizeEmail}>
-                {({ field, form }: { field: any; form: any }) => (
-                  <FormControl isInvalid={form.errors.email && form.touched.email}>
-                    <FormLabel>Email</FormLabel>
-                    <Input {...field} placeholder='Enter email' borderColor="green.800" _placeholder={{ color: "green.800" }}/>
-                    <FormErrorMessage>{form.errors.email}</FormErrorMessage>
                   </FormControl>
                 )}
               </Field>
@@ -223,7 +231,7 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
               <Field name='message' validate={sanitizeInput}>
                 {({ field, form }: { field: any; form: any }) => (
                   <FormControl isInvalid={form.errors.message && form.touched.message}>
-                    <FormLabel>Message</FormLabel>
+                    <FormLabel>Message<b>*</b></FormLabel>
                     <Textarea {...field} placeholder='What would you like to talk about?' draggable='false' resize='none' borderColor="green.800" _placeholder={{ color: "green.800" }}/>
                     <FormErrorMessage>{form.errors.message}</FormErrorMessage>
                   </FormControl>
@@ -252,7 +260,9 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
           >
               Send Email
           </Button>
-
+          {/* <ReCAPTCHA
+            sitekey={process.env.CAPTCHA_SITE_KEY}
+          /> */}
         </Form>
       )}
     </Formik>
