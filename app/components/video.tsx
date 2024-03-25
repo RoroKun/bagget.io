@@ -3,30 +3,27 @@ import { useEffect, useState } from "react";
 
 
 export default function Video() {
-    const [windowWidth, setWindowWidth] = useState<number>(-1);
-    const [heightWidth, setHeightWidth] = useState<number>(-1);
+    const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+    const [heightWidth, setHeightWidth] = useState<number>(window.innerHeight);
     // const [videoLoaded, setVideoLoaded] = useState(false);
 
     useEffect(() => {
         const handleResize = () => {
-        setWindowWidth(window.innerWidth);
-        setHeightWidth(window.innerHeight);
-        };
-    
-        window.addEventListener('resize', handleResize);
-
-        return () => {
+            setWindowWidth(window.innerWidth);
+            setHeightWidth(window.innerHeight);
+          };
+      
+          window.addEventListener('resize', handleResize);
+          
+          return () => {
             window.removeEventListener('resize', handleResize);
-        }
+          }
     }, []);
 
     let videoSize = windowWidth < heightWidth ? { maxWidth: 'unset', height: '100%'} : { maxWidth: '100%', height: 'unset'}
 
     return (
         <motion.div
-            // initial={{ opacity: 0 }}
-            // animate={{ opacity: videoLoaded ? 1 : 0 }}
-            // transition={{ duration: 0.5 }}
         >
             <video style={videoSize}  muted loop autoPlay>
                 <source src="packing-food.webm" type="video/webm" />

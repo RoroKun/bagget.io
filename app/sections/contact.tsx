@@ -1,7 +1,6 @@
 'use client'
 
 import { Text, Box, Container, Heading, Button, Flex } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
 import { RedirectLink } from "../components/link";
 import Video from "../components/video";
 import EmailModal from "../components/modal";
@@ -10,24 +9,7 @@ import { fadeVariant } from '../styles/scrollAnimations'
 
 
 export default function Contact() {
-    const [windowWidth, setWindowWidth] = useState<number>(-1);
-    const [heightWidth, setHeightWidth] = useState<number>(-1);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setWindowWidth(window.innerWidth);
-            setHeightWidth(window.innerHeight);
-          };
-      
-          window.addEventListener('resize', handleResize);
-
-          return () => {
-            window.removeEventListener('resize', handleResize);
-          }
-    }, []);
-
-    let videoSize = windowWidth < heightWidth ? { maxWidth: 'unset', height: '100%'} : { maxWidth: '100%', height: 'unset'}
-
+    
     return(
         <Container 
             maxW={'full'} 
