@@ -260,9 +260,9 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
           >
               Send Email
           </Button>
-          {/* <ReCAPTCHA
-            sitekey={process.env.CAPTCHA_SITE_KEY}
-          /> */}
+          <ReCAPTCHA
+            sitekey={process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY!}
+          />
         </Form>
       )}
     </Formik>
