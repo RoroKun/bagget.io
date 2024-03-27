@@ -1,7 +1,6 @@
 'use client'
 
-import { Text, Box, Container, Heading, Button, Flex } from "@chakra-ui/react";
-import { RedirectLink } from "../components/link";
+import { Text, Box, Container, Heading, Flex } from "@chakra-ui/react";
 import Video from "../components/video";
 import EmailModal from "../components/modal";
 import { motion } from "framer-motion"
@@ -77,29 +76,7 @@ export default function Contact() {
                         whileInView="onscreen"
                         viewport={{ once: true}}
                     >
-                        {/* <EmailModal ctaPhrase="chat today!"/> */}
-                        <RedirectLink
-                        link='mailto:rohan@bagget.io?cc=alan@bagget.io;cesar@bagget.io;michael@bagget.io'
-                        title='Sends an email to the Bag/Get team in a new tab'
-                    >
-                        <Button 
-                            bg={'green.100'}
-                            variant='solid' 
-                            color={'green.800'} 
-                            size={'lg'}
-                            _hover={{ 
-                                bg: 'green.800',
-                                color: 'green.100',
-                            }}
-                            _active={{
-                                bg: 'green.800',
-                                color: 'green.100',
-                                transform: 'scale(0.9)',
-                            }}
-                        >
-                            chat today!
-                        </Button>
-                    </RedirectLink>
+                        <EmailModal ctaPhrase="chat today!"/>
                     </motion.div>
                 </Flex>
             </Container>  

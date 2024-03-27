@@ -7,12 +7,10 @@ import {
   Box,
   Heading,
   Text,
-  Button,
 } from '@chakra-ui/react'
 import EmailModal from '../components/modal'
 import { motion } from "framer-motion"
 import { fadeVariant } from '../styles/scrollAnimations'
-import { RedirectLink } from '../components/link'
 
 export default function Hero() {
   return (
@@ -49,29 +47,7 @@ export default function Hero() {
               whileInView="onscreen"
               viewport={{ once: true, amount: 0.8 }}
             > 
-              {/* <EmailModal ctaPhrase='Become part of the solution'/> */}
-              <RedirectLink
-                link='mailto:rohan@bagget.io?cc=alan@bagget.io;cesar@bagget.io;michael@bagget.io'
-                title='Sends an email to the Bag/Get team in a new tab'
-            >
-                <Button 
-                    bg={'green.100'}
-                    variant='solid' 
-                    color={'green.800'} 
-                    size={'lg'}
-                    _hover={{ 
-                        bg: 'green.800',
-                        color: 'green.100',
-                    }}
-                    _active={{
-                        bg: 'green.800',
-                        color: 'green.100',
-                        transform: 'scale(0.9)',
-                    }}
-                >
-                    Become part of the solution
-                </Button>
-            </RedirectLink> 
+              <EmailModal ctaPhrase='Become part of the solution'/>
             </motion.div>
           </Flex>
           <Stack
