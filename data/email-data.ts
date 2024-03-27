@@ -7,7 +7,6 @@ export interface infoData {
 }
 
 type members = { [key: string]: string };
-type memberEmails = { [key: string]: string };
 
 export const members: members = {
     rohan: "Rohan Kunchala",
