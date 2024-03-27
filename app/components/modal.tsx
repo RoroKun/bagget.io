@@ -102,6 +102,8 @@ export default function EmailModal({ctaPhrase}: {ctaPhrase: string}) {
 }
 
 function EmailForm({submit}: {submit: (info: infoData) => void}) {
+  const captcha = useRef();
+
   const [phone, setPhone] = useState<string>('');
 
   function handlePhoneSyntax (e: React.ChangeEvent<HTMLInputElement>) {
@@ -239,6 +241,13 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
               </Field>
             </Container>
           </VStack>
+          <VStack justifyContent='center'>
+            <ReCAPTCHA
+              ref={captcha}
+              sitekey={process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY!}
+            />
+          </VStack>
+          
           <Button 
               type='submit'
               width={'full'}
@@ -260,9 +269,6 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
           >
               Send Email
           </Button>
-          <ReCAPTCHA
-            sitekey={process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY!}
-          />
         </Form>
       )}
     </Formik>
