@@ -91,8 +91,8 @@ function Title() {
                     fontSize={{ base: "sm", sm: "lg", lg: "xl" }}
                     color={'green.100'}
                 >
-                    We are Cal State Fullerton CS majors looking to create custom solutions for this ecosystem 
-                    - So that our communities can Bag their troubles and Get one step close to food security.
+                    We are Cal State Fullerton CS majors developing custom solutions for this ecosystem 
+                    - So that our communities can Bag their troubles and Get one step closer to food security.
                 </Text>
         </VStack>
     );
