@@ -20,7 +20,7 @@ import {
 import toast, { Toaster } from 'react-hot-toast';
 import { Field, Form, Formik } from 'formik'
 import { useRef, useState } from "react"
-import ReCAPTCHA from 'react-google-recaptcha';
+import ReCAPTCHA from 'react-google-recaptcha'
 
 export default function EmailModal({ctaPhrase}: {ctaPhrase: string}) {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -108,10 +108,24 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
 
   function handlePhoneSyntax (e: React.ChangeEvent<HTMLInputElement>) {
     const phoneNumber = e.target.value;
-    if(phoneNumber.length === 3 || phoneNumber.length === 7) {
-      const hyphenatedPhone = phoneNumber + '-';
-      setPhone(hyphenatedPhone)
-    } else if(false) {
+    console.log("last value", phone[phone.length-1])
+    console.log("length", phoneNumber.length)
+    if(phone[phone.length-1] === '-' && (phoneNumber.length !== 5 || phoneNumber.length !== 9)) {
+
+// const hyphenatedPhone = phoneNumber + '-';
+console.log("y")
+console.log(phoneNumber)
+setPhone(phoneNumber.slice(0, -1))
+
+
+} else if(phoneNumber.length === 3 || phoneNumber.length === 7) {
+  
+  
+  console.log("x")
+  const hyphenatedPhone = phoneNumber + '-';
+  setPhone(hyphenatedPhone)
+      
+
 
     } else {
       setPhone(phoneNumber)
@@ -243,11 +257,10 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
           </VStack>
           <VStack justifyContent='center'>
             <ReCAPTCHA
-              onChange={(e) => setCapValid(e)}
+              onChange={(e: string | null) => setCapValid(e)}
               sitekey={process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY!}
             />
           </VStack>
-          {/* <Text>{!props.isValid ? 'false' : 'true'}</Text> */}
           <Button 
               type='submit'
               width={'full'}
