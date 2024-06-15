@@ -1,4 +1,4 @@
-import { emailRegex, infoData, phoneRegex, xssRegex } from "@/data/email-data"
+import { emailRegex, infoData, phoneRegex, xssRegex, numbersRegex } from "@/data/email-data"
 import { 
     Modal, 
     ModalOverlay,
@@ -107,26 +107,17 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
   const [phone, setPhone] = useState<string>('');
 
   function handlePhoneSyntax (e: React.ChangeEvent<HTMLInputElement>) {
+
     const phoneNumber = e.target.value;
-    console.log("last value", phone[phone.length-1])
-    console.log("length", phoneNumber.length)
-    if(phone[phone.length-1] === '-' && (phoneNumber.length !== 5 || phoneNumber.length !== 9)) {
-
-// const hyphenatedPhone = phoneNumber + '-';
-console.log("y")
-console.log(phoneNumber)
-setPhone(phoneNumber.slice(0, -1))
-
-
-} else if(phoneNumber.length === 3 || phoneNumber.length === 7) {
-  
-  
-  console.log("x")
-  const hyphenatedPhone = phoneNumber + '-';
-  setPhone(hyphenatedPhone)
-      
-
-
+    
+    if(phone[phone.length-1] === '-' && phoneNumber.length !== 5 && phoneNumber.length !== 9) {
+      setPhone(phoneNumber.slice(0, -1))
+    } else if(!numbersRegex.test(phoneNumber) && !(phoneNumber.length !== 1) ) {
+      console.log(":hit")
+      return
+    } else if(phoneNumber.length === 3 || phoneNumber.length === 7) {
+      const hyphenatedPhone = phoneNumber + '-';
+      setPhone(hyphenatedPhone)
     } else {
       setPhone(phoneNumber)
     }
@@ -145,11 +136,16 @@ setPhone(phoneNumber.slice(0, -1))
   
   function sanitizePhone(value: any) {
     let sanitizeError: string | undefined
-    if (xssRegex.test(value)) {
+
+    if(phone.length === 0) {
+      return sanitizeError
+    } else if (xssRegex.test(phone)) {
       sanitizeError = "Input contains unacceptable characters"
-    } else if(phoneRegex.test(value)) {
-      sanitizeError = "Invalid Phone Number"
-    }
+    } else if (phone.includes(" ")) {
+      return "Remove any spaces."
+    } else if(!phoneRegex.test(phone)) {
+      sanitizeError = "Please follow this format XXX-XXX-XXXX"
+    } 
     return sanitizeError
   }
   
@@ -177,7 +173,7 @@ setPhone(phoneNumber.slice(0, -1))
           from: values.email,
           subject: values.subject,
           message: values.message,
-          phone: values.phone
+          phone
         }
 
         submit(emailInfo)
@@ -226,7 +222,7 @@ setPhone(phoneNumber.slice(0, -1))
                 {({ field, form }: { field: any; form: any }) => (
                   <FormControl isInvalid={form.errors.phone && form.touched.phone}>
                     <FormLabel>Phone Number (Optional)</FormLabel>
-                    <Input {...field} placeholder='Your phone number' borderColor="green.800" _placeholder={{ color: "green.800" }} onChange={(e) => handlePhoneSyntax(e)} value={phone}/>
+                    <Input {...field} maxLength={12} placeholder='Your phone number' borderColor="green.800" _placeholder={{ color: "green.800" }} onChange={(e) => handlePhoneSyntax(e)} value={phone}/>
                     <FormErrorMessage>{form.errors.phone}</FormErrorMessage>
                   </FormControl>
                 )}
