@@ -23,7 +23,7 @@ export default function Team() {
     return (
         <Container 
             maxW={"full"} 
-            bg={'green.50'}
+            bgGradient={"linear(to-t, green.50, green.100)"} 
             paddingBottom={'5%'}
             id="Team"
             position="relative"
@@ -31,7 +31,7 @@ export default function Team() {
         >
             <Container 
                 maxW={"8xl"} 
-                bg={'green.800'} 
+                bgGradient={"linear(to-t, green.800, green.900)"} 
                 borderRadius={[
                     "50px 35px",
                     "100px 40px",

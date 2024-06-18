@@ -26,7 +26,7 @@ export default function Stakeholders() {
     <Container 
       maxW={"full"} 
       px={0} 
-      bgGradient={"linear(to-b, teal.50, blue.50)"} 
+      bgGradient={"radial(green.700, green.900)"} 
       position={'relative'} 
       zIndex={-3} 
       paddingBottom={'5%'}
@@ -102,7 +102,7 @@ function Title() {
       spacing={{ base: 8, md: 10 }}
       py={{ base: 15, md: 23 }}
       direction={{ base: "column", md: "row" }}
-      bgGradient={"linear(to-r, green.900, green.700)"} 
+      // bgGradient={"linear(to-t, green.900, green.700)"} 
       textAlign={'center'}
       marginBottom={50}
       position={'relative'}
@@ -165,11 +165,11 @@ function InfoBlurb() {
                     <Heading
                       fontWeight={600}
                       fontSize={{ base: "lg", sm: "xl", lg: "3xl" }}
-                      color={'green.800'}
+                      color={'blackalpha.800'}
                     >
                       {stakeholder.title}
                     </Heading>
-                  <Text fontSize={{ base: "md", sm: "lg", lg: "xl" }} color={'green.800'}>{stakeholder.description}</Text>
+                  <Text fontSize={{ base: "md", sm: "lg", lg: "xl" }} color={'blackalpha.800'}>{stakeholder.description}</Text>
               </Box>
 
               <StepSeparator />

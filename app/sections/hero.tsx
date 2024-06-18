@@ -20,8 +20,12 @@ export default function Hero() {
     zIndex={101}
     >
       <Box
-        maxH={'100%'}
+        maxH={'100px'}
+        maxW={'100px'}
         position="absolute"
+        left="50%"
+        top="50%"
+        transform="translate(-50%, -50%)"
         inset={0}
         zIndex={-2}
         bgImage={"/hero-img.webp"}

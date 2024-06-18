@@ -25,7 +25,7 @@ export default function Challenges() {
     return (
         <Container 
             maxW={"full"} 
-            bg={'green.50'}
+            bgGradient={"linear(to-b, green.50, green.100)"} 
             padding={['10% 0%', '10% 0%', '2% 0%']}
             id='Challenges'
         >
