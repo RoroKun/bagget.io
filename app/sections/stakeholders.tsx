@@ -26,7 +26,7 @@ export default function Stakeholders() {
     <Container 
       maxW={"full"} 
       px={0} 
-      bgColor={"green.50"} 
+      bgGradient={"linear(to-b, teal.50, blue.50)"} 
       position={'relative'} 
       zIndex={-3} 
       paddingBottom={'5%'}
@@ -102,7 +102,7 @@ function Title() {
       spacing={{ base: 8, md: 10 }}
       py={{ base: 15, md: 23 }}
       direction={{ base: "column", md: "row" }}
-      bgColor={"green.800"}
+      bgGradient={"linear(to-r, green.900, green.700)"} 
       textAlign={'center'}
       marginBottom={50}
       position={'relative'}
