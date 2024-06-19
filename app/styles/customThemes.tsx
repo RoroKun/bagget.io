@@ -23,17 +23,25 @@ export const PointIcon = createIcon({
 
 
 
-// Dark Color for stakeholders section
-export const baggetGreen = {
-  50: "rgba(0, 0, 0, 0.80)",
-  100: "rgba(0, 0, 0, 0.80)",
-  200: "rgba(0, 0, 0, 0.80)",
-  300: "rgba(0, 0, 0, 0.80)",
-  400: "rgba(0, 0, 0, 0.80)",
-  500: "rgba(0, 0, 0, 0.80)",
-  600: "rgba(0, 0, 0, 0.80)",
-  700: "rgba(0, 0, 0, 0.80)",
-  800: "rgba(0, 0, 0, 0.80)",
-  900: "rgba(0, 0, 0, 0.80)",
+// Darker Green
+export const bgGreen = {
+  500: "#21593F",
+  600: "#22543D",
+  700: "#1C4532",
+  800: "#132F22",
+  900: "#0D230E",
 }
 
+// Darker Green
+export const WhiteStepper = {
+  50: "#F7FAFC",
+  100: "#F7FAFC",
+  200: "#F7FAFC",
+  300: "#F7FAFC",
+  400: "#F7FAFC",
+  500: "#F7FAFC",
+  600: "#F7FAFC",
+  700: "#F7FAFC",
+  800: "#F7FAFC",
+  900: "#F7FAFC",
+}
