@@ -15,7 +15,7 @@ import {
   Stepper,
   } from "@chakra-ui/react";
 import { stakeholderData } from "@/data/stakeholders";
-import { Blob } from "../components/svgs";
+import { Blob, StakeholderIcon } from "../components/svgs";
 import { motion } from "framer-motion"
 import { fadeVariant } from '../styles/scrollAnimations'
 
@@ -40,56 +40,56 @@ export default function Stakeholders() {
             align={'center'}
             position={'relative'}
             w={'full'}
-            gap={'10%'}
             flexWrap={['wrap', 'wrap', 'nowrap']}
             overflow={'hidden'}
           >
-                <Stack>
-                <Title />
-                <InfoBlurb />
+                <Stack width={'1800px'} marginLeft={['0', '0', '3%']}>
+                  <Title />
+                  <InfoBlurb />
                 </Stack>
-                <motion.div
-                  variants={fadeVariant({yBot: 0, yTop: 0, duration: 1.25, delay: 0.75})}
-                  initial="offscreen"
-                  whileInView="onscreen"
-                  viewport={{ once: true, amount: 0.8 }}
-                >
-                  <Blob
-                    w={['70%', '80%', '60%']}
-                    h={'100%'}
-                    position={'absolute'}
-                    top={['20%', '20%', '0%']}
-                    right={['10%', '10%', '0%']}
-                    zIndex={-1}
-                    color={useColorModeValue('green.100', 'green.400')}
-                  />
-                </motion.div>
-                <Box
-                  position={'relative'}
-                  height={'full'}
-                  width={'full'}
-                  marginTop={["-20%", "10%", "0%"]}
-                  marginBottom={["45%", "20%", "0%"]}
-                >
+                <Stack position={'relative'} width={'100%'} height={'100%'} marginRight={['0', '0', '3%']}>
                   <motion.div
-                    variants={fadeVariant({yBot: 0, yTop: 0, duration: 0.5, delay: 0.75})}
+                    variants={fadeVariant({yBot: 0, yTop: 0, duration: 1.25, delay: 0.75})}
                     initial="offscreen"
                     whileInView="onscreen"
-                    viewport={{ once: true}}
+                    viewport={{ once: true, amount: 0.8 }}
                   >
-                    <Image
-                      alt={'Person working in a pantry packaging food'}
-                      fit={'cover'}
-                      align={'center'}
-                      w={'100%'}
-                      h={'100%'}
-                      src={"/stakeholder-img.webp"}
-                      position={'relative'}
-                      left={'50%'}
-                      transform={'translateX(-50%)'}
+                    <Blob
+                      w={['100%', '100%', '125%']}
+                      h={['100%', '100%', '125%']}
+                      position={'absolute'}
+                      top={['0%', '-10%', '-20%']}
+                      right={['0%', '0%', '0%']}
+                      zIndex={-1}
+                      color={useColorModeValue('green.900', 'green.900')}
                     />
                   </motion.div>
-                </Box>
+                  <Box
+                    position={'relative'}
+                    height={'full'}
+                    width={'full'}
+                    marginBottom={["15%", "0%", "0%"]}
+                  >
+                    <motion.div
+                      variants={fadeVariant({yBot: 0, yTop: 0, duration: 0.5, delay: 0.75})}
+                      initial="offscreen"
+                      whileInView="onscreen"
+                      viewport={{ once: true}}
+                    >
+                      <Image
+                        alt={'Person working in a pantry packaging food'}
+                        fit={'cover'}
+                        align={'center'}
+                        w={'100%'}
+                        h={'100%'}
+                        src={"/stakeholder-img.webp"}
+                        position={'relative'}
+                        left={'50%'}
+                        transform={'translateX(-50%)'}
+                      />
+                    </motion.div>
+                  </Box>
+                </Stack>
             </Flex>
         </Flex>
       </Container>
@@ -104,9 +104,7 @@ function Title() {
       spacing={{ base: 8, md: 10 }}
       py={{ base: 15, md: 23 }}
       direction={{ base: "column", md: "row" }}
-      // bgGradient={"linear(to-t, green.900, green.700)"} 
       textAlign={['center', 'center' ,'left']}
-      marginBottom={50}
       position={'relative'}
       zIndex={-2}
     >
@@ -122,17 +120,17 @@ function Title() {
             fontWeight={600}
             fontSize={{ base: "3xl", sm: "4xl", lg: "5xl" }}
           >
-            <Text as={"span"} color={"green.100"}>
+            <Text as={"span"} color={"bgWhite.50"}>
               There are{" "}
             </Text>
             <Text
               as={"span"}
               fontStyle={'italic'}
-              color={'yellow.100'}
+              color={'green.100'}
             >
               three
             </Text>
-            <Text as={"span"} color={"green.100"}>
+            <Text as={"span"} color={"bgWhite.50"}>
               {" "}impacted parties.
             </Text>
           </Heading>
@@ -155,25 +153,29 @@ function InfoBlurb() {
       size="lg"
       index={3}
       orientation="vertical"
-      height={["300px", "250px", "400px"]}
-      colorScheme="WhiteStepper"
-    >
+      marginLeft={['0', '7%', '0']}
+      colorScheme="bgWhite"    >
       {stakeholderData.map((stakeholder, index) => (
             <Step key={`stakeholder=${index}`}>
               <StepIndicator>
-                <StepStatus complete={<></>} incomplete={<></>} active={<></>} />
+                <StepStatus 
+                  complete={<StakeholderIcon stakeholder={stakeholder.title} 
+                  props={{w: '70%', h: '70%'}}/>} 
+                  incomplete={<></>} 
+                  active={<></>} 
+                />
               </StepIndicator>
-              <Box flexShrink="0" width={'90%'}>
-                    <Heading
-                      fontWeight={600}
-                      fontSize={{ base: "lg", sm: "xl", lg: "3xl" }}
-                      color={'blackalpha.800'}
-                    >
-                      {stakeholder.title}
-                    </Heading>
-                  <Text fontSize={{ base: "md", sm: "lg", lg: "xl" }} color={'blackalpha.800'}>{stakeholder.description}</Text>
-              </Box>
-
+                <Box paddingLeft={'10px'} paddingBottom={'25px'} maxW={'400px'}>
+                      <Heading
+                        fontWeight={600}
+                        fontStyle={'italic'}
+                        fontSize={{ base: "lg", sm: "xl", lg: "3xl" }}
+                        color={'bgWhite.50'}
+                      >
+                        {stakeholder.title}
+                      </Heading>
+                    <Text fontSize={{ base: "md", sm: "lg", lg: "xl" }} color={'bgWhite.100'}>{stakeholder.description}</Text>
+                </Box>
               <StepSeparator />
             </Step>
       ))}
@@ -181,4 +183,3 @@ function InfoBlurb() {
       </motion.div>
   );
 }
-
