@@ -33,9 +33,9 @@ export const bgGreen = {
 }
 
 // Darker Green
-export const WhiteStepper = {
+export const bgWhite = {
   50: "#F7FAFC",
-  100: "#F7FAFC",
+  100: "#EDF2F7",
   200: "#F7FAFC",
   300: "#F7FAFC",
   400: "#F7FAFC",
