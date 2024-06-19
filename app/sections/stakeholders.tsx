@@ -26,13 +26,12 @@ export default function Stakeholders() {
     <Container 
       maxW={"full"} 
       px={0} 
-      bgGradient={"radial(green.700, green.900)"} 
+      bgGradient={"radial(bgGreen.700, bgGreen.800)"} 
       position={'relative'} 
       zIndex={-3} 
       paddingBottom={'5%'}
       id="Stakeholders"
     >
-      <Title />
       <Container maxW={"7xl"}>
         <Flex justifyContent={'center'} alignItems={'center'} direction={"column"}>
           <Flex
@@ -45,7 +44,10 @@ export default function Stakeholders() {
             flexWrap={['wrap', 'wrap', 'nowrap']}
             overflow={'hidden'}
           >
-              <InfoBlurb />
+                <Stack>
+                <Title />
+                <InfoBlurb />
+                </Stack>
                 <motion.div
                   variants={fadeVariant({yBot: 0, yTop: 0, duration: 1.25, delay: 0.75})}
                   initial="offscreen"
@@ -103,7 +105,7 @@ function Title() {
       py={{ base: 15, md: 23 }}
       direction={{ base: "column", md: "row" }}
       // bgGradient={"linear(to-t, green.900, green.700)"} 
-      textAlign={'center'}
+      textAlign={['center', 'center' ,'left']}
       marginBottom={50}
       position={'relative'}
       zIndex={-2}
@@ -118,7 +120,7 @@ function Title() {
           <Heading
             lineHeight={1.1}
             fontWeight={600}
-            fontSize={{ base: "3xl", sm: "4xl", lg: "6xl" }}
+            fontSize={{ base: "3xl", sm: "4xl", lg: "5xl" }}
           >
             <Text as={"span"} color={"green.100"}>
               There are{" "}
@@ -154,7 +156,7 @@ function InfoBlurb() {
       index={3}
       orientation="vertical"
       height={["300px", "250px", "400px"]}
-      colorScheme="baggetGreen"
+      colorScheme="WhiteStepper"
     >
       {stakeholderData.map((stakeholder, index) => (
             <Step key={`stakeholder=${index}`}>

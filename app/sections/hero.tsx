@@ -16,17 +16,21 @@ export default function Hero() {
   return (
     <Container
     maxW={'100%'}
+    maxH={'100%'}
     position={'relative'}
+    bgGradient={"linear(to-b, bgGreen.700, bgGreen.800)"} 
     zIndex={101}
     >
       <Box
-        maxH={'100px'}
-        maxW={'100px'}
+        marginTop={['8%', '5%','2%']}
+        borderTopRadius={['3rem', '6rem', '10rem']}
+        maxH={['calc(100%-8%)', 'calc(100%-5%)', 'calc(100%-2%)']}
+        minW={'100%'}
         position="absolute"
-        left="50%"
-        top="50%"
-        transform="translate(-50%, -50%)"
         inset={0}
+        bottom="0"
+        left="50%"
+        transform="translateX(-50%)"
         zIndex={-2}
         bgImage={"/hero-img.webp"}
         backgroundSize={'cover'}
@@ -41,7 +45,7 @@ export default function Hero() {
           <Flex
             flexDirection={'column'}
             justifyContent={'center'}
-            alignItems={'flex-start'}
+            alignItems={'center'}
             gap={'40px'}
           >
             <HeroTitle />    
@@ -54,13 +58,6 @@ export default function Hero() {
               <EmailModal ctaPhrase='Become part of the solution'/>
             </motion.div>
           </Flex>
-          <Stack
-            align={'center'}
-            spacing={{ base: 8, md: 10 }}
-            py={{ base: 20, md: 28 }}
-            direction="column">
-            
-          </Stack>
         </Flex>
       </Container>
 
@@ -81,15 +78,18 @@ function HeroTitle() {
         lineHeight={1.1}
         fontWeight={600}
         fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }}
+        
       >
         <motion.div
           variants={fadeVariant({yBot: 5, yTop: 0, duration: 1.0})}
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.8 }}
+          style={{textAlign: 'center'}}
         >
           <Text
             as={'span'}
+            width={'100%'}
             position={'relative'}
             _after={{
               content: "''",
@@ -115,6 +115,7 @@ function HeroTitle() {
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.8 }}
+          style={{textAlign: 'center'}}
         >
           <Text as={'span'} color={'green.100'}>
             {headingAlt}
@@ -126,6 +127,7 @@ function HeroTitle() {
         initial="offscreen"
         whileInView="onscreen"
         viewport={{ once: true, amount: 0.8 }}
+        style={{textAlign: 'center'}}
       >
         <Text color={'gray.400'} fontSize={'sm'} fontStyle={'italic'}>
           {source}
