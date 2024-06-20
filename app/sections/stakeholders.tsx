@@ -26,10 +26,10 @@ export default function Stakeholders() {
     <Container 
       maxW={"full"} 
       px={0} 
-      bgGradient={"radial(bgGreen.700, bgGreen.800)"} 
+      bgGradient={"linear(to-t, bgGreen.700, bgGreen.800)"} 
       position={'relative'} 
       zIndex={-3} 
-      paddingBottom={'5%'}
+      paddingBottom={'25px'}
       id="Stakeholders"
     >
       <Container maxW={"7xl"}>
@@ -53,6 +53,10 @@ export default function Stakeholders() {
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.8 }}
+                    whileHover={{
+                      scale: 0.97,
+                      transition: { duration: 0.3 },
+                    }}
                   >
                     <Blob
                       w={['100%', '100%', '125%']}
@@ -75,6 +79,10 @@ export default function Stakeholders() {
                       initial="offscreen"
                       whileInView="onscreen"
                       viewport={{ once: true}}
+                      whileHover={{
+                        scale: 0.97,
+                        transition: { duration: 0.3 },
+                      }}
                     >
                       <Image
                         alt={'Person working in a pantry packaging food'}
