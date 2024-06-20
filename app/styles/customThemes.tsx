@@ -15,7 +15,7 @@ export const PointIcon = createIcon({
           y="45%"
           rx="20" 
           transform="rotate(-45 -7.71094 63)" 
-          fill="#22543D"
+          fill="#171923"
       />
     ),
 
@@ -35,7 +35,7 @@ export const bgGreen = {
 // Darker Green
 export const bgWhite = {
   50: "#F7FAFC",
-  100: "#EDF2F7",
+  100: "#E2E8F0",
   200: "#F7FAFC",
   300: "#F7FAFC",
   400: "#F7FAFC",
@@ -44,4 +44,18 @@ export const bgWhite = {
   700: "#F7FAFC",
   800: "#F7FAFC",
   900: "#F7FAFC",
+}
+
+// Darker Green
+export const bgBlack = {
+  50: "#171923",
+  100: "#171923",
+  200: "#171923",
+  300: "#171923",
+  400: "#171923",
+  500: "#171923",
+  600: "#171923",
+  700: "#171923",
+  800: "#171923",
+  900: "#171923",
 }

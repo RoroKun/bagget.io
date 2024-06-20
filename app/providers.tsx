@@ -3,13 +3,14 @@
 
 import { CacheProvider } from '@chakra-ui/next-js'
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
-import { bgGreen, bgWhite } from './styles/customThemes'
+import { bgGreen, bgWhite, bgBlack } from './styles/customThemes'
 
 
 const customThemes = extendTheme({
   colors: {
     bgGreen,
-    bgWhite
+    bgWhite,
+    bgBlack
   },
 })
 
