@@ -167,8 +167,7 @@ function InfoBlurb() {
             <Step key={`stakeholder=${index}`}>
               <StepIndicator>
                 <StepStatus 
-                  complete={<StakeholderIcon stakeholder={stakeholder.title} 
-                  props={{w: '70%', h: '70%'}}/>} 
+                  complete={<StakeholderIcon stakeholder={stakeholder.title} />} 
                   incomplete={<></>} 
                   active={<></>} 
                 />
