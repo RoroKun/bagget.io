@@ -23,7 +23,7 @@ export default function Team() {
     return (
         <Container 
             maxW={"full"} 
-            bgGradient={"linear(to-t, bgGreen.700, bgGreen.800)"} 
+            bgGradient={"radial(circle at top, bgGreen.800 30%, bgGreen.900)"} 
             paddingBottom={'5%'}
             id="Team"
             position="relative"
@@ -77,7 +77,8 @@ function Title() {
                     as={"span"}
                     fontWeight={700}
                     fontStyle={'italic'}
-                    color={'green.100'}
+                    bgGradient={"linear(to-l, green.300 5%, green.100)"}
+                    bgClip='text'
                 >
                     Bag/Get
                 </Text>
@@ -160,7 +161,7 @@ function TeamMembers() {
                                 }
                             />
                             <Box
-                                bg={'green.100'}
+                                bgGradient={member.highlightGradient}
                                 position={'absolute'}
                                 top={'65%'}
                                 left={'9%'}
@@ -168,7 +169,6 @@ function TeamMembers() {
                                 borderRadius={'20px'}
                                 width={'80%'}
                                 zIndex={4}
-                                color={'green.100'}
                             >
                                 <VStack color={'bgBlack.50'} padding={['10px 15px','20px 30px','20px 30px']}>
                                     <VStack

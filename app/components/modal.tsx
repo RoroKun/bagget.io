@@ -63,17 +63,19 @@ export default function EmailModal({ctaPhrase}: {ctaPhrase: string}) {
           onClick={onOpen}
           bg={'green.100'}
           variant='solid' 
-          color={'green.800'} 
+          color={'bgBlack.50'} 
           size={'lg'}
+          transition={'all 0.2s ease-in-out'}
           _hover={{ 
-              bg: 'green.800',
-              color: 'green.100',
+              bg: 'green.200',
+              transform: 'scale(1.1)',
           }}
           _active={{
-              bg: 'green.800',
-              color: 'green.100',
+            bg: 'green.100',
               transform: 'scale(0.9)',
           }}
+          position={'relative'}
+          zIndex={6}
       >
           {ctaPhrase}
       </Button>

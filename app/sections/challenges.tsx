@@ -26,7 +26,7 @@ export default function Challenges() {
     return (
         <Container 
             maxW={"full"} 
-            bgGradient={"linear(to-b, bgGreen.700, bgGreen.800)"} 
+            bgGradient={"radial(circle at bottom, bgGreen.800 30%, bgGreen.900)"} 
             paddingBottom={'25px'}
             id='Challenges'
         >
@@ -99,13 +99,13 @@ export default function Challenges() {
                                                 >
                                                     <Highlight
                                                         query={['Food Banks', 'Food Pantries', 'The Community']}
-                                                        styles={{ px: '4', py: '1', rounded: '2xl', bg: 'bgGreen.700', color: "green.50" }}
+                                                        styles={{ px: '4', py: '1', rounded: '2xl', bgGradient: challenge.highlightGradient, color: "bgBlack.50" }}
                                                     >
                                                         {challenge.stakeholder}
                                                     </Highlight>
                                                 </Text> 
                                                 {" "}
-                                                <Text as={"span"} color={"bgBlack.50"}>
+                                                <Text as={"span"} color={"bgWhite.50"}>
                                                     {challenge.title}
                                                 </Text>
                                             </Heading>
@@ -160,10 +160,10 @@ function Blurb({blurbPoints, cardNum}: {blurbPoints: string[]; cardNum: number})
         <List spacing={3}>
             {blurbPoints.map((point, i) => 
                 <ListItem key={`card-${cardNum}-point-${i}`}>
-                    <ListIcon as={PointIcon} color="bgBlack.50"/>
+                    <ListIcon as={PointIcon} color="bgWhite.50"/>
                     <Text 
                         as={"span"} 
-                        color={"bgBlack.50"} 
+                        color={"bgWhite.50"} 
                         fontSize={{ base: "sm", sm: "lg", lg: "xl" }}
                         fontWeight={400}
                     >

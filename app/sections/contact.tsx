@@ -82,7 +82,7 @@ export default function Contact() {
             </Container>  
             <Box
                 position={'absolute'}
-                bgGradient="linear(to-b, transparent, green.800)"
+                bgGradient="linear(to-b, transparent, bgGreen.900)"
                 height={`5%`}
                 width={`100%`}
                 bottom={0}
@@ -106,7 +106,8 @@ function Title() {
             <Text
                 as={"span"}
                 fontStyle={'italic'}
-                color={'green.100'}
+                bgGradient={"linear(to-l, green.300 1%, green.100)"}
+                bgClip='text'
             >
                 your
             </Text>

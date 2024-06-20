@@ -18,7 +18,7 @@ export default function Hero() {
     maxW={'100%'}
     maxH={'100%'}
     position={'relative'}
-    bgGradient={"linear(to-b, bgGreen.700, bgGreen.800)"} 
+    bgGradient={"linear(to-b, bgGreen.800, bgGreen.900)"} 
     zIndex={101}
     >
       <Box
@@ -67,7 +67,7 @@ export default function Hero() {
           width={`100%`}
           bottom={0}
           right={0}
-          zIndex={10}
+          zIndex={5}
       />
     </Container>
   )
@@ -106,11 +106,12 @@ function HeroTitle() {
               position: 'absolute',
               bottom: 1,
               left: 0,
-              bg: 'green.100',
+              bgGradient: "linear(to-l, green.300 5%, green.100)",
               zIndex: -1,
             }}
             zIndex={2}
-            color={'green.100'}
+            bgGradient={"linear(to-l, green.300 5%, green.100)"}
+            bgClip='text'
             fontWeight={700}
             fontSize={{ base: '5xl', sm: '6xl', lg: '8xl' }}
             >

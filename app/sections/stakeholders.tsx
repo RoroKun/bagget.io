@@ -26,7 +26,7 @@ export default function Stakeholders() {
     <Container 
       maxW={"full"} 
       px={0} 
-      bgGradient={"linear(to-t, bgGreen.700, bgGreen.800)"} 
+      bgGradient={"linear(to-b, bgGreen.800 5%, bgGreen.900)"} 
       position={'relative'} 
       zIndex={-3} 
       paddingBottom={'25px'}
@@ -65,7 +65,7 @@ export default function Stakeholders() {
                       top={['0%', '-10%', '-20%']}
                       right={['0%', '0%', '0%']}
                       zIndex={-1}
-                      color={useColorModeValue('green.900', 'green.900')}
+                      color={useColorModeValue('bgGreen.800', 'bgGreen.700')}
                     />
                   </motion.div>
                   <Box
@@ -134,7 +134,8 @@ function Title() {
             <Text
               as={"span"}
               fontStyle={'italic'}
-              color={'green.100'}
+              bgGradient={"linear(to-l, green.300 5%, green.100)"}
+              bgClip='text'
             >
               three
             </Text>

@@ -11,7 +11,7 @@ export default function Awards() {
            
         <Container 
             maxW={'full'} 
-            bg={'bgGreen.700'}
+            bg={'bgGreen.900'}
             padding={0}
         >
             <Container maxW={"8xl"} position={'relative'} overflowX={'hidden'}>
@@ -57,7 +57,7 @@ function Marquee () {
         <>
             <Box
                 position={'absolute'}
-                bgGradient="linear(to-r, bgGreen.700, transparent)"
+                bgGradient="linear(to-r, bgGreen.900, transparent)"
                 height={`100%`}
                 width={`40px`}
                 top={0}
@@ -133,7 +133,7 @@ function Marquee () {
             </motion.div>  
             <Box
                 position={'absolute'}
-                bgGradient="linear(to-r, transparent, bgGreen.700)"
+                bgGradient="linear(to-r, transparent, bgGreen.900)"
                 height={`100%`}
                 width={`40px`}
                 top={0}
