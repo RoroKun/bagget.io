@@ -4,6 +4,7 @@ export interface challenge {
     blurb: string[];
     image: string;
     bgColor: string;
+    highlightGradient: string;
 }
 
 export const challengesData: challenge[] = [
@@ -15,7 +16,8 @@ export const challengesData: challenge[] = [
             "Heavy reliance on understaffed personnel to communicate with partner agencies, resulting in long lead times & lost relationships"
         ],
         image: "/fb-challenge.webp",
-        bgColor: 'linear(to-tr, green.100, green.200)'
+        bgColor: 'linear(to-bl, green.800 30%, bgGreen.700 70%)',
+        highlightGradient: 'linear(to-tr, green.300 5%, green.100)'
     },
     {
         stakeholder: "Food Pantries",
@@ -27,7 +29,8 @@ export const challengesData: challenge[] = [
             "Replacing phone calls/emails/paperwork with one intuitive digital experience",
         ],
         image: "/fp-challenge.webp",
-        bgColor: 'linear(to-bl, green.100, green.200)'
+        bgColor: 'linear(to-tr, green.800 30%, bgGreen.700 70%)',
+        highlightGradient: 'linear(to-br, green.300 5%, green.100)'
     },
     {
         stakeholder: "The Community",
@@ -37,6 +40,7 @@ export const challengesData: challenge[] = [
             "Inevitably long & haphazard lines at distribution locations due to poor client scheduling and slow intakes",
             "Vastly varied check-in procedures pantry to pantry",
         ],image: "/community-challenge.webp",
-        bgColor: 'linear(to-tl, green.100, green.200)'
+        bgColor: 'linear(to-tl, green.800 30%, bgGreen.700 70%)',
+        highlightGradient: 'linear(to-tl, green.300 5%, green.100)'
     }
 ]

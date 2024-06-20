@@ -1,4 +1,10 @@
-export const stakeholderData = [
+export interface stakeholder {
+  title: "Food Banks" | "Food Pantries" | "The Community";
+  description: string;
+}
+
+
+export const stakeholderData: stakeholder[] = [
   {
     title: "Food Banks",
     description:
