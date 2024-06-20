@@ -60,7 +60,15 @@ export default function Hero() {
           </Flex>
         </Flex>
       </Container>
-
+      <Box
+          position={'absolute'}
+          bgGradient="linear(to-b, transparent, bgGreen.800)"
+          height={`15%`}
+          width={`100%`}
+          bottom={0}
+          right={0}
+          zIndex={10}
+      />
     </Container>
   )
 }
@@ -98,11 +106,11 @@ function HeroTitle() {
               position: 'absolute',
               bottom: 1,
               left: 0,
-              bg: 'yellow.100',
+              bg: 'green.100',
               zIndex: -1,
             }}
             zIndex={2}
-            color={'yellow.100'}
+            color={'green.100'}
             fontWeight={700}
             fontSize={{ base: '5xl', sm: '6xl', lg: '8xl' }}
             >
@@ -117,7 +125,7 @@ function HeroTitle() {
           viewport={{ once: true, amount: 0.8 }}
           style={{textAlign: 'center'}}
         >
-          <Text as={'span'} color={'green.100'}>
+          <Text as={'span'} color={'bgWhite.50'}>
             {headingAlt}
           </Text>
         </motion.div>
