@@ -13,7 +13,7 @@ export default function Contact() {
         <Container 
             maxW={'full'} 
             height={["90vh","90vh","60vh","90vh"]}
-            bg={'green.800'}
+            bg={'bgGreen.700'}
             position={'relative'}
             padding={0}
         >
@@ -27,7 +27,7 @@ export default function Contact() {
             >
                 <Box
                     position={'absolute'}
-                    bgGradient="linear(to-t, transparent, green.50)"
+                    bgGradient="linear(to-t, transparent, bgGreen.700)"
                     height={`15%`}
                     width={`100%`}
                     top={0}
@@ -60,7 +60,7 @@ export default function Contact() {
                         style={{width: "80%"}}
                     >
                         <Text
-                            color={"green.100"}
+                            color={"bgWhite.50"}
                             fontSize={{ base: "md", sm: "lg", lg: "xl" }}
                             textAlign={"center"}
                         >
@@ -100,17 +100,17 @@ function Title() {
             fontWeight={600}
             fontSize={{ base: "3xl", sm: "4xl", lg: "6xl" }}
         >
-            <Text as={"span"} color={"green.100"}>
+            <Text as={"span"} color={"bgWhite.50"}>
                 We need{" "}
             </Text>
             <Text
                 as={"span"}
                 fontStyle={'italic'}
-                color={'yellow.100'}
+                color={'green.100'}
             >
                 your
             </Text>
-            <Text as={"span"} color={"green.100"}>
+            <Text as={"span"} color={"bgWhite.50"}>
                 {" "}help.
             </Text>
         </Heading>
