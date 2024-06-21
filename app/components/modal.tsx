@@ -47,11 +47,9 @@ export default function EmailModal({ctaPhrase}: {ctaPhrase: string}) {
     })
     .then((message)=>{
       toast.success('Successfully sent email!')
-      // console.log(message)
       onClose();
     }).catch((err) => {
       toast.error(`Failed Sending: Invalid Email 🫠`)
-      console.log(err)
       onClose();
     })
   }
@@ -104,9 +102,34 @@ export default function EmailModal({ctaPhrase}: {ctaPhrase: string}) {
 }
 
 function EmailForm({submit}: {submit: (info: infoData) => void}) {
-  const [capValid, setCapValid] = useState<string | null>(null);
+  const [capValid, setCapValid] = useState<boolean>(false);
 
   const [phone, setPhone] = useState<string>('');
+
+  async function verifyCaptcha(token: string | null) {
+    await fetch('/api/captcha', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        token
+      }, null, 2)
+    })
+    .then( async (res)=> {
+      if(!res.ok) {
+        const errMessage = await res.text();
+        throw new Error(errMessage)
+      }
+      setCapValid(true);
+    })
+    .catch((err) => {
+      console.error(err)
+      setCapValid(false);
+    })
+  }
+
+
 
   function handlePhoneSyntax (e: React.ChangeEvent<HTMLInputElement>) {
 
@@ -124,7 +147,6 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
       setPhone(phoneNumber)
     }
   }
-
 
   function sanitizeInput(value: any) {
     let sanitizeError: string | undefined
@@ -255,7 +277,7 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
           </VStack>
           <VStack justifyContent='center'>
             <ReCAPTCHA
-              onChange={(e: string | null) => setCapValid(e)}
+              onChange={(token: string | null) => verifyCaptcha(token)}
               sitekey={process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY!}
             />
           </VStack>
