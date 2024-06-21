@@ -99,19 +99,20 @@ function HeroTitle() {
             as={'span'}
             width={'100%'}
             position={'relative'}
-            _after={{
+            _before={{
               content: "''",
               width: 'full',
-              height: '10%',
+              padding: "4px 5px",
+              height: '100%',
               position: 'absolute',
-              bottom: 1,
-              left: 0,
+              bottom: '-3px',
+              left: '50%',
               bgGradient: "linear(to-l, green.300 5%, green.100)",
+              transform: "translateX(-50%) rotate(-2deg)",
               zIndex: -1,
             }}
             zIndex={2}
-            bgGradient={"linear(to-l, green.300 5%, green.100)"}
-            bgClip='text'
+            color={'bgBlack.50'}
             fontWeight={700}
             fontSize={{ base: '5xl', sm: '6xl', lg: '8xl' }}
             >

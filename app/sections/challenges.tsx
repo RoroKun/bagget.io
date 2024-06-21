@@ -12,8 +12,7 @@ import {
     Skeleton,
     List,
     ListItem,
-    ListIcon,
-    Highlight
+    ListIcon
   } from '@chakra-ui/react'
 import { challengesData } from '@/data/challenges'
 import { PointIcon } from '../styles/customThemes'
@@ -95,14 +94,26 @@ export default function Challenges() {
                                             >
                                                 <Text 
                                                     as={"span"} 
-                                                    color={"bgWhite.50"}
+                                                    position={'relative'}
+                                                    width={'full'}
+                                                    height={'full'}
+                                                    _before={{
+                                                        content: "''",
+                                                        width: 'full',
+                                                        padding: "4px 5px",
+                                                        height: '100%',
+                                                        position: 'absolute',
+                                                        bottom: '-3px',
+                                                        left: '50%',
+                                                        bgGradient: "linear(to-l, green.300 5%, green.100)",
+                                                        transform: "translateX(-50%) rotate(-2deg)",
+                                                        zIndex: -1,
+                                                    }}
+                                                    color={"bgBlack.50"}
+                                                    zIndex={2}
                                                 >
-                                                    <Highlight
-                                                        query={['Food Banks', 'Food Pantries', 'The Community']}
-                                                        styles={{ px: '4', py: '1', rounded: '2xl', bgGradient: challenge.highlightGradient, color: "bgBlack.50" }}
-                                                    >
-                                                        {challenge.stakeholder}
-                                                    </Highlight>
+                                                    {challenge.stakeholder}
+
                                                 </Text> 
                                                 {" "}
                                                 <Text as={"span"} color={"bgWhite.50"}>
