@@ -103,6 +103,7 @@ export default function EmailModal({ctaPhrase}: {ctaPhrase: string}) {
 
 function EmailForm({submit}: {submit: (info: infoData) => void}) {
   const [capValid, setCapValid] = useState<boolean>(false);
+  const captchaRef = useRef<ReCAPTCHA>(null);
 
   const [phone, setPhone] = useState<string>('');
 
@@ -125,6 +126,9 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
     })
     .catch((err) => {
       console.error(err)
+      if (captchaRef.current) {
+        captchaRef.current.reset();
+      }
       setCapValid(false);
     })
   }
@@ -276,6 +280,7 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
           </VStack>
           <VStack justifyContent='center'>
             <ReCAPTCHA
+              ref={captchaRef}
               onChange={(token: string | null) => verifyCaptcha(token)}
               sitekey={process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY!}
             />
