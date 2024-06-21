@@ -1,4 +1,8 @@
 import { Icon, IconProps } from "@chakra-ui/react"
+import WarehouseOutlinedIcon from '@mui/icons-material/WarehouseOutlined';
+import VolunteerActivismOutlinedIcon from '@mui/icons-material/VolunteerActivismOutlined';
+import Diversity1Icon from '@mui/icons-material/Diversity1';
+import StorefrontIcon from '@mui/icons-material/Storefront';
 
 export const Blob = (props: IconProps) => {
     return (
@@ -110,4 +114,23 @@ export const BackgroundLogo = (props: IconProps) => {
             />
         </Icon>
     );
+}
+
+export const StakeholderIcon = ({stakeholder}: {stakeholder: string}) => {
+    
+    const customStyles = {color: '#040C08', width: '65%', height: '65%'};
+
+    if(stakeholder === "Food Banks") {
+        return (
+            <WarehouseOutlinedIcon style={customStyles}/>
+        );
+    } else if (stakeholder === "Food Pantries") {
+        return (
+            <StorefrontIcon style={customStyles}/>
+        );
+    } else if (stakeholder === "The Community") {
+        return (
+            <Diversity1Icon style={customStyles}/>
+        );
+    }
 }

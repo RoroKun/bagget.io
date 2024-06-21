@@ -1,4 +1,4 @@
-import { infoData } from "@/data/email-data";
+import { infoData } from '../../data/email-data'
 import { NextApiRequest, NextApiResponse } from "next";
 const nodemailer = require('nodemailer');
 

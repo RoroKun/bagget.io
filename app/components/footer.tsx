@@ -6,7 +6,7 @@ export default function Footer() {
             as={'footer'}
             maxW={'full'} 
             height={'65px'}
-            bg={'green.800'}
+            bg={'bgGreen.900'}
             position={'relative'}
             padding={0}
         >

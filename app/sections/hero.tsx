@@ -7,24 +7,30 @@ import {
   Box,
   Heading,
   Text,
-  Button,
 } from '@chakra-ui/react'
 import EmailModal from '../components/modal'
 import { motion } from "framer-motion"
 import { fadeVariant } from '../styles/scrollAnimations'
-import { RedirectLink } from '../components/link'
 
 export default function Hero() {
   return (
     <Container
     maxW={'100%'}
+    maxH={'100%'}
     position={'relative'}
+    bgGradient={"linear(to-b, bgGreen.800, bgGreen.900)"} 
     zIndex={101}
     >
       <Box
-        maxH={'100%'}
+        marginTop={['8%', '5%','2%']}
+        borderTopRadius={['3rem', '6rem', '10rem']}
+        maxH={['calc(100%-8%)', 'calc(100%-5%)', 'calc(100%-2%)']}
+        minW={'100%'}
         position="absolute"
         inset={0}
+        bottom="0"
+        left="50%"
+        transform="translateX(-50%)"
         zIndex={-2}
         bgImage={"/hero-img.webp"}
         backgroundSize={'cover'}
@@ -39,7 +45,7 @@ export default function Hero() {
           <Flex
             flexDirection={'column'}
             justifyContent={'center'}
-            alignItems={'flex-start'}
+            alignItems={'center'}
             gap={'40px'}
           >
             <HeroTitle />    
@@ -49,41 +55,20 @@ export default function Hero() {
               whileInView="onscreen"
               viewport={{ once: true, amount: 0.8 }}
             > 
-              {/* <EmailModal ctaPhrase='Become part of the solution'/> */}
-              <RedirectLink
-                link='mailto:rohan@bagget.io?cc=alan@bagget.io;cesar@bagget.io;michael@bagget.io'
-                title='Sends an email to the Bag/Get team in a new tab'
-            >
-                <Button 
-                    bg={'green.100'}
-                    variant='solid' 
-                    color={'green.800'} 
-                    size={'lg'}
-                    _hover={{ 
-                        bg: 'green.800',
-                        color: 'green.100',
-                    }}
-                    _active={{
-                        bg: 'green.800',
-                        color: 'green.100',
-                        transform: 'scale(0.9)',
-                    }}
-                >
-                    Become part of the solution
-                </Button>
-            </RedirectLink> 
+              <EmailModal ctaPhrase='Become part of the solution'/>
             </motion.div>
           </Flex>
-          <Stack
-            align={'center'}
-            spacing={{ base: 8, md: 10 }}
-            py={{ base: 20, md: 28 }}
-            direction="column">
-            
-          </Stack>
         </Flex>
       </Container>
-
+      <Box
+          position={'absolute'}
+          bgGradient="linear(to-b, transparent, bgGreen.800)"
+          height={`15%`}
+          width={`100%`}
+          bottom={0}
+          right={0}
+          zIndex={5}
+      />
     </Container>
   )
 }
@@ -101,28 +86,33 @@ function HeroTitle() {
         lineHeight={1.1}
         fontWeight={600}
         fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }}
+        
       >
         <motion.div
           variants={fadeVariant({yBot: 5, yTop: 0, duration: 1.0})}
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.8 }}
+          style={{textAlign: 'center'}}
         >
           <Text
             as={'span'}
+            width={'100%'}
             position={'relative'}
-            _after={{
+            _before={{
               content: "''",
               width: 'full',
-              height: '10%',
+              padding: "4px 5px",
+              height: '100%',
               position: 'absolute',
-              bottom: 1,
-              left: 0,
-              bg: 'yellow.100',
+              bottom: '-3px',
+              left: '50%',
+              bgGradient: "linear(to-l, green.300 5%, green.100)",
+              transform: "translateX(-50%) rotate(-2deg)",
               zIndex: -1,
             }}
             zIndex={2}
-            color={'yellow.100'}
+            color={'bgBlack.50'}
             fontWeight={700}
             fontSize={{ base: '5xl', sm: '6xl', lg: '8xl' }}
             >
@@ -135,8 +125,9 @@ function HeroTitle() {
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.8 }}
+          style={{textAlign: 'center'}}
         >
-          <Text as={'span'} color={'green.100'}>
+          <Text as={'span'} color={'bgWhite.50'}>
             {headingAlt}
           </Text>
         </motion.div>
@@ -146,6 +137,7 @@ function HeroTitle() {
         initial="offscreen"
         whileInView="onscreen"
         viewport={{ once: true, amount: 0.8 }}
+        style={{textAlign: 'center'}}
       >
         <Text color={'gray.400'} fontSize={'sm'} fontStyle={'italic'}>
           {source}

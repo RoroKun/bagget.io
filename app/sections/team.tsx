@@ -23,7 +23,7 @@ export default function Team() {
     return (
         <Container 
             maxW={"full"} 
-            bg={'green.50'}
+            bgGradient={"radial(circle at top, bgGreen.800 30%, bgGreen.900)"} 
             paddingBottom={'5%'}
             id="Team"
             position="relative"
@@ -31,7 +31,7 @@ export default function Team() {
         >
             <Container 
                 maxW={"8xl"} 
-                bg={'green.800'} 
+                bgGradient={"linear(to-t, green.800, bgGreen.700)"} 
                 borderRadius={[
                     "50px 35px",
                     "100px 40px",
@@ -67,21 +67,22 @@ function Title() {
             <Heading
                 lineHeight={1.1}
                 fontWeight={600}
-                fontSize={{ base: "3xl", sm: "4xl", lg: "6xl" }}
+                fontSize={{ base: "3xl", sm: "4xl", lg: "5xl" }}
                 textAlign={'center'}
             >
-                <Text as={"span"} color={"green.100"}>
+                <Text as={"span"} color={"bgWhite.50"}>
                     This is where{" "}
                 </Text>
                 <Text
                     as={"span"}
                     fontWeight={700}
                     fontStyle={'italic'}
-                    color={'yellow.100'}
+                    bgGradient={"linear(to-l, green.300 5%, green.100)"}
+                    bgClip='text'
                 >
                     Bag/Get
                 </Text>
-                <Text as={"span"} color={"green.100"}>
+                <Text as={"span"} color={"bgWhite.50"}>
                     {" "}comes in.
                 </Text>
                 </Heading>
@@ -89,7 +90,7 @@ function Title() {
                     maxW={['90%', '80%', '60%']}
                     textAlign={'center'}
                     fontSize={{ base: "sm", sm: "lg", lg: "xl" }}
-                    color={'green.100'}
+                    color={'bgWhite.50'}
                 >
                     We are Cal State Fullerton CS majors developing custom solutions for this ecosystem 
                     - So that our communities can Bag their troubles and Get one step closer to food security.
@@ -101,7 +102,14 @@ function Title() {
 function TeamMembers() {
     return (
         <Container maxW={"full"} position={'relative'}>
-            <Box position={'absolute'} width={'full'} height={'full'} left={'1.25%'}>
+            <Box 
+                position={'absolute'} 
+                width={'full'} 
+                height={'full'} 
+                bottom="50%"
+                left="50%"
+                transform="translate(-50%, 50%)"
+            >
                 <BackgroundLogo
                     w={'100%'}
                     h={'100%'}
@@ -121,6 +129,10 @@ function TeamMembers() {
                             whileInView="onscreen"
                             viewport={{ once: true}}
                             style={{width:'100%', height:'100%'}}
+                            whileHover={{
+                                scale: 0.97,
+                                transition: { duration: 0.3 },
+                            }}
                         >
                             <Image
                                 alt={`${member.name} picture`}
@@ -149,7 +161,7 @@ function TeamMembers() {
                                 }
                             />
                             <Box
-                                bg={'green.100'}
+                                bgGradient={member.highlightGradient}
                                 position={'absolute'}
                                 top={'65%'}
                                 left={'9%'}
@@ -157,9 +169,8 @@ function TeamMembers() {
                                 borderRadius={'20px'}
                                 width={'80%'}
                                 zIndex={4}
-                                color={'green.100'}
                             >
-                                <VStack color={'green.800'} padding={['10px 15px','20px 30px','20px 30px']}>
+                                <VStack color={'bgBlack.50'} padding={['10px 15px','20px 30px','20px 30px']}>
                                     <VStack
                                         
                                         paddingBottom={'10px'}
@@ -180,7 +191,7 @@ function TeamMembers() {
                                                 bottom: '-70%',
                                                 left: '50%',
                                                 transform: 'translateX(-50%)',
-                                                bg: 'green.800',
+                                                bg: 'bgBlack.50',
                                                 borderRadius: '20px',
                                                 zIndex: -1,
                                             }}
