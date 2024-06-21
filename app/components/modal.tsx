@@ -138,7 +138,6 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
     if(phone[phone.length-1] === '-' && phoneNumber.length !== 5 && phoneNumber.length !== 9) {
       setPhone(phoneNumber.slice(0, -1))
     } else if(!numbersRegex.test(phoneNumber) && !(phoneNumber.length !== 1) ) {
-      console.log(":hit")
       return
     } else if(phoneNumber.length === 3 || phoneNumber.length === 7) {
       const hyphenatedPhone = phoneNumber + '-';
