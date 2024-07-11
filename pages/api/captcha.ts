@@ -29,7 +29,8 @@ export default async function handler(
         if(recaptchaResponse.data.success) {
             res.status(200).send({message: `reCAPTCHA verification successful`})
         } else {
-            res.status(400).send({message: `VERIFICATION ERROR`})
+          const errorCodes = recaptchaResponse.data['error-codes'] || ['try again'];
+          return res.status(400).json({ message: `VERIFICATION FAILED: ${errorCodes[0]}` });
         }
     } catch (error) {
         res.status(500).send({message: `Internal server error`})

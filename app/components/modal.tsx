@@ -16,6 +16,7 @@ import {
     VStack,
     Container,
     Textarea,
+    Text,
 } from "@chakra-ui/react"
 import toast, { Toaster } from 'react-hot-toast';
 import { Field, Form, Formik } from 'formik'
@@ -103,6 +104,7 @@ export default function EmailModal({ctaPhrase}: {ctaPhrase: string}) {
 
 function EmailForm({submit}: {submit: (info: infoData) => void}) {
   const [capValid, setCapValid] = useState<boolean>(false);
+  const [capErrorMsg, setCapErrorMsg] = useState<string>("");
   const captchaRef = useRef<ReCAPTCHA>(null);
 
   const [phone, setPhone] = useState<string>('');
@@ -123,10 +125,11 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
         throw new Error(errMessage)
       }
       setCapValid(true);
+      setCapErrorMsg("");
     })
     .catch((err) => {
-      console.error(err)
       if (captchaRef.current) {
+        setCapErrorMsg("Error validating, please try again.");
         captchaRef.current.reset();
       }
       setCapValid(false);
@@ -284,6 +287,15 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
               onChange={(token: string | null) => verifyCaptcha(token)}
               sitekey={process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY!}
             />
+            {capErrorMsg !== "" && 
+              <Text
+                color={'red.400'} 
+                fontSize={'sm'} 
+                fontStyle={'italic'}
+              >
+                {capErrorMsg}
+              </Text>
+            }
           </VStack>
           <Button 
               type='submit'
