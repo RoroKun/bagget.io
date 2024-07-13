@@ -1,4 +1,4 @@
-import { emailRegex, infoData, phoneRegex, xssRegex } from "@/data/email-data"
+import { emailRegex, infoData, phoneRegex, xssRegex, numbersRegex } from "@/data/email-data"
 import { 
     Modal, 
     ModalOverlay,
@@ -16,11 +16,12 @@ import {
     VStack,
     Container,
     Textarea,
+    Text,
 } from "@chakra-ui/react"
 import toast, { Toaster } from 'react-hot-toast';
 import { Field, Form, Formik } from 'formik'
 import { useRef, useState } from "react"
-import ReCAPTCHA from 'react-google-recaptcha';
+import ReCAPTCHA from 'react-google-recaptcha'
 
 export default function EmailModal({ctaPhrase}: {ctaPhrase: string}) {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -47,11 +48,9 @@ export default function EmailModal({ctaPhrase}: {ctaPhrase: string}) {
     })
     .then((message)=>{
       toast.success('Successfully sent email!')
-      // console.log(message)
       onClose();
     }).catch((err) => {
       toast.error(`Failed Sending: Invalid Email 🫠`)
-      console.log(err)
       onClose();
     })
   }
@@ -63,17 +62,19 @@ export default function EmailModal({ctaPhrase}: {ctaPhrase: string}) {
           onClick={onOpen}
           bg={'green.100'}
           variant='solid' 
-          color={'green.800'} 
+          color={'bgBlack.50'} 
           size={'lg'}
+          transition={'all 0.2s ease-in-out'}
           _hover={{ 
-              bg: 'green.800',
-              color: 'green.100',
+              bg: 'green.200',
+              transform: 'scale(1.1)',
           }}
           _active={{
-              bg: 'green.800',
-              color: 'green.100',
+            bg: 'green.100',
               transform: 'scale(0.9)',
           }}
+          position={'relative'}
+          zIndex={6}
       >
           {ctaPhrase}
       </Button>
@@ -102,20 +103,56 @@ export default function EmailModal({ctaPhrase}: {ctaPhrase: string}) {
 }
 
 function EmailForm({submit}: {submit: (info: infoData) => void}) {
+  const [capValid, setCapValid] = useState<boolean>(false);
+  const [capErrorMsg, setCapErrorMsg] = useState<string>("");
+  const captchaRef = useRef<ReCAPTCHA>(null);
+
   const [phone, setPhone] = useState<string>('');
 
+  async function verifyCaptcha(token: string | null) {
+    await fetch('/api/captcha', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        token
+      }, null, 2)
+    })
+    .then( async (res)=> {
+      if(!res.ok) {
+        const errMessage = await res.text();
+        throw new Error(errMessage)
+      }
+      setCapValid(true);
+      setCapErrorMsg("");
+    })
+    .catch((err) => {
+      if (captchaRef.current) {
+        setCapErrorMsg("Error validating, please try again.");
+        captchaRef.current.reset();
+      }
+      setCapValid(false);
+    })
+  }
+
+
+
   function handlePhoneSyntax (e: React.ChangeEvent<HTMLInputElement>) {
+
     const phoneNumber = e.target.value;
-    if(phoneNumber.length === 3 || phoneNumber.length === 7) {
+    
+    if(phone[phone.length-1] === '-' && phoneNumber.length !== 5 && phoneNumber.length !== 9) {
+      setPhone(phoneNumber.slice(0, -1))
+    } else if(!numbersRegex.test(phoneNumber) && !(phoneNumber.length !== 1) ) {
+      return
+    } else if(phoneNumber.length === 3 || phoneNumber.length === 7) {
       const hyphenatedPhone = phoneNumber + '-';
       setPhone(hyphenatedPhone)
-    } else if(false) {
-
     } else {
       setPhone(phoneNumber)
     }
   }
-
 
   function sanitizeInput(value: any) {
     let sanitizeError: string | undefined
@@ -129,11 +166,16 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
   
   function sanitizePhone(value: any) {
     let sanitizeError: string | undefined
-    if (xssRegex.test(value)) {
+
+    if(phone.length === 0) {
+      return sanitizeError
+    } else if (xssRegex.test(phone)) {
       sanitizeError = "Input contains unacceptable characters"
-    } else if(phoneRegex.test(value)) {
-      sanitizeError = "Invalid Phone Number"
-    }
+    } else if (phone.includes(" ")) {
+      return "Remove any spaces."
+    } else if(!phoneRegex.test(phone)) {
+      sanitizeError = "Please follow this format XXX-XXX-XXXX"
+    } 
     return sanitizeError
   }
   
@@ -161,7 +203,7 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
           from: values.email,
           subject: values.subject,
           message: values.message,
-          phone: values.phone
+          phone
         }
 
         submit(emailInfo)
@@ -210,7 +252,7 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
                 {({ field, form }: { field: any; form: any }) => (
                   <FormControl isInvalid={form.errors.phone && form.touched.phone}>
                     <FormLabel>Phone Number (Optional)</FormLabel>
-                    <Input {...field} placeholder='Your phone number' borderColor="green.800" _placeholder={{ color: "green.800" }} onChange={(e) => handlePhoneSyntax(e)} value={phone}/>
+                    <Input {...field} maxLength={12} placeholder='Your phone number' borderColor="green.800" _placeholder={{ color: "green.800" }} onChange={(e) => handlePhoneSyntax(e)} value={phone}/>
                     <FormErrorMessage>{form.errors.phone}</FormErrorMessage>
                   </FormControl>
                 )}
@@ -239,9 +281,26 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
               </Field>
             </Container>
           </VStack>
+          <VStack justifyContent='center'>
+            <ReCAPTCHA
+              ref={captchaRef}
+              onChange={(token: string | null) => verifyCaptcha(token)}
+              sitekey={process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY!}
+            />
+            {capErrorMsg !== "" && 
+              <Text
+                color={'red.400'} 
+                fontSize={'sm'} 
+                fontStyle={'italic'}
+              >
+                {capErrorMsg}
+              </Text>
+            }
+          </VStack>
           <Button 
               type='submit'
               width={'full'}
+              isDisabled={!props.isValid || !capValid || props.isSubmitting}
               isLoading={props.isSubmitting}
               mt={4}
               bg={'green.100'}
@@ -260,9 +319,6 @@ function EmailForm({submit}: {submit: (info: infoData) => void}) {
           >
               Send Email
           </Button>
-          {/* <ReCAPTCHA
-            sitekey={process.env.CAPTCHA_SITE_KEY}
-          /> */}
         </Form>
       )}
     </Formik>

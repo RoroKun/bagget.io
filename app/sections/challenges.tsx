@@ -12,7 +12,7 @@ import {
     Skeleton,
     List,
     ListItem,
-    ListIcon,
+    ListIcon
   } from '@chakra-ui/react'
 import { challengesData } from '@/data/challenges'
 import { PointIcon } from '../styles/customThemes'
@@ -25,8 +25,8 @@ export default function Challenges() {
     return (
         <Container 
             maxW={"full"} 
-            bg={'green.50'}
-            padding={['10% 0%', '10% 0%', '2% 0%']}
+            bgGradient={"radial(circle at bottom, bgGreen.800 30%, bgGreen.900)"} 
+            paddingBottom={'25px'}
             id='Challenges'
         >
             <Container maxW={"7xl"} >
@@ -34,8 +34,9 @@ export default function Challenges() {
                 <Heading
                     lineHeight={1.1}
                     fontWeight={600}
-                    fontSize={{ base: "3xl", sm: "4xl", lg: "6xl" }}
+                    fontSize={{ base: "3xl", sm: "4xl", lg: "5xl" }}
                     textAlign={'center'}
+                    paddingBottom={'25px'}
                 >
                 <motion.div
                     variants={fadeVariant({yBot: 0, yTop: 0, duration: 0.5})}
@@ -43,7 +44,7 @@ export default function Challenges() {
                     whileInView="onscreen"
                     viewport={{ once: true}}
                 >
-                    <Text as={"span"} color={"green.900"}>
+                    <Text as={"span"} color={"bgWhite.50"}>
                         However, under the surface...
                     </Text>
                 </motion.div>
@@ -57,9 +58,13 @@ export default function Challenges() {
                                 viewport={{ once: true}}
                                 key={`marquee-card-${i}`}
                                 style={{width:'100%'}}
+                                whileHover={{
+                                    scale: 0.97,
+                                    transition: { duration: 0.3 },
+                                }}
                             >
                                 <Card 
-                                    bgColor={challenge.bgColor} 
+                                    bgGradient={challenge.bgColor} 
                                     padding={['10% 15%', '5% 15%', '5% 10%']}
                                     borderRadius={['40px', '80px', '80px']}
                                 >
@@ -82,11 +87,36 @@ export default function Challenges() {
                                             key={`text-content-${i}`}
                                         >
                                             <Heading 
-                                                lineHeight={1.1}
                                                 fontSize={{ base: "xl", sm: "2xl", lg: "3xl" }}
                                                 paddingBottom="10px"
+                                                position={'relative'}
+                                                lineHeight={'xl'}
                                             >
-                                                <Text as={"span"} color={"green.800"}>
+                                                <Text 
+                                                    as={"span"} 
+                                                    position={'relative'}
+                                                    width={'full'}
+                                                    height={'full'}
+                                                    _before={{
+                                                        content: "''",
+                                                        width: 'full',
+                                                        padding: "4px 5px",
+                                                        height: '100%',
+                                                        position: 'absolute',
+                                                        bottom: '-3px',
+                                                        left: '50%',
+                                                        bgGradient: "linear(to-l, green.300 5%, green.100)",
+                                                        transform: "translateX(-50%) rotate(-2deg)",
+                                                        zIndex: -1,
+                                                    }}
+                                                    color={"bgBlack.50"}
+                                                    zIndex={2}
+                                                >
+                                                    {challenge.stakeholder}
+
+                                                </Text> 
+                                                {" "}
+                                                <Text as={"span"} color={"bgWhite.50"}>
                                                     {challenge.title}
                                                 </Text>
                                             </Heading>
@@ -141,10 +171,10 @@ function Blurb({blurbPoints, cardNum}: {blurbPoints: string[]; cardNum: number})
         <List spacing={3}>
             {blurbPoints.map((point, i) => 
                 <ListItem key={`card-${cardNum}-point-${i}`}>
-                    <ListIcon as={PointIcon} color="green.800"/>
+                    <ListIcon as={PointIcon} color="bgWhite.50"/>
                     <Text 
                         as={"span"} 
-                        color={"green.800"} 
+                        color={"bgWhite.50"} 
                         fontSize={{ base: "sm", sm: "lg", lg: "xl" }}
                         fontWeight={400}
                     >

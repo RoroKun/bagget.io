@@ -15,7 +15,7 @@ export const PointIcon = createIcon({
           y="45%"
           rx="20" 
           transform="rotate(-45 -7.71094 63)" 
-          fill="#22543D"
+          fill="#F7FAFC"
       />
     ),
 
@@ -23,17 +23,39 @@ export const PointIcon = createIcon({
 
 
 
-// Dark Color for stakeholders section
-export const baggetGreen = {
-  50: "#22543D",
-  100: "#22543D",
-  200: "#22543D",
-  300: "#22543D",
-  400: "#22543D",
-  500: "#22543D",
+// Darker Green
+export const bgGreen = {
+  500: "#21593F",
   600: "#22543D",
-  700: "#22543D",
-  800: "#22543D",
-  900: "#22543D",
+  700: "#122F21",
+  800: "#0A1D14",
+  900: "#040C08",
 }
 
+// Darker Green
+export const bgWhite = {
+  50: "#F7FAFC",
+  100: "#E2E8F0",
+  200: "#F7FAFC",
+  300: "#F7FAFC",
+  400: "#F7FAFC",
+  500: "#F7FAFC",
+  600: "#F7FAFC",
+  700: "#F7FAFC",
+  800: "#F7FAFC",
+  900: "#F7FAFC",
+}
+
+// Darker Green
+export const bgBlack = {
+  50: "#171923",
+  100: "#171923",
+  200: "#171923",
+  300: "#171923",
+  400: "#171923",
+  500: "#171923",
+  600: "#171923",
+  700: "#171923",
+  800: "#171923",
+  900: "#171923",
+}

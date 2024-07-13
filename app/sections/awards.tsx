@@ -11,7 +11,7 @@ export default function Awards() {
            
         <Container 
             maxW={'full'} 
-            bg={'green.50'}
+            bg={'bgGreen.900'}
             padding={0}
         >
             <Container maxW={"8xl"} position={'relative'} overflowX={'hidden'}>
@@ -40,7 +40,7 @@ function Title() {
             fontSize={{ base: "3xl", sm: "4xl", lg: "6xl" }}
             paddingBottom={'5%'}
         >
-                <Text as={"span"} color={"green.900"}>
+                <Text as={"span"} color={"bgWhite.50"}>
                     See how far we've come.
                 </Text>
         </Heading>
@@ -57,7 +57,7 @@ function Marquee () {
         <>
             <Box
                 position={'absolute'}
-                bgGradient="linear(to-r, green.50, transparent)"
+                bgGradient="linear(to-r, bgGreen.900, transparent)"
                 height={`100%`}
                 width={`40px`}
                 top={0}
@@ -114,7 +114,7 @@ function Marquee () {
                                 />
                             </Box>
                             <VStack
-                                color={"green.800"}
+                                color={"bgWhite.50"}
                             >
                                 {/* TODO: make link redirect to new page */}
                                 <Heading>
@@ -133,7 +133,7 @@ function Marquee () {
             </motion.div>  
             <Box
                 position={'absolute'}
-                bgGradient="linear(to-r, transparent, green.50)"
+                bgGradient="linear(to-r, transparent, bgGreen.900)"
                 height={`100%`}
                 width={`40px`}
                 top={0}

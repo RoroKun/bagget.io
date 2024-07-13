@@ -1,7 +1,6 @@
 'use client'
 
-import { Text, Box, Container, Heading, Button, Flex } from "@chakra-ui/react";
-import { RedirectLink } from "../components/link";
+import { Text, Box, Container, Heading, Flex } from "@chakra-ui/react";
 import Video from "../components/video";
 import EmailModal from "../components/modal";
 import { motion } from "framer-motion"
@@ -14,7 +13,7 @@ export default function Contact() {
         <Container 
             maxW={'full'} 
             height={["90vh","90vh","60vh","90vh"]}
-            bg={'green.800'}
+            bg={'bgGreen.700'}
             position={'relative'}
             padding={0}
         >
@@ -28,7 +27,7 @@ export default function Contact() {
             >
                 <Box
                     position={'absolute'}
-                    bgGradient="linear(to-t, transparent, green.50)"
+                    bgGradient="linear(to-t, transparent, bgGreen.700)"
                     height={`15%`}
                     width={`100%`}
                     top={0}
@@ -61,7 +60,7 @@ export default function Contact() {
                         style={{width: "80%"}}
                     >
                         <Text
-                            color={"green.100"}
+                            color={"bgWhite.50"}
                             fontSize={{ base: "md", sm: "lg", lg: "xl" }}
                             textAlign={"center"}
                         >
@@ -77,35 +76,13 @@ export default function Contact() {
                         whileInView="onscreen"
                         viewport={{ once: true}}
                     >
-                        {/* <EmailModal ctaPhrase="chat today!"/> */}
-                        <RedirectLink
-                        link='mailto:rohan@bagget.io?cc=alan@bagget.io;cesar@bagget.io;michael@bagget.io'
-                        title='Sends an email to the Bag/Get team in a new tab'
-                    >
-                        <Button 
-                            bg={'green.100'}
-                            variant='solid' 
-                            color={'green.800'} 
-                            size={'lg'}
-                            _hover={{ 
-                                bg: 'green.800',
-                                color: 'green.100',
-                            }}
-                            _active={{
-                                bg: 'green.800',
-                                color: 'green.100',
-                                transform: 'scale(0.9)',
-                            }}
-                        >
-                            chat today!
-                        </Button>
-                    </RedirectLink>
+                        <EmailModal ctaPhrase="chat today!"/>
                     </motion.div>
                 </Flex>
             </Container>  
             <Box
                 position={'absolute'}
-                bgGradient="linear(to-b, transparent, green.800)"
+                bgGradient="linear(to-b, transparent, bgGreen.900)"
                 height={`5%`}
                 width={`100%`}
                 bottom={0}
@@ -123,17 +100,18 @@ function Title() {
             fontWeight={600}
             fontSize={{ base: "3xl", sm: "4xl", lg: "6xl" }}
         >
-            <Text as={"span"} color={"green.100"}>
+            <Text as={"span"} color={"bgWhite.50"}>
                 We need{" "}
             </Text>
             <Text
                 as={"span"}
                 fontStyle={'italic'}
-                color={'yellow.100'}
+                bgGradient={"linear(to-l, green.300 1%, green.100)"}
+                bgClip='text'
             >
                 your
             </Text>
-            <Text as={"span"} color={"green.100"}>
+            <Text as={"span"} color={"bgWhite.50"}>
                 {" "}help.
             </Text>
         </Heading>
