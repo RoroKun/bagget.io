@@ -22,8 +22,6 @@ export default function Hero() {
     zIndex={101}
     >
       <Box
-        marginTop={['8%', '5%','2%']}
-        borderTopRadius={['3rem', '6rem', '10rem']}
         maxH={['calc(100%-8%)', 'calc(100%-5%)', 'calc(100%-2%)']}
         minW={'100%'}
         position="absolute"
