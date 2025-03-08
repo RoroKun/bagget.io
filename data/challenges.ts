@@ -33,6 +33,18 @@ export const challengesData: challenge[] = [
         highlightGradient: 'linear(to-br, green.300 5%, green.100)'
     },
     {
+        stakeholder: "Volunteers",
+        title: "grapple with...",
+        blurb: [
+            "Finding locations near them that best accommodate their busy schedules",
+            "Struggling during the service due to being trained day of",
+            "Feel rewarded for the effort they put into their pantry",
+        ],
+        image: "/fp-challenge.webp",
+        bgColor: 'linear(to-tr, green.800 30%, bgGreen.700 70%)',
+        highlightGradient: 'linear(to-bl, green.300 5%, green.100)'
+    },
+    {
         stakeholder: "The Community",
         title: "is left helpless due to...",
         blurb: [
