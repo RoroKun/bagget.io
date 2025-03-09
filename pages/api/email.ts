@@ -1,4 +1,4 @@
-import { infoData } from '../../data/email-data'
+import { INFO_DATA } from '@/data/utility/types'
 import { NextApiRequest, NextApiResponse } from "next";
 const nodemailer = require('nodemailer');
 
@@ -25,7 +25,7 @@ export default async function handler(
   
   if(req.method === "POST") { 
 
-    const bodyInfo: infoData = req.body;
+    const bodyInfo: INFO_DATA = req.body;
 
     const htmlMessage = `
       <div>
