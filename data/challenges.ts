@@ -1,13 +1,6 @@
-export interface challenge {
-    stakeholder: string;
-    title: string;
-    blurb: string[];
-    image: string;
-    bgColor: string;
-    highlightGradient: string;
-}
+import { CHALLENGE } from "./utility/types";
 
-export const challengesData: challenge[] = [
+export const challengesData: CHALLENGE[] = [
     {
         stakeholder: "Food Banks",
         title: "struggle to...",

@@ -1,19 +1,3 @@
-export interface infoData {
-    name: string;
-    from: string;
-    subject: string;
-    message: string;
-    phone?: string;
-}
-
-type members = { [key: string]: string };
-
-export const members: members = {
-    rohan: "Rohan Kunchala",
-    alan: "Alan Cortez",
-    cesar: "Cesar Rojas",
-    michael: "Michael Chhun",
-}
 
 export const xssRegex = /[<>&\\]/
 

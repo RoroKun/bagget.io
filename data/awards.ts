@@ -1,15 +1,6 @@
-export interface awardData {
-  eventName: string;
-  location: string;
-  date: string;
-  placement: string;
-  blurb: string;
-  link?: string;
-  img: string;
-  imgAlt: string;
-}
+import { AWARD } from "./utility/types";
 
-const awards: awardData[] = [
+const awards: AWARD[] = [
   {
     eventName: "Engineering Social Justice",
     location: "CSU, Fullerton",
@@ -54,5 +45,3 @@ const awards: awardData[] = [
     imgAlt: "Alan and Rohan earned first place and a $3,000 award in Cal State Fullerton’s Titan Fast Pitch competition, hosted by the College of Business and Economics."
   },
 ]
-
-export const awardsData: awardData[] = [...awards, ...awards];

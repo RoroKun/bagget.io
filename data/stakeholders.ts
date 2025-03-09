@@ -1,10 +1,6 @@
-export interface stakeholder {
-  title: "Food Banks" | "Food Pantries" | "The Community";
-  description: string;
-}
+import { STAKEHOLDER } from "./utility/types";
 
-
-export const stakeholderData: stakeholder[] = [
+export const stakeholderData: STAKEHOLDER[] = [
   {
     title: "Food Banks",
     description:
