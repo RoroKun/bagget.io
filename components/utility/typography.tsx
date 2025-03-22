@@ -1,13 +1,12 @@
 import { FONT_SIZE } from "@/data/utility/types"
-import { twMerge } from "tailwind-merge";
-
+import { cn } from "@/lib/utils";
 
 export function Heading({size = 'biggest', className, children}: {size?: FONT_SIZE; className?: string; children: React.ReactNode}) {
     
     if (size === 'biggest') {
         return (
             <h1
-                className={twMerge(`text-4xl font-bold text-gray-50`, className)}
+                className={cn(`text-7xl font-bold text-gray-50`, className)}
             >
                 {children}
             </h1>
@@ -15,7 +14,7 @@ export function Heading({size = 'biggest', className, children}: {size?: FONT_SI
     } else if (size === 'big') {
         return (
             <h2
-                className={twMerge(`text-xl text-gray-50`, className)}
+                className={cn(`text-4xl font-semibold text-gray-50`, className)}
             >
                 {children}
             </h2>
@@ -23,7 +22,7 @@ export function Heading({size = 'biggest', className, children}: {size?: FONT_SI
     } else if (size === 'small') {
         return (
             <h3
-                className={twMerge(`text-lg text-gray-50`, className)}
+                className={cn(`text-2xl font-semibold text-gray-50`, className)}
             >
                 {children}
             </h3>
@@ -32,38 +31,28 @@ export function Heading({size = 'biggest', className, children}: {size?: FONT_SI
 }
 
 export function Text({size = 'small', className, children}: {size?: FONT_SIZE; className?: string; children: React.ReactNode}) {
-    if (size === 'biggest') {
-        return (
-            <h1
-                className={twMerge(`text-lg text-gray-50`, className)}
-            >
-                {children}
-            </h1>
-        )
-    } else if (size === 'big') {
-        return (
-            <h2
-                className={twMerge(`text-md text-gray-50`, className)}
-            >
-                {children}
-            </h2>
-        )
-    } else if (size === 'small') {
-        return (
-            <h3
-                className={twMerge(`text-sm text-gray-50`, className)}
-            >
-                {children}
-            </h3>
-        )
+    let fontSize = "text-lg"
+
+    if (size === "big") {
+        fontSize = "text-xl"
+    } else if (size === "biggest") {
+        fontSize = "text-2xl"
     }
+
+    return (
+        <p
+            className={cn(fontSize, className)}
+        >
+            {children}
+        </p>
+    )
 }
 
 export function Highlight({children}: {children: React.ReactNode}) {
     return (
-        <span className="relative inline-block">
-            <span className="absolute inset-0 bg-gradient-to-r from-lime-50 to-lime-100 rotate-178 -z-10 "></span>
-            <span className="relative text-gray-950 px-2">
+        <span className="relative inline-block mx-3">
+            <span className="absolute inset-0 bg-gradient-to-r from-lime-50 to-lime-100 rotate-180 rounded-md"></span>
+            <span className="relative text-gray-950 px-3">
                 {children}
             </span>
         </span>
