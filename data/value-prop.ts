@@ -4,21 +4,21 @@ export const valuePropData: VALUE_PROP[] = [
     {
         title: "Remove",
         description: "The pain of maintaining manual, sensitive data and creating records.",
-        icon: ""
+        icon: "/remove-icon.webp"
     },
     {
-        title: "Remove",
-        description: "The pain of maintaining manual, sensitive data and creating records.",
-        icon: ""
+        title: "Reduce",
+        description: "The time & effort spent on operations with user-friendly software.",
+        icon: "/reduce-icon.webp"
     },
     {
-        title: "Remove",
-        description: "The pain of maintaining manual, sensitive data and creating records.",
-        icon: ""
+        title: "Boost",
+        description: "Community engagement and volunteer retention.",
+        icon: "/boost-icon.webp"
     },
     {
-        title: "Remove",
-        description: "The pain of maintaining manual, sensitive data and creating records.",
-        icon: ""
+        title: "Connect",
+        description: "Local pantries and create an ecosystem for neighbors to choose from.",
+        icon: "/connect-icon.webp"
     }
 ]

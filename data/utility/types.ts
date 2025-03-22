@@ -47,6 +47,13 @@ export interface VALUE_PROP {
     icon: string;
 }
 
+// Partners 
+export interface PARTNER {
+    name: string;
+    shortName?: string;
+    icon: string;
+}
+
 // Email API
 export interface INFO_DATA {
     name: string;
