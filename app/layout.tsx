@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Text } from "@/components/utility/typography";
+import { BetterButton } from "@/components/ui/button";
+import Image from "next/image";
+import { Redirect } from "@/components/utility/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,10 +29,54 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}
       >
+        <NavBar/>
         {children}
+        <Footer/>
       </body>
     </html>
   );
+}
+
+function NavBar() {
+  return(
+    <header className="fixed z-50 mt-3 left-1/2 -translate-x-1/2 text-gray-50">
+      <nav className="bg-gradient-to-br from-green-950 to-green-900 shadow-lg flex justify-center items-center py-2 px-10 rounded-4xl gap-8">
+        <Redirect redirect={"/"}>
+          <div className="w-8 h-8">
+            <Image 
+              src='/favicon-mono.svg' 
+              alt='bagget logo' 
+              width={1000}
+              height={1000}
+              className="w-full"
+            />
+          </div>
+        </Redirect>
+        {/* TODO: make mobile responsive */}
+        <Redirect redirect={"/the-challenge"}>
+          <Text size="small">The Challenge</Text>
+        </Redirect>
+        <Redirect redirect={"/our-story"}>
+          <Text size="small">Our Story</Text>
+        </Redirect>
+        <Redirect redirect={"/news"}>
+          <Text size="small">News</Text>
+        </Redirect>
+        <BetterButton link="/contact" variant="secondary"><Text>Contact</Text></BetterButton>
+      </nav>
+    </header>
+  )
+}
+
+function Footer() {
+  const date = new Date()
+  
+
+  return(
+    <footer className="flex justify-center items-center py-10 px-10 bg-gradient-to-b from-green-950 to-emerald-950">
+      <Text className="text-lime-50">© {date.getFullYear()} All rights reserved.</Text>
+    </footer>
+  )
 }
