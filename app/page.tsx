@@ -1,64 +1,19 @@
-import { Button } from "@/components/ui/button";
-import { Heading, Text, Highlight } from "@/components/utility/typography";
-import Image from "next/image";
+import Achievements from "@/components/sections/home/achievements";
+import HeroCTA from "@/components/sections/home/contact";
+import Hero from "@/components/sections/home/hero";
+import Intro from "@/components/sections/home/intro";
+import Partners from "@/components/sections/home/partners";
+import ValueProp from "@/components/sections/home/value-prop";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <main>
+    <main className="bg-gradient-to-b from-green-950 to-green-900">
       <Hero/>
       <Intro/>
+      <ValueProp/>
+      <Achievements />
+      <Partners />
+      <HeroCTA />
     </main>
   );
-}
-
-
-function Hero() {
-  return (
-    <section>
-        <Heading size="big">
-            <Highlight>Revolutionizing</Highlight>
-             Food Assistance
-        </Heading>
-        <Heading>
-          Serve More, Waste Less.
-        </Heading>
-        <Button link={"/"}>
-          <Text>Waitlist Today</Text>
-        </Button>
-    </section>
-  )
-}
-
-function Intro() {
-  return (
-    <section>
-      <div>
-        <Heading size="big">
-          The <Highlight>All-in-One</Highlight> Solution Your
-          Pantry's Been Waiting For.
-        </Heading>
-        <Text>
-          Packed to the brim with quality of life automation and tools to make your distribution excel.
-        </Text>
-        <Text>
-          Case Management, Volunteer Retention, Pantry Locator, Dynamic Report Generation, and more in one unified package.
-        </Text>
-      </div>
-      <Image 
-        src='/stakeholder-img.webp' 
-        alt='TODO' 
-        width={1000}
-        height={1000}
-        style={{ width: '100%', height: 'auto' }}
-      />
-    </section>
-  )
-}
-
-function ValueProp() {
-  return (
-    <section>
-      
-    </section>
-  )
 }

@@ -1,0 +1,29 @@
+import { Heading, Text, Highlight } from "@/components/utility/typography";
+import Image from "next/image";
+export default function Intro() {
+    return (
+      <section className="flex px-[15%] py-[2%] justify-between bg-gradient-to-b from-green-950 to-emerald-950">
+        <div className="flex flex-col gap-10 max-w-1/2 text-gray-50">
+          <Heading size="big">
+            The <Highlight>All-in-One</Highlight> Solution Your
+            Pantry's Been Waiting For.
+          </Heading>
+          <Text>
+            Packed to the brim with quality of life automation and tools to make your distribution excel.
+          </Text>
+          <Text>
+            Case Management, Volunteer Retention, Pantry Locator, Dynamic Report Generation, and more in one unified package.
+          </Text>
+        </div>
+        <div className="w-1/2 h-1/2">
+          <Image 
+            src='/bagget_teaser.webp' 
+            alt='TODO' 
+            width={1000}
+            height={1000}
+            className="w-full"
+          />
+        </div>
+      </section>
+    )
+}
