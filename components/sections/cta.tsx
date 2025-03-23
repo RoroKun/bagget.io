@@ -1,34 +1,45 @@
 "use client"
 
-import { Heading, Text, Highlight } from "@/components/utility/typography";
-import { BetterButton } from "../../ui/button";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export default function HeroCTA() {
+export default function CTA({videoURL, haveBorders = false, children}: {videoURL: string; haveBorders?: boolean; children: React.ReactNode;}) {
     return (
       <section className="relative flex flex-col justify-center items-center px-[15%] py-[10%] text-center">
-        <div className="flex flex-col justify-center items-center gap-15 z-10">
-          <Heading size="big">
-            Save time with <Highlight>Bag/Get.</Highlight>
-          </Heading>
-          <Text className="text-center max-w-1/2 text-gray-50">
-            We are currently rolling out our software and piloting at various location 
-            across California. If you want to be next and see how Bag/Get can alleviate 
-            your pain then all you have to do is...
-          </Text>
-          <BetterButton variant="secondary" className="text-gray-950" link={"/"}>
-            <Text>Waitlist Today</Text>
-          </BetterButton>
+        <div className="flex flex-col justify-center items-center gap-15 z-20">
+          {children}
         </div>
         <div className="absolute inset-0 h-full overflow-hidden z-0 brightness-10">
-          <Video/>
+          <Video videoURL={videoURL}/>
         </div>
+        {haveBorders &&
+          <div className="absolute top-0 w-full z-10">
+            <Image
+              src="/contact-top-border.svg"
+              width={1920}
+              height={1800}
+              alt="border top of contact section"
+              className="w-full"
+            />
+          </div>
+        }
+        {haveBorders && 
+          <div className="absolute bottom-0 w-full z-10">
+            <Image
+              src="/contact-bot-border.svg"
+              width={1920}
+              height={1800}
+              alt="border bottom of contact section"
+              className="w-full"
+            />
+          </div>
+        }
       </section>
     )
 }
 
 
-function Video() {
+function Video({videoURL} : {videoURL: string}) {
     const [windowWidth, setWindowWidth] = useState<number>(0);
     const [heightWidth, setHeightWidth] = useState<number>(0);
 
@@ -56,7 +67,7 @@ function Video() {
         <div
         >
             <video style={videoSize}  muted loop autoPlay>
-                <source src="packing-food.webm" type="video/webm" />
+                <source src={videoURL} type="video/webm" />
                 {/* TODO: replace with a loading spinner */}
                 Your browser does not support the video tag.
             </video>
