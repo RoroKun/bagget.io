@@ -6,14 +6,17 @@ import { stakeholderData } from "@/data/stakeholders";
 import { challengesData } from "@/data/challenges";
 import { cn } from "@/lib/utils";
 import CTA from "@/components/sections/cta";
+import Hero from "@/components/sections/globalHero";
 
 export default function TheChallengePage() {
     return (
         <main>
-            <Hero/>
+            <Hero image={{url: "/challenge-hero-picture.webp", alt: "picture of a stocked shelf of food in a food pantry"}}>
+                Everyday these groups fight <Highlight>Food Insecurity.</Highlight>
+            </Hero>
             <Stakeholders/>
             <UnderTheSurface/>
-            <CTA videoURL="packing-food.webm">
+            <CTA videoURL="challenge-video.webm">
                 <Heading size="big">
                     This is where <Highlight>Bag/Get</Highlight> comes in.
                 </Heading>
@@ -33,26 +36,6 @@ export default function TheChallengePage() {
                 </BetterButton>
             </CTA>
         </main>
-    )
-}
-
-function Hero() {
-    return (
-        <section className="pt-30 pb-10 px-40 flex flex-col gap-10 justify-center items-center bg-gradient-to-b from-emerald-950 to-green-950">
-            <Heading size="big">
-                Everyday these groups fight <Highlight>Food Insecurity.</Highlight>
-            </Heading>
-
-            <div className="w-1/2 h-64 overflow-hidden rounded-full">
-                <Image
-                    src="/challenge-hero-picture.webp"
-                    width={1920}
-                    height={1800}
-                    alt="border top of contact section"
-                    className="w-full"
-                />
-            </div>
-        </section>
     )
 }
 
