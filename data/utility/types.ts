@@ -27,8 +27,9 @@ export interface CHALLENGE {
 
 // Stakeholders
 export interface STAKEHOLDER {
-    title: "Food Banks" | "Food Pantries" | "The Community";
+    title: "Food Banks" | "Food Pantries" | "Volunteers" | "The Community";
     description: string;
+    icon: string;
 }  
 
 // Team Member
