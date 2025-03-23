@@ -14,10 +14,9 @@ export default function ValueProp() {
               <div className="w-32 h-32">
                 <Image 
                   src={valueProp.icon}
-                  alt='TODO' 
+                  alt={`${valueProp.title} icon`}
                   width={1000}
                   height={1000}
-                  className={`${valueProp.title} icon`}
                 />
               </div>
               <Heading size="big">

@@ -18,7 +18,7 @@ export default function Intro() {
         <div className="w-1/2 h-1/2">
           <Image 
             src='/bagget_teaser.webp' 
-            alt='TODO' 
+            alt='laptop and phone showing Bag/Get branding alluding to Bag/Get Software' 
             width={1000}
             height={1000}
             className="w-full"
