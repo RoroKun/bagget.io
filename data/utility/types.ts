@@ -1,3 +1,9 @@
+// Image
+export interface IMAGE {
+    url: string;
+    alt: string;
+}
+
 // Typography
 export type FONT_SIZE = 'biggest' | 
                         'big' | 
@@ -14,6 +20,17 @@ export interface AWARD {
     img: string;
     imgAlt: string;
 }
+
+// News
+export interface NEWS {
+    title: string;
+    location?: string;
+    date: string;
+    blurb: string;
+    link?: string;
+    image: IMAGE;
+}
+
 
 // Challenge
 export interface CHALLENGE {
@@ -38,11 +55,12 @@ export interface TEAM_MEMBER {
     title: string;
     email: string;
     linkedIn: string;
+    blurb: string;
     image: string;
 }
 
 // Value Prop
-export interface VALUE_PROP {
+export interface VALUE {
     title: string;
     description: string;
     icon: string;

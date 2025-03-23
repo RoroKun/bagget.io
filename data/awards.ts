@@ -10,7 +10,7 @@ export const awards: AWARD[] = [
       "CSUF's inaugural \"Engineering Social Justice: A Design Challenge\" has students addressing real-world social issues and Bag/Get's first appearance to address food insecurity.",
     link: "https://news.fullerton.edu/2023/03/engineering-computing-students-pitch-solutions-to-social-justice-issues/",
     img: "/esj.webp",
-    imgAlt: "Two members of team Bag/Get posing their first place award on a stage with the panel of coordinators."
+    imgAlt: "Alan and Rohan from Bag/Get posing their first place award on a stage with the panel of coordinators."
   },
   {
     eventName: "Student Research (SCAR) Day",

@@ -21,7 +21,7 @@ export const challengesData: CHALLENGE[] = [
             "Manually applying to lengthy grant applications",
             "Replacing phone calls/emails/paperwork with one intuitive digital experience",
         ],
-        image: "/v-challenge.webp",
+        image: "/pantry-image.webp",
         bgColor: 'linear(to-tr, green.800 30%, bgGreen.700 70%)',
         highlightGradient: 'bg-gradient-to-tl from-green-950 to-emerald-950'
     },

@@ -1,6 +1,6 @@
-import { VALUE_PROP } from "./utility/types";
+import { VALUE } from "./utility/types";
 
-export const valuePropData: VALUE_PROP[] = [
+export const valuePropData: VALUE[] = [
     {
         title: "Remove",
         description: "The pain of maintaining manual, sensitive data and creating records.",
