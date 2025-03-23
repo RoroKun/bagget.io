@@ -60,7 +60,7 @@ function Button({
 }
 
 
-function BetterButton({className, variant="primary", link, children}: {className?: string; variant?: string; link: string; children: React.ReactNode}) {
+function BetterButton({className, variant="primary", link, newPage=false, children}: {className?: string; newPage?: boolean; variant?: string; link: string; children: React.ReactNode}) {
 
   
     const baseStyle = "w-full px-6 py-4 rounded-2xl font-semibold cursor-pointer"
@@ -70,7 +70,7 @@ function BetterButton({className, variant="primary", link, children}: {className
     const variantStyle = variant === "primary" ? primary : secondary
 
     return (
-      <Redirect redirect={link}>
+      <Redirect redirect={link} newPage={newPage}>
         <Button className={cn(baseStyle, variantStyle, className)}>{children}</Button>
       </Redirect>
     )

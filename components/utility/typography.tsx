@@ -50,7 +50,7 @@ export function Text({size = 'small', className, children}: {size?: FONT_SIZE; c
 
 export function Highlight({children}: {children: React.ReactNode}) {
     return (
-        <span className="relative inline-block mx-3">
+        <span className="relative inline-block mx-1">
             <span className="absolute inset-0 bg-gradient-to-r from-lime-50 to-lime-100 rotate-180 rounded-md"></span>
             <span className="relative text-gray-950 px-3">
                 {children}
