@@ -52,8 +52,8 @@ function History() {
 
 function CompanyValues() {
     return(
-        <section className="px-[15%] py-[2%] flex flex-col gap-10 justify-center items-center bg-gradient-to-b from-green-950 to-emerald-950 text-center text-gray-50">
-            <div className="flex flex-col gap-10 w-1/2">
+        <section className="relative overflow-hidden px-[15%] py-[2%] flex flex-col gap-10 justify-center items-center bg-gradient-to-t from-green-950 to-emerald-950 text-center text-gray-50">
+            <div className="relative z-10 flex flex-col gap-10 w-1/2">
                 <Heading size="big">
                     Our Values
                 </Heading>
@@ -62,7 +62,7 @@ function CompanyValues() {
                     These factors are what drives our development and focus to deliver the best software.
                 </Text>
             </div>
-            <div className="flex gap-30">
+            <div className="relative z-10 flex gap-30">
                 {companyValuesData.map((value, i) => (
                     <div key={`${value.title}-id-${i}`} className="flex flex-col gap-5">
                         <div className="w-32 h-32">
@@ -78,6 +78,16 @@ function CompanyValues() {
                         </Heading>
                     </div>
                 ))}
+            </div>
+            <div className="absolute z-0 w-full h-full">
+                <Image 
+                    src="/our-values.webp"
+                    alt="image of bag/get team members creating accessible software based on our market research"
+                    width={1920}
+                    height={1080}
+                    className="bg-lime-50"
+                />
+                <div className="absolute inset-0 bg-black opacity-90"></div>
             </div>
         </section>
     )
@@ -112,7 +122,7 @@ function Team() {
                                             src="/mail.svg"
                                             width={1000}
                                             height={1000}
-                                            alt=""
+                                            alt="email icon"
                                         />
                                     </div>
                                     <Text>{member.email}</Text>
@@ -123,7 +133,7 @@ function Team() {
                                             src="/linkedin-icon.svg"
                                             width={1000}
                                             height={1000}
-                                            alt=""
+                                            alt="linkedin logo"
                                         />
                                     </div>
                                     <Text>{member.linkedIn}</Text>
@@ -137,6 +147,7 @@ function Team() {
                                 width={1920}
                                 height={1800}
                                 alt={`headshot of ${member.name}`}
+                                className="bg-lime-50"
                             />
                         </div>
                     </div>
