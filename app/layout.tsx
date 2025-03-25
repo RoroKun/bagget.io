@@ -23,7 +23,6 @@ export const metadata: Metadata = {
     "Bag/Get the team building solutions to aleviate food insecurity",
   authors: [
     { name: "Rohan Kunchala" },
-    { name: "Cesar Rojas" },
     { name: "Alan Cortez", url: "https://alancortez.dev/" },
   ],
   creator: "Alan Cortez",
@@ -102,7 +101,7 @@ function NavBar() {
           <div className="w-8 h-8">
             <Image 
               src='/favicon-mono.svg' 
-              alt='bagget logo' 
+              alt='Bag/Get' 
               width={1000}
               height={1000}
               className="w-full"

@@ -8,7 +8,7 @@ import { motion } from "motion/react";
 
 export default function Hero() {
     return (
-      <section className="h-[60vh] relative overflow-hidden rounded-b-4xl bg-gradient-to-b from-emerald-950 to-green-950 ">
+      <section className="lg:h-[60vh] h-screen relative overflow-hidden rounded-b-4xl bg-gradient-to-b from-emerald-950 to-green-950 ">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col justify-center items-center gap-10">
           <motion.div 
             variants={fadeIn}
