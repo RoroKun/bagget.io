@@ -36,14 +36,13 @@ export default async function handler(
         <p><b>MESSAGE:</b> ${bodyInfo.message}</p>
       </div>
     `
-
+    
     const info = await transporter.sendMail({
-      from: process.env.EMAIL_USER, // sender address
-      to: "rohan@bagget.io", // target email individual
-      cc: "alan@bagget.io, cesar@bagget.io, michael@bagget.io", // list of receivers
-      subject: bodyInfo.subject, // Subject line
-      text: `${bodyInfo.message}`, // plain text body
-      html: htmlMessage, // html body
+      from: process.env.EMAIL_USER,
+      to: "rohan@bagget.io, alan@bagget.io",
+      subject: bodyInfo.subject, 
+      text: `${bodyInfo.message}`, 
+      html: htmlMessage, 
     }, (error: any, info: any) => {
       if (error) {
         res.status(400).send({message: `Email failed 🫠 Error Message: ${error.response}`})

@@ -5,6 +5,7 @@ import { Text } from "@/components/utility/typography";
 import { BetterButton } from "@/components/ui/button";
 import Image from "next/image";
 import { Redirect } from "@/components/utility/link";
+import { Toaster } from "@/components/ui/sonner"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +35,7 @@ export default function RootLayout({
         <NavBar/>
         {children}
         <Footer/>
+        <Toaster position="top-center" richColors/>
       </body>
     </html>
   );
@@ -75,7 +77,7 @@ function Footer() {
   
 
   return(
-    <footer className="flex justify-center items-center py-10 px-10 bg-gradient-to-b from-green-950 to-emerald-950">
+    <footer className="flex justify-center items-center py-6 px-10 bg-green-950">
       <Text className="text-lime-50">© {date.getFullYear()} All rights reserved.</Text>
     </footer>
   )

@@ -16,47 +16,14 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "../ui/textarea"
-
-const contactSchema = z.object({
-    firstName: z.string()
-    .min(2, { message: "First name must be at least 2 characters long" })
-    .max(50, { message: "First name cannot exceed 50 characters" })
-    .trim(),
-  
-  lastName: z.string()
-    .min(2, { message: "Last name must be at least 2 characters long" })
-    .max(50, { message: "Last name cannot exceed 50 characters" })
-    .trim(),
-  
-  email: z.string()
-    .min(1, { message: "Email is required" })
-    .email({ message: "Invalid email address" })
-    .max(50, { message: "Email cannot exceed 50 characters" }),
-  
-  phone: z.string()
-    .optional()
-    .refine(
-        (val) => val === undefined || val === '' || /^\d+$/.test(val),
-        { message: "Phone number must contain only numeric digits" }
-    )
-    .refine(
-        (val) => val === undefined || val === '' || (val.length >= 10 && val.length <= 15), 
-        { message: "Phone number must be between 10 and 15 digits" }
-    ),
-  
-  subject: z.string()
-    .min(2, { message: "Subject must be at least 2 characters long" })
-    .max(100, { message: "Subject cannot exceed 100 characters" })
-    .trim(),
-  
-  message: z.string()
-    .min(5, { message: "Message must be at least 5 characters long" })
-    .max(800, { message: "Message cannot exceed 800 characters" })
-    .trim(),
-})
+import { contactSchema } from "@/lib/schema"
+import { toast } from "sonner"
+import { useState } from "react"
+import ReCAPTCHA from 'react-google-recaptcha'
 
 export default function ContactForm() {
-    // 1. Define your form.
+    const [isValidCaptcha, setIsValidCaptcha] = useState<boolean>(false);
+
     const form = useForm<z.infer<typeof contactSchema>>({
       resolver: zodResolver(contactSchema),
       defaultValues: {
@@ -69,26 +36,74 @@ export default function ContactForm() {
       },
     })
    
-    // 2. Define a submit handler.
-    function onSubmit(values: z.infer<typeof contactSchema>) {
-      // Do something with the form values.
-      // ✅ This will be type-safe and validated.
-      console.log(values)
+    async function sendEmail(emailData: z.infer<typeof contactSchema>) {
+      const {firstName, lastName, email, phone, subject, message } = emailData
+
+      const info = {
+        name: firstName + " " + lastName,
+        from: email,
+        phone,
+        subject,
+        message
+      }
+
+      try {
+        await fetch('/api/email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(info)
+        })
+      } catch (err) {
+        toast.error(`ERROR: ${err}`, {
+          description: "Sorry we couldn't send your email, please try again.",
+        })
+        return
+      }
+
+      toast.success("We received your email!", {
+        description: "We'll get back to you shortly.",
+      })
     }
+
+    async function verifyCaptcha(token: string | null) {
+      try {
+        await fetch('/api/captcha', {
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            token
+          }, null, 2)
+        })
+
+        setIsValidCaptcha(true)
+      } catch (err) {
+        toast.error(`Error Validating Captcha`, {
+          description: "Please try again.",
+        })
+        setIsValidCaptcha(false)
+      }
+    }
+
+
+
     return (
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <div className="flex gap-10">
+          <form onSubmit={form.handleSubmit(sendEmail)} className="space-y-8 text-gray-50">
+            <div className="flex justify-between gap-10">
                 <FormField
                     control={form.control}
                     name="firstName"
                     render={({ field }) => (
-                        <FormItem>
-                        <FormLabel>First Name*</FormLabel>
-                        <FormControl>
-                            <Input {...field} required/>
-                        </FormControl>
-                        <FormMessage />
+                        <FormItem className="w-1/2">
+                          <FormLabel>First Name*</FormLabel>
+                          <FormControl>
+                              <Input {...field} required/>
+                          </FormControl>
+                          <FormMessage />
                         </FormItem>
                     )}
                 />
@@ -96,12 +111,12 @@ export default function ContactForm() {
                     control={form.control}
                     name="lastName"
                     render={({ field }) => (
-                        <FormItem>
-                        <FormLabel>Last Name*</FormLabel>
-                        <FormControl>
-                            <Input {...field} required/>
-                        </FormControl>
-                        <FormMessage />
+                        <FormItem className="w-1/2">
+                          <FormLabel>Last Name*</FormLabel>
+                          <FormControl>
+                              <Input {...field} required/>
+                          </FormControl>
+                          <FormMessage />
                         </FormItem>
                     )}
                 />
@@ -158,8 +173,17 @@ export default function ContactForm() {
                     </FormItem>
                 )}
             />
-            <Button type="submit">Submit</Button>
+            <div className="flex flex-col gap-5 justify-center items-center">
+              <ReCAPTCHA
+                onChange={(token: string | null) => verifyCaptcha(token)}
+                sitekey={process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY!}
+              />
+
+              <Button type="submit" disabled={form.formState.isSubmitting || !isValidCaptcha} className="w-full bg-gradient-to-r from-lime-50 to-lime-100 hover:from-lime-100 hover:to-lime-200 text-gray-950 weight-semibold">Submit</Button>
+            </div>
           </form>
         </Form>
       )
 }
+
+
