@@ -25,7 +25,7 @@ export default function HomePage() {
           across California. If you want to be next and see how Bag/Get can alleviate 
           your pain then all you have to do is...
         </Text>
-        <BetterButton variant="secondary" className="text-gray-950" link={"/"}>
+        <BetterButton variant="secondary" className="text-gray-950" link={"/contact"}>
           <Text>Waitlist Today</Text>
         </BetterButton>
       </CTA>

@@ -14,7 +14,7 @@ export default function Hero() {
               Serve More, Waste Less.
             </Heading>
           </div>
-          <BetterButton variant="secondary" className="text-gray-950" link={"/"}>
+          <BetterButton variant="secondary" className="text-gray-950" link={"/contact"}>
             <Text>Waitlist Today</Text>
           </BetterButton>
         </div>
@@ -24,7 +24,7 @@ export default function Hero() {
             width={1920}
             height={1800}
             alt="Picture of Volunteers packing and sending food to those in need"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover bg-lime-50"
           />
           <div className="absolute inset-0 bg-black opacity-50"></div>
         </div>

@@ -31,7 +31,7 @@ export default function TheChallengePage() {
                         Join us today on our mission to...
                     </Text>
                 </div>
-                <BetterButton variant="secondary" className="text-gray-950" link={"/"}>
+                <BetterButton variant="secondary" className="text-gray-950" link={"/contact"}>
                     <Text>Serve More and Waste Less</Text>
                 </BetterButton>
             </CTA>
@@ -76,7 +76,7 @@ function UnderTheSurface() {
                     width={1920}
                     height={1800}
                     alt="border bottom of contact section"
-                    className="w-full"
+                    className="w-full "
                 />
             </div>
             <div className="flex flex-col justify-center items-center gap-10 pt-8">
@@ -104,6 +104,7 @@ function UnderTheSurface() {
                                     width={1920}
                                     height={1800}
                                     alt={`${challenge.stakeholder} image`}
+                                    className="bg-lime-50"
                                 />
                             </div>
                         </div>

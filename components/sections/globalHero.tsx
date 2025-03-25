@@ -15,7 +15,7 @@ export default function Hero({image, children}: {image: IMAGE; children: React.R
                     width={1920}
                     height={1800}
                     alt={image.alt}
-                    className="w-full"
+                    className="w-full bg-lime-50"
                 />
             </div>
         </section>

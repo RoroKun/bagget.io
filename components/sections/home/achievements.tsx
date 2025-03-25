@@ -27,7 +27,7 @@ export default function Achievements() {
             Since then we've researched, interviewed, volunteered to better understand this space 
             to build impactful software.
           </Text>
-          <BetterButton variant="secondary" className="text-gray-950" link={"/"}>
+          <BetterButton variant="secondary" className="text-gray-950" link={"/our-story"}>
             <Text>Read Our Full Story</Text>
           </BetterButton>
         </div>
@@ -68,7 +68,7 @@ function AchievementsCarousel() {
             {awards.map((award, i) => (
               <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/3">
                 <div>
-                  <Card className="p-0 bg-transparent outline-transparent border-transparent">
+                  <Card className="p-0 bg-transparent outline-none border-transparent">
                     <CardContent className="flex flex-col items-center justify-center p-0 gap-3">
                       
                       <Image 
@@ -76,7 +76,7 @@ function AchievementsCarousel() {
                           alt={award.imgAlt}
                           width={1000}
                           height={500}
-                          className="rounded-xl h-80 object-cover"
+                          className="rounded-xl h-80 object-cover bg-lime-50"
                       />
                       <div className="flex flex-col justify-center items-center">
                         <Heading size="small" className="text-center">
