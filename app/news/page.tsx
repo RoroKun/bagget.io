@@ -12,6 +12,9 @@ export default function NewsPage() {
                 See what <Highlight>we've</Highlight> been up to.
             </Hero>
             <News/>
+            <div className="px-[15%] pt-[2%] pb-[5%] flex flex-col justify-center items-center bg-gradient-to-t from-green-950 to-emerald-900">
+                <BetterButton link={"/news"} variant="secondary"><Text>Jump to top</Text></BetterButton>
+            </div>
         </main>
     )
 }
@@ -36,6 +39,7 @@ function News() {
                                 alt={news.image.alt}
                                 width={1920}
                                 height={1080}
+                                className="bg-lime-50"
                             />
                             <div className="absolute inset-0 bg-black opacity-90"></div>
                         </div>
