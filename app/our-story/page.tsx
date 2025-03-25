@@ -1,9 +1,13 @@
+"use client"
+
 import React from "react";
 import Hero from "@/components/sections/globalHero";
 import { Heading, Text, Highlight } from "@/components/utility/typography";
 import { companyValuesData } from "@/data/company-values"
 import Image from "next/image";
 import { teamData } from "@/data/team";
+import { fadeIn } from "@/lib/animate";
+import { motion } from "motion/react";
 
 export default function OurStoryPage() {
     return (
@@ -21,7 +25,13 @@ export default function OurStoryPage() {
 function History() {
     return(
         <section className="px-[15%] py-[2%] flex flex-col justify-center items-center bg-gradient-to-b from-green-950 to-emerald-950 text-center">
-            <div className="flex flex-col justify-center items-center gap-10 max-w-9/12 text-gray-50">
+            <motion.div 
+                variants={fadeIn}
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true}}
+                className="flex flex-col justify-center items-center gap-10 max-w-9/12 text-gray-50"
+            >
                 <Text>
                     We first started this journey in December 2022 putting our minds to solve a social justice 
                     challenge for the debut Engineering Social Justice (ESJ) Competition. That is when we noticed 
@@ -45,7 +55,7 @@ function History() {
                     and Inland Empire. After that, Bag/Get will continue growth and listen closely to what the community 
                     has to say so that we can both work towards serving more people, and wasting less resources.
                 </Text>
-            </div>
+            </motion.div>
         </section>
     )
 }
@@ -53,7 +63,13 @@ function History() {
 function CompanyValues() {
     return(
         <section className="relative overflow-hidden px-[15%] py-[2%] flex flex-col gap-10 justify-center items-center bg-gradient-to-t from-green-950 to-emerald-950 text-center text-gray-50">
-            <div className="relative z-10 flex flex-col gap-10 w-1/2">
+            <motion.div 
+                variants={fadeIn}
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true}}
+                className="relative z-10 flex flex-col gap-10 w-1/2"
+            >
                 <Heading size="big">
                     Our Values
                 </Heading>
@@ -61,8 +77,14 @@ function CompanyValues() {
                     During this journey so far we came to a conclusion that Bag/Get should follow these core principles. 
                     These factors are what drives our development and focus to deliver the best software.
                 </Text>
-            </div>
-            <div className="relative z-10 flex gap-30">
+            </motion.div>
+            <motion.div 
+                variants={fadeIn}
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true}}
+                className="relative z-10 flex gap-30"
+            >
                 {companyValuesData.map((value, i) => (
                     <div key={`${value.title}-id-${i}`} className="flex flex-col gap-5">
                         <div className="w-32 h-32">
@@ -78,7 +100,7 @@ function CompanyValues() {
                         </Heading>
                     </div>
                 ))}
-            </div>
+            </motion.div>
             <div className="absolute z-0 w-full h-full">
                 <Image 
                     src="/our-values.webp"
@@ -96,7 +118,13 @@ function CompanyValues() {
 function Team() {
     return (
         <section className="px-[15%] pt-[2%] pb-[5%] flex flex-col justify-center items-center gap-14 bg-gradient-to-b from-green-950 to-emerald-950 text-center text-gray-50">
-            <div className="flex flex-col gap-5 w-1/2">
+            <motion.div 
+                variants={fadeIn}
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true}}
+                className="flex flex-col gap-5 w-1/2"
+            >
                 <Heading size="big">
                     The <Highlight>faces behind</Highlight> our values.
                 </Heading>
@@ -104,10 +132,17 @@ function Team() {
                     Meet the team who is actively programming, advocating and pushing this software to local communities 
                     to <b>serve more people</b>, and <b>waste less.</b>
                 </Text>
-            </div>
+            </motion.div>
             <div className="flex flex-col gap-30 justify-center items-center">
                 {teamData.map((member, i) => (
-                    <div key={`${member.name}-id-${i}`}  className={`h-64 px-40 py-5 flex justify-between items-center ${i % 2 === 0 ? 'flex-row-reverse' : 'flex-row'}`}>
+                    <motion.div 
+                        key={`${member.name}-id-${i}`} 
+                        variants={fadeIn}
+                        initial="offscreen"
+                        whileInView="onscreen"
+                        viewport={{ once: true}}
+                        className={`h-64 px-40 py-5 flex justify-between items-center ${i % 2 === 0 ? 'flex-row-reverse' : 'flex-row'}`}
+                    >
                         <div className="w-1/2 flex flex-col gap-5">
                             <div className="flex text-gray-50 gap-2 justify-start items-end">
                                 <Heading size="small">
@@ -150,7 +185,7 @@ function Team() {
                                 className="bg-lime-50"
                             />
                         </div>
-                    </div>
+                    </motion.div>
                 ))}
             </div>
         </section>

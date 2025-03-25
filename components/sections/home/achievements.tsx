@@ -14,11 +14,19 @@ import {
 import Image from "next/image";
 import { type CarouselApi } from "@/components/ui/carousel"
 import { useEffect, useState } from "react";
+import { fadeIn } from "@/lib/animate";
+import { motion } from "motion/react";
 
 export default function Achievements() {
     return (
       <section className="flex flex-col justify-center items-center px-[15%] py-[2%] gap-15 bg-gradient-to-b from-green-950 to-emerald-950">
-        <div className="flex flex-col justify-center items-center gap-6">
+        <motion.div 
+          variants={fadeIn}
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true}}
+          className="flex flex-col justify-center items-center gap-6"
+        >
           <Heading size="big">
               See how far we've come.
           </Heading>
@@ -30,7 +38,7 @@ export default function Achievements() {
           <BetterButton variant="secondary" className="text-gray-950" link={"/our-story"}>
             <Text>Read Our Full Story</Text>
           </BetterButton>
-        </div>
+        </motion.div>
         <AchievementsCarousel/>
       </section>
     )

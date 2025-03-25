@@ -1,9 +1,13 @@
+"use client"
+
 import React from "react";
 import Hero from "@/components/sections/globalHero";
 import Image from "next/image";
 import { Heading, Text, Highlight } from "@/components/utility/typography";
 import { newsData } from "@/data/news";
 import { BetterButton } from "@/components/ui/button";
+import { fadeIn } from "@/lib/animate";
+import { motion } from "motion/react";
 
 export default function NewsPage() {
     return (
@@ -24,7 +28,14 @@ function News() {
         <section className="px-[15%] py-[2%] flex flex-col gap-10 justify-center items-center bg-gradient-to-b from-green-950 to-emerald-900 text-center text-gray-50">
             <div className="flex flex-col gap-14">
                 {newsData.map((news, i) => (
-                    <div key={`${news.title}-id-${i}`} className="relative flex flex-col justify-center items-center gap-6 bg-green-950 shadow-lg rounded-full px-20 py-28 overflow-hidden">
+                    <motion.div 
+                        key={`${news.title}-id-${i}`} 
+                        variants={fadeIn}
+                        initial="offscreen"
+                        whileInView="onscreen"
+                        viewport={{ once: true}}
+                        className="relative flex flex-col justify-center items-center gap-6 bg-green-950 shadow-lg rounded-full px-20 py-28 overflow-hidden"
+                    >
                         <div className="flex flex-col gap-5 relate z-10">
                             <Heading size="big">{news.title}</Heading>
                             <Text>{news.location ? `${news.location} · ${news.date}` : news.date} </Text>
@@ -41,9 +52,9 @@ function News() {
                                 height={1080}
                                 className="bg-lime-50"
                             />
-                            <div className="absolute inset-0 bg-black opacity-90"></div>
+                            <div className="absolute inset-0 bg-black opacity-70"></div>
                         </div>
-                    </div>
+                    </motion.div>
                 ))}
             </div>
         </section>

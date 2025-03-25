@@ -2,13 +2,21 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { fadeIn } from "@/lib/animate";
+import { motion } from "motion/react";
 
 export default function CTA({videoURL, haveBorders = false, children}: {videoURL: string; haveBorders?: boolean; children: React.ReactNode;}) {
     return (
       <section className="relative flex flex-col justify-center items-center px-[15%] py-[10%] text-center">
-        <div className="flex flex-col justify-center items-center gap-15 z-20">
+        <motion.div 
+          variants={fadeIn}
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true}}
+          className="flex flex-col justify-center items-center gap-15 z-20"
+        >
           {children}
-        </div>
+        </motion.div>
         <div className="absolute inset-0 h-full overflow-hidden z-0 brightness-10">
           <Video videoURL={videoURL}/>
         </div>
