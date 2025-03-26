@@ -26,9 +26,9 @@ export default function ContactPage() {
 
 function ContactSection() {
     return (
-        <section className="px-[15%] py-[2%] flex flex-col gap-10 justify-center items-center bg-green-950 text-center text-gray-50">
+        <section className="md:px-[15%] px-[5%] py-[2%] flex flex-col gap-10 justify-center items-center bg-green-950 text-center text-gray-50">
             
-            <Card className="w-1/2 bg-gradient-to-br from-green-900 to-emerald-900 border-none outline-transparent">
+            <Card className="lg:w-1/2 bg-gradient-to-br from-green-900 to-emerald-900 border-none outline-transparent">
                 <CardHeader>
                     <CardTitle><Heading size="big">Get in touch</Heading></CardTitle>
                     <CardDescription><Text className="text-sm text-gray-300">Fill out the form and we'll contact you.</Text></CardDescription>

@@ -24,13 +24,13 @@ export default function OurStoryPage() {
 
 function History() {
     return(
-        <section className="px-[15%] py-[2%] flex flex-col justify-center items-center bg-gradient-to-b from-green-950 to-emerald-950 text-center">
+        <section className="md:px-[15%] px-[10%] md:py-[2%] md:pb-[10%] pb-[7%] flex flex-col justify-center items-center bg-gradient-to-b from-green-950 to-emerald-950 text-center">
             <motion.div 
                 variants={fadeIn}
                 initial="offscreen"
                 whileInView="onscreen"
                 viewport={{ once: true}}
-                className="flex flex-col justify-center items-center gap-10 max-w-9/12 text-gray-50"
+                className="flex flex-col justify-center items-center md:gap-10 gap-5 lg:max-w-9/12 text-gray-50"
             >
                 <Text>
                     We first started this journey in December 2022 putting our minds to solve a social justice 
@@ -62,13 +62,13 @@ function History() {
 
 function CompanyValues() {
     return(
-        <section className="relative overflow-hidden px-[15%] py-[2%] flex flex-col gap-10 justify-center items-center bg-gradient-to-t from-green-950 to-emerald-950 text-center text-gray-50">
+        <section className="relative overflow-hidden md:px-[15%] px-[10%] py-[7%] flex flex-col md:gap-10 gap-10 justify-center items-center bg-gradient-to-t from-green-950 to-emerald-950 text-center text-gray-50">
             <motion.div 
                 variants={fadeIn}
                 initial="offscreen"
                 whileInView="onscreen"
                 viewport={{ once: true}}
-                className="relative z-10 flex flex-col gap-10 w-1/2"
+                className="relative z-10 flex flex-col md:gap-10 gap-2 lg:w-1/2"
             >
                 <Heading size="big">
                     Our Values
@@ -83,11 +83,11 @@ function CompanyValues() {
                 initial="offscreen"
                 whileInView="onscreen"
                 viewport={{ once: true}}
-                className="relative z-10 flex gap-30"
+                className="relative z-10 flex flex-wrap justify-center items-center md:gap-30 gap-5"
             >
                 {companyValuesData.map((value, i) => (
-                    <div key={`${value.title}-id-${i}`} className="flex flex-col gap-5">
-                        <div className="w-32 h-32">
+                    <div key={`${value.title}-id-${i}`} className="flex flex-col flex-wrap justify-center items-center w-20 gap-5">
+                        <div className="lg:w-32 lg:h-32 md:w-20 md:h-20 w-10 h-10">
                             <Image 
                                 src={value.icon}
                                 alt={`${value.title} icon`}
@@ -117,13 +117,13 @@ function CompanyValues() {
 
 function Team() {
     return (
-        <section className="px-[15%] pt-[2%] pb-[5%] flex flex-col justify-center items-center gap-14 bg-gradient-to-b from-green-950 to-emerald-950 text-center text-gray-50">
+        <section className="md:px-[15%] px-[10%] lg:pt-[2%] pt-[7%] pb-[5%] flex flex-col justify-center items-center lg:gap-22 md:gap-14 gap-3 bg-gradient-to-b from-green-950 to-emerald-950 text-center text-gray-50">
             <motion.div 
                 variants={fadeIn}
                 initial="offscreen"
                 whileInView="onscreen"
                 viewport={{ once: true}}
-                className="flex flex-col gap-5 w-1/2"
+                className="flex flex-col gap-5 lg:w-1/2"
             >
                 <Heading size="big">
                     The <Highlight>faces behind</Highlight> our values.
@@ -133,7 +133,7 @@ function Team() {
                     to <b>serve more people</b>, and <b>waste less.</b>
                 </Text>
             </motion.div>
-            <div className="flex flex-col gap-30 justify-center items-center">
+            <div className="flex flex-col lg:gap-30 gap-0 justify-center items-center">
                 {teamData.map((member, i) => (
                     <motion.div 
                         key={`${member.name}-id-${i}`} 
@@ -141,18 +141,18 @@ function Team() {
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true}}
-                        className={`h-64 px-40 py-5 flex justify-between items-center ${i % 2 === 0 ? 'flex-row-reverse' : 'flex-row'}`}
+                        className={`lg:h-64 md:px-5 py-5 flex flex-col-reverse md:gap-8 gap-10 justify-between items-center ${i % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'}`}
                     >
-                        <div className="w-1/2 flex flex-col gap-5">
-                            <div className="flex text-gray-50 gap-2 justify-start items-end">
-                                <Heading size="small">
-                                    {member.name} |
+                        <div className="md:w-1/2 flex flex-col gap-5 md:justify-start md:items-start justify-center items-center">
+                            <div className="flex flex-col text-gray-50 gap-2 md:justify-start md:items-start justify-center items-center">
+                                <Heading size="big" className="lg:text-2xl">
+                                    {member.name}
                                 </Heading>
                                 <Text>{member.title}</Text>
                             </div>
-                            <div className="flex gap-5">
+                            <div className="flex flex-wrap gap-5">
                                 <div className="flex gap-2 justify-center items-center">
-                                    <div className="w-10 h-10">
+                                    <div className="lg:w-10 lg:h-10 md:w-7 md:h-7 w-5 h-5">
                                         <Image
                                             src="/mail.svg"
                                             width={1000}
@@ -163,7 +163,7 @@ function Team() {
                                     <Text>{member.email}</Text>
                                 </div>
                                 <div className="flex gap-2 justify-center items-center">
-                                    <div className="w-10 h-10">
+                                    <div className="lg:w-10 lg:h-10 md:w-7 md:h-7 w-5 h-5">
                                         <Image
                                             src="/linkedin-icon.svg"
                                             width={1000}
@@ -174,9 +174,9 @@ function Team() {
                                     <Text>{member.linkedIn}</Text>
                                 </div>
                             </div>
-                            <Text className="text-start">{member.blurb}</Text>
+                            <Text className="md:text-start text-center">{member.blurb}</Text>
                         </div>
-                        <div className="w-[300px] h-[300px] overflow-hidden rounded-full">
+                        <div className="lg:w-[300px] lg:h-[300px] md:w-[200px] md:h-[300px] w-[200px] h-[250px] overflow-hidden rounded-full">
                             <Image
                                 src={member.image}
                                 width={1920}

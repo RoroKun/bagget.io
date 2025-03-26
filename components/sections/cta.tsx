@@ -13,7 +13,7 @@ export default function CTA({videoURL, haveBorders = false, children}: {videoURL
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true}}
-          className="flex flex-col justify-center items-center gap-15 z-20"
+          className="flex flex-col justify-center items-center lg:gap-15 md:gap-8 gap-5 z-20"
         >
           {children}
         </motion.div>

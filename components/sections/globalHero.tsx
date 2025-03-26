@@ -8,12 +8,13 @@ import { motion } from "motion/react";
 
 export default function Hero({image, children}: {image: IMAGE; children: React.ReactNode;}) {
     return (
-        <section className="pt-30 pb-10 px-40 flex flex-col gap-10 justify-center items-center bg-gradient-to-b from-emerald-950 to-green-950">
+        <section className="pt-30 pb-10 lg:px-40 px-10 flex flex-col gap-10 justify-center items-center bg-gradient-to-b from-emerald-950 to-green-950">
             <motion.div
                 variants={fadeIn}
                 initial="offscreen"
                 whileInView="onscreen"
                 viewport={{ once: true}}
+                className="text-center"
             >
                 <Heading size="big">
                     {children}
@@ -25,7 +26,7 @@ export default function Hero({image, children}: {image: IMAGE; children: React.R
                 initial="offscreen"
                 whileInView="onscreen"
                 viewport={{ once: true}}
-                className="w-1/2 h-64 overflow-hidden rounded-full"
+                className="ld:w-1/2 md:h-64 h-30 overflow-hidden rounded-full"
             >
                 <Image
                     src={image.url}

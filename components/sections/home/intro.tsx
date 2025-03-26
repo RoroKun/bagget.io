@@ -7,13 +7,14 @@ import { motion } from "motion/react";
 
 export default function Intro() {
     return (
-      <section className="flex px-[15%] py-[2%] justify-between bg-gradient-to-b from-green-950 to-emerald-950">
+      <section className="flex lg:flex-row flex-col px-[15%] py-[5%] justify-between items-center bg-gradient-to-b from-green-950 to-emerald-950 gap-10">
         <motion.div 
           variants={fadeIn}
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true}}
-          className="flex flex-col gap-10 max-w-1/2 text-gray-50">
+          className="flex flex-col lg:gap-10 gap-5 lg:max-w-1/2 text-gray-50 lg:text-start text-center"
+        >
           <Heading size="big">
             The <Highlight>All-in-One</Highlight> Solution Your
             Pantry's Been Waiting For.
@@ -30,7 +31,7 @@ export default function Intro() {
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true}}
-          className="w-1/2 h-1/2"
+          className="lg:w-1/2 lg:h-1/2 md:w-2/3 md:h-2/3"
         >
           <Image 
             src='/bagget_teaser.webp' 

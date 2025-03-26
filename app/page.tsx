@@ -20,7 +20,7 @@ export default function HomePage() {
         <Heading size="big">
           Save time with <Highlight>Bag/Get.</Highlight>
         </Heading>
-        <Text className="text-center max-w-1/2 text-gray-50">
+        <Text className="text-center lg:max-w-1/2 md:w-2/3 text-gray-50">
           We are currently rolling out our software and piloting at various location 
           across California. If you want to be next and see how Bag/Get can alleviate 
           your pain then all you have to do is...

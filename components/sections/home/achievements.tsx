@@ -19,7 +19,7 @@ import { motion } from "motion/react";
 
 export default function Achievements() {
     return (
-      <section className="flex flex-col justify-center items-center px-[15%] py-[2%] gap-15 bg-gradient-to-b from-green-950 to-emerald-950">
+      <section className="flex flex-col justify-center items-center lg:px-[15%] px-[10%] py-[2%] gap-15 bg-gradient-to-b from-green-950 to-emerald-950">
         <motion.div 
           variants={fadeIn}
           initial="offscreen"
@@ -30,7 +30,7 @@ export default function Achievements() {
           <Heading size="big">
               See how far we've come.
           </Heading>
-          <Text className="text-center max-w-1/2 text-gray-50">
+          <Text className="text-center lg:max-w-1/2  text-gray-50">
             We started as Cal State Fullerton computer science majors using our campus food pantry. 
             Since then we've researched, interviewed, volunteered to better understand this space 
             to build impactful software.
@@ -64,34 +64,33 @@ function AchievementsCarousel() {
     }, [api])
   
     return (
-      <div>
+      <div className="flex flex-col justify-center items-center">
         <Carousel
           setApi={setApi}
           opts={{
             align: "start",
           }}
-          className="w-full"
+          className="lg:w-full md:w-11/12 w-1/3"
         >
           <CarouselContent>
             {awards.map((award, i) => (
-              <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/3">
+              <CarouselItem key={i} className="basis-2/2 md:basis-1/2 lg:basis-1/3">
                 <div>
                   <Card className="p-0 bg-transparent outline-none border-transparent">
                     <CardContent className="flex flex-col items-center justify-center p-0 gap-3">
-                      
                       <Image 
                           src={award.img}
                           alt={award.imgAlt}
                           width={1000}
                           height={500}
-                          className="rounded-xl h-80 object-cover bg-lime-50"
+                          className="rounded-xl lg:h-80 md:h-60 h-40 object-cover bg-lime-50"
                       />
                       <div className="flex flex-col justify-center items-center">
                         <Heading size="small" className="text-center">
                           {award.eventName}
                         </Heading>
                         <Text className="text-gray-50">
-                          {award.location} ·  {award.date}
+                          {award.location} · {award.date}
                         </Text>
                       </div>
                     </CardContent>
