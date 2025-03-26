@@ -2,10 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Text } from "@/components/utility/typography";
-import { BetterButton } from "@/components/ui/button";
-import Image from "next/image";
-import { Redirect } from "@/components/utility/link";
 import { Toaster } from "@/components/ui/sonner"
+import NavBar from "@/components/sections/navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -91,37 +89,6 @@ export default function RootLayout({
       </body>
     </html>
   );
-}
-
-function NavBar() {
-  return(
-    <header className="fixed z-50 mt-3 left-1/2 -translate-x-1/2 text-gray-50">
-      <nav className="bg-gradient-to-br from-green-950 to-green-900 shadow-lg flex justify-center items-center py-2 px-10 rounded-4xl gap-8">
-        <Redirect redirect={"/"}>
-          <div className="w-8 h-8">
-            <Image 
-              src='/favicon-mono.svg' 
-              alt='Bag/Get' 
-              width={1000}
-              height={1000}
-              className="w-full"
-            />
-          </div>
-        </Redirect>
-        {/* TODO: make mobile responsive */}
-        <Redirect redirect={"/the-challenge"}>
-          <Text size="small">The Challenge</Text>
-        </Redirect>
-        <Redirect redirect={"/our-story"}>
-          <Text size="small">Our Story</Text>
-        </Redirect>
-        <Redirect redirect={"/news"}>
-          <Text size="small">News</Text>
-        </Redirect>
-        <BetterButton link="/contact" variant="secondary"><Text>Contact</Text></BetterButton>
-      </nav>
-    </header>
-  )
 }
 
 function Footer() {
