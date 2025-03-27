@@ -7,13 +7,13 @@ import { motion } from "motion/react";
 
 export default function CTA({videoURL, haveBorders = false, children}: {videoURL: string; haveBorders?: boolean; children: React.ReactNode;}) {
     return (
-      <section className="relative flex flex-col justify-center items-center px-[15%] py-[10%] text-center">
+      <section className="relative flex flex-col justify-center items-center py-[10%] text-center overflow-hidden">
         <motion.div 
           variants={fadeIn}
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true}}
-          className="flex flex-col justify-center items-center lg:gap-15 md:gap-8 gap-5 z-20"
+          className="px-[15%] flex flex-col justify-center items-center lg:gap-15 md:gap-8 gap-5 z-20"
         >
           {children}
         </motion.div>
@@ -21,7 +21,7 @@ export default function CTA({videoURL, haveBorders = false, children}: {videoURL
           <Video videoURL={videoURL}/>
         </div>
         {haveBorders &&
-          <div className="absolute top-0 w-full z-10">
+          <div className="absolute top-0 w-[200%] z-10">
             <Image
               src="/contact-top-border.svg"
               width={1920}
@@ -32,7 +32,7 @@ export default function CTA({videoURL, haveBorders = false, children}: {videoURL
           </div>
         }
         {haveBorders && 
-          <div className="absolute bottom-0 w-full z-10">
+          <div className="absolute bottom-0 w-[200%] z-10">
             <Image
               src="/contact-bot-border.svg"
               width={1920}

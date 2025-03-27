@@ -117,7 +117,7 @@ function CompanyValues() {
 
 function Team() {
     return (
-        <section className="md:px-[15%] px-[10%] lg:pt-[2%] pt-[7%] pb-[5%] flex flex-col justify-center items-center lg:gap-22 md:gap-14 gap-3 bg-gradient-to-b from-green-950 to-emerald-950 text-center text-gray-50">
+        <section className="lg:px-[24%] md:px-[15%] px-[10%] lg:pt-[2%] pt-[7%] pb-[5%] flex flex-col justify-center items-center lg:gap-22 md:gap-14 gap-3 bg-gradient-to-b from-green-950 to-emerald-950 text-center text-gray-50">
             <motion.div 
                 variants={fadeIn}
                 initial="offscreen"

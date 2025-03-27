@@ -81,8 +81,8 @@ function Stakeholders() {
 
 function UnderTheSurface() {
     return(
-        <section className="w-full px-[15%] py-[2%] pb-15 relative bg-gradient-to-br from-green-900 to-emerald-900">
-            <div className="absolute top-0 left-0 w-full z-10">
+        <section className="w-full px-[15%] py-[2%] pb-15 relative bg-gradient-to-br from-green-900 to-emerald-900 overflow-hidden">
+            <div className="absolute top-0 left-0 w-[200%] z-10">
                 <Image
                     src="/challenges-top-border.svg"
                     width={1920}

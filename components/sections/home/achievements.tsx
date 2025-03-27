@@ -64,17 +64,17 @@ function AchievementsCarousel() {
     }, [api])
   
     return (
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center w-full">
         <Carousel
           setApi={setApi}
           opts={{
             align: "start",
           }}
-          className="lg:w-full md:w-11/12 w-1/3"
+          className="lg:w-full md:w-11/12 w-[80%]"
         >
           <CarouselContent>
             {awards.map((award, i) => (
-              <CarouselItem key={i} className="basis-2/2 md:basis-1/2 lg:basis-1/3">
+              <CarouselItem key={i} className="basis-1/1 md:basis-1/2 lg:basis-1/3">
                 <div>
                   <Card className="p-0 bg-transparent outline-none border-transparent">
                     <CardContent className="flex flex-col items-center justify-center p-0 gap-3">

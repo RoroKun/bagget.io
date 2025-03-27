@@ -5,19 +5,19 @@ export function Heading({size = 'biggest', className, children}: {size?: FONT_SI
     
     if (size === 'biggest') {
         return (
-            <h1 className={cn(`lg:text-7xl sm:text-xl text-lg font-bold text-gray-50`, className)}>
+            <h1 className={cn(`lg:text-7xl sm:text-6xl text-lg font-bold text-gray-50`, className)}>
                 {children}
             </h1>
         )
     } else if (size === 'big') {
         return (
-            <h2 className={cn(`lg:text-4xl sm:text-md text-md font-semibold text-gray-50`, className)}>
+            <h2 className={cn(`lg:text-4xl sm:text-3xl text-md font-semibold text-gray-50`, className)}>
                 {children}
             </h2>
         )
     } else if (size === 'small') {
         return (
-            <h3 className={cn(`lg:text-2xl sm:text-sm text-sm font-semibold text-gray-50`, className)}>
+            <h3 className={cn(`lg:text-2xl sm:text-xl text-sm font-semibold text-gray-50`, className)}>
                 {children}
             </h3>
         )
