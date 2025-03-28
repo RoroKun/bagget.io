@@ -79,9 +79,9 @@ export default function ContactForm() {
         })
 
         setIsValidCaptcha(true)
-      } catch (_) {
+      } catch (err) {
         toast.error(`Error Validating Captcha`, {
-          description: "Please try again.",
+          description: `Error: ${err}\nPlease try again.`,
         })
         setIsValidCaptcha(false)
       }
