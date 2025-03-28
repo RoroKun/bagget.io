@@ -28,11 +28,11 @@ export default function Achievements() {
           className="flex flex-col justify-center items-center gap-6"
         >
           <Heading size="big">
-              See how far we've come.
+              See how far we{"'"}ve come.
           </Heading>
           <Text className="text-center lg:max-w-1/2  text-gray-50">
             We started as Cal State Fullerton computer science majors using our campus food pantry. 
-            Since then we've researched, interviewed, volunteered to better understand this space 
+            Since then we{"'"}ve researched, interviewed, volunteered to better understand this space 
             to build impactful software.
           </Text>
           <BetterButton variant="secondary" className="text-gray-950" link={"/our-story"}>

@@ -31,7 +31,7 @@ function ContactSection() {
             <Card className="lg:w-1/2 bg-gradient-to-br from-green-900 to-emerald-900 border-none outline-transparent">
                 <CardHeader>
                     <CardTitle><Heading size="big">Get in touch</Heading></CardTitle>
-                    <CardDescription><Text className="text-sm text-gray-300">Fill out the form and we'll contact you.</Text></CardDescription>
+                    <CardDescription><Text className="text-sm text-gray-300">Fill out the form and we{"'"}ll contact you.</Text></CardDescription>
                 </CardHeader>
                 <CardContent>
                     <ContactForm/>
@@ -46,7 +46,7 @@ function SocialsPlug() {
         <section className="px-[15%] py-[2%] flex flex-col gap-10 justify-center items-center bg-green-950 text-center text-gray-50">
             <Heading size="big">Well since you made it here...</Heading>
             <div className="flex flex-col gap-5">
-                <Text size="big">Why don't you check us out on LinkedIn?</Text>
+                <Text size="big">Why don{"'"}t you check us out on LinkedIn?</Text>
                 <Text className="text-sm text-gray-300 italic">Just press the big LinkedIn Icon</Text>
             </div>
             <Redirect redirect="https://www.linkedin.com/company/bagget" newPage>

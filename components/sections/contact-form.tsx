@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -80,7 +79,7 @@ export default function ContactForm() {
         })
 
         setIsValidCaptcha(true)
-      } catch (err) {
+      } catch (_) {
         toast.error(`Error Validating Captcha`, {
           description: "Please try again.",
         })

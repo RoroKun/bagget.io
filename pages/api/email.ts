@@ -37,17 +37,17 @@ export default async function handler(
       </div>
     `
     
-    const info = await transporter.sendMail({
+    await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: "rohan@bagget.io, alan@bagget.io",
       subject: bodyInfo.subject, 
       text: `${bodyInfo.message}`, 
       html: htmlMessage, 
-    }, (error: any, info: any) => {
+    }, (error: Error | null) => {
       if (error) {
-        res.status(400).send({message: `Email failed 🫠 Error Message: ${error.response}`})
+        res.status(400).send({message: `Email failed 🫠 Error Message: ${error.message}`})
       } else {
-        res.status(200).send({message: `Email sent successfully! \nMessage id: ${info.messageId}`})
+        res.status(200).send({message: `Email sent successfully!`})
       }
     }) 
   }

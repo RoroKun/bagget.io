@@ -1,13 +1,3 @@
-import { Variants } from "motion/react"
-
-
-interface FADE_VARIANT_PARAMS {
-    yBot?: number; 
-    yTop?: number; 
-    duration?: number; 
-    delay?: number
-};
-
 export const fadeIn = {
         offscreen: {
           y: 10,

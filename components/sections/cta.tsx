@@ -69,7 +69,7 @@ function Video({videoURL} : {videoURL: string}) {
           }
     }, []);
 
-    let videoSize = windowWidth < heightWidth ? { maxWidth: 'unset', height: '100%'} : { maxWidth: '100%', height: 'unset'}
+    const videoSize = windowWidth < heightWidth ? { maxWidth: 'unset', height: '100%'} : { maxWidth: '100%', height: 'unset'}
 
     return (
         <div

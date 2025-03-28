@@ -17,7 +17,7 @@ export default async function handler(
     
     try {
         
-        let token = req.body.token;
+        const token = req.body.token;
         const key = process.env.CAPTCHA_SECRET_KEY;
         
         if (!token) {
@@ -33,7 +33,7 @@ export default async function handler(
           return res.status(400).json({ message: `VERIFICATION FAILED: ${errorCodes[0]}` });
         }
     } catch (error) {
-        res.status(500).send({message: `Internal server error`})
+        res.status(500).send({message: `Internal server error: ${error}`})
     }
   }
 }

@@ -17,7 +17,7 @@ export default function Intro() {
         >
           <Heading size="big">
             The <Highlight>All-in-One</Highlight> Solution Your
-            Pantry's Been Waiting For.
+            Pantry{"'"}s Been Waiting For.
           </Heading>
           <Text>
             Packed to the brim with quality of life automation and tools to make your distribution excel.

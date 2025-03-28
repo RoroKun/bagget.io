@@ -13,7 +13,7 @@ export default function NewsPage() {
     return (
         <main>
             <Hero image={{url: "/news-hero.webp", alt: "picture of newspapers"}}>
-                See what <Highlight>we've</Highlight> been up to.
+                See what <Highlight>we{"'"}ve</Highlight> been up to.
             </Hero>
             <News/>
             <div className="px-[15%] pt-[2%] pb-[5%] flex flex-col justify-center items-center bg-gradient-to-t from-green-950 to-emerald-900">

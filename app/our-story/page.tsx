@@ -46,7 +46,7 @@ function History() {
 
                 </Text>
                 <Text>
-                    Since then we've gone through programs such as the CSUF Incubator, Pando Days, NSF I-CORP, and even 
+                    Since then we{"'"}ve gone through programs such as the CSUF Incubator, Pando Days, NSF I-CORP, and even 
                     Larta Institute Venture Fellows to learn from industry leaders on how we turn our idea into measurable 
                     impact.
                 </Text>
