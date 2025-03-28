@@ -1,34 +1,20 @@
-export const teamData = [
+import { TEAM_MEMBER } from "./utility/types";
+
+export const teamData: TEAM_MEMBER[] = [
   {
     name: "Rohan Kunchala",
     title: "Product Lead & Backend Developer",
     email: "rohan@bagget.io",
     linkedIn: "rohankunchala",
+    blurb: "Rohan Kunchala a recent California State University, Fullerton graduate with a B.S. in computer science. Previously led a development team to create an augmented reality shopping experience for a furniture store. Has additional prior experience teaching data structures and algorithms at an organization on CSUF.",
     image: "/rohan-hs.webp",
-    highlightGradient: 'linear(to-br, green.300 5%, green.100)',
   },
   {
     name: "Alan Cortez",
     title: "UI/UX Fullstack Developer",
     email: "alan@bagget.io",
     linkedIn: "alancortez1337",
+    blurb: "Alan Cortez a California State University, Fullerton graduate with a B.S. in computer science currently pursing a M.S. in computer science at Cal Poly Pomona researching how machine learning can be leveraged to reduce food waste. Has prior experience teaching UI/UX concepts at an organization and developing at a Fin-Tech Startup.",
     image: "/alan-hs.webp",
-    highlightGradient: 'linear(to-bl, green.300 5%, green.100)',
-  },
-  {
-    name: "Cesar Rojas",
-    title: "Financial & Outreach Lead",
-    email: "cesar@bagget.io",
-    linkedIn: "cesar-rojas21",
-    image: "/cesar-hs.webp",
-    highlightGradient: 'linear(to-tr, green.300 5%, green.100)',
-  },
-  {
-    name: "Michael Chhun",
-    title: "Backend Developer",
-    email: "michael@bagget.io",
-    linkedIn: "michaelchhun",
-    image: "/michael-hs.webp",
-    highlightGradient: 'linear(to-tl, green.300 0.5%, green.100 99.5%)',
   }
 ];

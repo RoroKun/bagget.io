@@ -1,4 +1,4 @@
-import { infoData } from '../../data/email-data'
+import { INFO_DATA } from '@/data/utility/types'
 import { NextApiRequest, NextApiResponse } from "next";
 const nodemailer = require('nodemailer');
 
@@ -25,7 +25,7 @@ export default async function handler(
   
   if(req.method === "POST") { 
 
-    const bodyInfo: infoData = req.body;
+    const bodyInfo: INFO_DATA = req.body;
 
     const htmlMessage = `
       <div>
@@ -36,19 +36,18 @@ export default async function handler(
         <p><b>MESSAGE:</b> ${bodyInfo.message}</p>
       </div>
     `
-
-    const info = await transporter.sendMail({
-      from: process.env.EMAIL_USER, // sender address
-      to: "rohan@bagget.io", // target email individual
-      cc: "alan@bagget.io, cesar@bagget.io, michael@bagget.io", // list of receivers
-      subject: bodyInfo.subject, // Subject line
-      text: `${bodyInfo.message}`, // plain text body
-      html: htmlMessage, // html body
-    }, (error: any, info: any) => {
+    
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: "rohan@bagget.io, alan@bagget.io",
+      subject: bodyInfo.subject, 
+      text: `${bodyInfo.message}`, 
+      html: htmlMessage, 
+    }, (error: Error | null) => {
       if (error) {
-        res.status(400).send({message: `Email failed 🫠 Error Message: ${error.response}`})
+        res.status(400).send({message: `Email failed 🫠 Error Message: ${error.message}`})
       } else {
-        res.status(200).send({message: `Email sent successfully! \nMessage id: ${info.messageId}`})
+        res.status(200).send({message: `Email sent successfully!`})
       }
     }) 
   }

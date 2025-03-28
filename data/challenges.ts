@@ -1,13 +1,6 @@
-export interface challenge {
-    stakeholder: string;
-    title: string;
-    blurb: string[];
-    image: string;
-    bgColor: string;
-    highlightGradient: string;
-}
+import { CHALLENGE } from "./utility/types";
 
-export const challengesData: challenge[] = [
+export const challengesData: CHALLENGE[] = [
     {
         stakeholder: "Food Banks",
         title: "struggle to...",
@@ -17,7 +10,7 @@ export const challengesData: challenge[] = [
         ],
         image: "/fb-challenge.webp",
         bgColor: 'linear(to-bl, green.800 30%, bgGreen.700 70%)',
-        highlightGradient: 'linear(to-tr, green.300 5%, green.100)'
+        highlightGradient: 'bg-gradient-to-br from-green-950 to-emerald-950'
     },
     {
         stakeholder: "Food Pantries",
@@ -28,9 +21,21 @@ export const challengesData: challenge[] = [
             "Manually applying to lengthy grant applications",
             "Replacing phone calls/emails/paperwork with one intuitive digital experience",
         ],
-        image: "/fp-challenge.webp",
+        image: "/pantry-image.webp",
         bgColor: 'linear(to-tr, green.800 30%, bgGreen.700 70%)',
-        highlightGradient: 'linear(to-br, green.300 5%, green.100)'
+        highlightGradient: 'bg-gradient-to-tl from-green-950 to-emerald-950'
+    },
+    {
+        stakeholder: "Volunteers",
+        title: "grapple with...",
+        blurb: [
+            "Finding locations near them that best accommodate their busy schedules",
+            "Struggling during the service due to being trained day of",
+            "Feel rewarded for the effort they put into their pantry",
+        ],
+        image: "/v-challenge.webp",
+        bgColor: 'linear(to-tr, green.800 30%, bgGreen.700 70%)',
+        highlightGradient: 'bg-gradient-to-bl from-green-950 to-emerald-950'
     },
     {
         stakeholder: "The Community",
@@ -41,6 +46,6 @@ export const challengesData: challenge[] = [
             "Vastly varied check-in procedures pantry to pantry",
         ],image: "/community-challenge.webp",
         bgColor: 'linear(to-tl, green.800 30%, bgGreen.700 70%)',
-        highlightGradient: 'linear(to-tl, green.300 5%, green.100)'
+        highlightGradient: 'bg-gradient-to-tr from-green-950 to-emerald-950'
     }
 ]

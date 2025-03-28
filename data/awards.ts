@@ -1,15 +1,6 @@
-export interface awardData {
-  eventName: string;
-  location: string;
-  date: string;
-  placement: string;
-  blurb: string;
-  link?: string;
-  img: string;
-  imgAlt: string;
-}
+import { AWARD } from "./utility/types";
 
-const awards: awardData[] = [
+export const awards: AWARD[] = [
   {
     eventName: "Engineering Social Justice",
     location: "CSU, Fullerton",
@@ -19,7 +10,7 @@ const awards: awardData[] = [
       "CSUF's inaugural \"Engineering Social Justice: A Design Challenge\" has students addressing real-world social issues and Bag/Get's first appearance to address food insecurity.",
     link: "https://news.fullerton.edu/2023/03/engineering-computing-students-pitch-solutions-to-social-justice-issues/",
     img: "/esj.webp",
-    imgAlt: "Two members of team Bag/Get posing their first place award on a stage with the panel of coordinators."
+    imgAlt: "Alan and Rohan from Bag/Get posing their first place award on a stage with the panel of coordinators."
   },
   {
     eventName: "Student Research (SCAR) Day",
@@ -53,6 +44,47 @@ const awards: awardData[] = [
     img: "/titanFastPitch.webp",
     imgAlt: "Alan and Rohan earned first place and a $3,000 award in Cal State Fullerton’s Titan Fast Pitch competition, hosted by the College of Business and Economics."
   },
+  {
+    eventName: "SoCal Celebrates Entrepreneurship",
+    location: "CSU, Fullerton",
+    date: "3/9/2024",
+    placement: "3rd place",
+    blurb:
+      "Bag/Get was honored to receive third place at SoCal Celebrates Entrepreneurs 2024 during the annual Lightning Pitch.",
+    link: "https://www.socalentrepreneurship.org/scce-24",
+    img: "/lightning-pitch.webp",
+    imgAlt: "Slide showing head-shots of Alan and Rohan winning third place in SCCE Lightning Pitch."
+  },
+  {
+    eventName: "Pando Sustainability Awards",
+    location: "Cal Tech",
+    date: "4/14/2024",
+    placement: "1st place: Earth Hero",
+    blurb:
+      "To mark the completion of the Pando 23-24 program, Bag/Get visited CalTech for Pando Populus hosted event and was honored with the \"Earth Hero\" Pando Sustainability Award.",
+    link: "https://pandopopulus.com/pando-awards/",
+    img: "/pando_days_2024.webp",
+    imgAlt: "The Bag/Get team on the stage receiving the Earth Hero Sustainability Award."
+  },
+  {
+    eventName: "Food Access 2024",
+    location: "Sacramento",
+    date: "5/16/2024",
+    placement: "N/A",
+    blurb:
+      "To gain a deeper understanding of food banks, Bag/Get traveled to Sacramento for the Food Access 2024 convention, where they connected with food banks across California.",
+    img: "/food_access_24.webp",
+    imgAlt: "Alan and Rohan posing in front of the Food Access 2024 wall."
+  },
+  {
+    eventName: "Larta Institute Demo Day",
+    location: "Los Angeles",
+    date: "12/9/2024",
+    placement: "N/A",
+    blurb:
+      "Bag/Get pitched at Larta Demo Day, marking the completion of our involvement as a Larta Institute Venture Fellow 2024. We showcased the progress we've made in our business model and prototype.",
+    link: "https://larta.org/ECO/?trk=public_post-text",
+    img: "/larta_venture_fellows.webp",
+    imgAlt: "Alan and Rohan in the group picture of Larta Venture Fellows 2024 Cohort."
+  },
 ]
-
-export const awardsData: awardData[] = [...awards, ...awards];
