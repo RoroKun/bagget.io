@@ -33,27 +33,38 @@ function History() {
                 className="flex flex-col justify-center items-center md:gap-10 gap-5 lg:max-w-9/12 text-gray-50"
             >
                 <Text>
-                    We first started this journey in December 2022 putting our minds to solve a social justice 
-                    challenge for the debut Engineering Social Justice (ESJ) Competition. That is when we noticed 
-                    our campus food pantry, a service which we used to supplement our food needs. We witnessed the 
-                    every day impact food pantries had on students and that is when Bag/Get was created. 
+                    Our team was in college when we started this journey in early 2023. Like 40% of the students in the 
+                    California State University system, and a large percentage of students around the country, we were 
+                    regular patrons of the on-campus Food Pantry. Despite the indispensable role it played in our lives 
+                    at the time, the flaws of the arrangement felt glaring. The inaugural Engineering Social Justice 
+                    competition gave us the perfect opportunity to explore the root of the problems we were experiencing - 
+                    the difficult scheduling, inventory mismatch, the ineffectual communication. The research and interviews 
+                    that ensued led to brainstorming sessions. Through this process is where Bag/Get was born. 
                 </Text>
                 <Text>
-                    Winning first place at ESJ opened doors for us to turn this software into a sustainable solution. 
-                    That was just the beginning, we then spent the following year interviewing, volunteering and going 
-                    to conventions, such as Food Access 2024, discussing the idea of food operations and solving food 
-                    insecurity to better understand the current space.
-
+                    We went on to win 1st place at the ESJ competition, followed by a podium finish at the CSU-wide Startup 
+                    Competition in San Jose. Bag/Get was then invited to receive residency at the CSUF Business School's 
+                    Startup Incubator. We began a formal market research phase consisting of hundreds of interviews with 
+                    food pantries and food banks as far north as Humboldt County, all the way down to San Diego. The team 
+                    continued to receive validation with wins at competitions such as Titan Fast Pitch and SoCal Entrepreneurship.
                 </Text>
                 <Text>
-                    Since then we{"'"}ve gone through programs such as the CSUF Incubator, Pando Days, NSF I-CORP, and even 
-                    Larta Institute Venture Fellows to learn from industry leaders on how we turn our idea into measurable 
-                    impact.
+                    This market research culminated in the start of development for us - the Bag/Get platform for staff, volunteers, 
+                    and neighbors (pantry clients). During this time we were also being supported by an emerging partnership with the 
+                    LA-based Pando Populus group during this period. We continued to strengthen relationships across California by attending
+                    our first Food Bank Convention in Sacramento, sponsored by the NSF's I-Corp program.
                 </Text>
                 <Text>
-                    Today, we are refining our MVP as we get closer to piloting at local food pantries in Orange County 
-                    and Inland Empire. After that, Bag/Get will continue growth and listen closely to what the community 
-                    has to say so that we can both work towards serving more people, and wasting less resources.
+                    Shortly after that, the team was invited to apply to the Larta Institute's Accelerator, the Venture Fellows program - a 
+                    natural progression for us having just graduated from the business school's start up incubator. From hundreds of applicants, 
+                    our startup was chosen to join the 9 other LA & Miami-based companies that made up the 2024 cohort. We continued to refine 
+                    our MVP, whilst being to introduced to impact-oriented VC firms - this was valuable insight towards planning our pilot run 
+                    and establishing our KPI's. 
+                </Text>
+                <Text>
+                    We successfully completed residency at Larta Institute, and today are soon to deploy our pilot at 3 different pantries in Orange 
+                    County and the Inland Empire. As we move along, Bag/Get will continue to grow and listen closely to what our community has to say. 
+                    Please join us, on our journey to modernize the food equity landscape and help our neighbors!
                 </Text>
             </motion.div>
         </section>
