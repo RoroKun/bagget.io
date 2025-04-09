@@ -18,9 +18,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Bag/Get",
   description:
-    "Bag/Get the team building solutions to aleviate food insecurity",
+    "Bag/Get the team building solutions to alleviate food insecurity",
   authors: [
-    { name: "Rohan Kunchala" },
+    { name: "Rohan Kunchala", url: "linkedin.com/in/rohankunchala" },
     { name: "Alan Cortez", url: "https://alancortez.dev/" },
   ],
   creator: "Alan Cortez",
