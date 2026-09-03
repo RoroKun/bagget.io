@@ -90,7 +90,7 @@ function AchievementsCarousel() {
                           {award.eventName}
                         </Heading>
                         <Text className="text-gray-50">
-                          {award.location} · {award.date}
+                          {award.location}
                         </Text>
                       </div>
                     </CardContent>

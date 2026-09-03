@@ -57,9 +57,9 @@ export const metadata: Metadata = {
     "startup",
     "csuf lightning pitch",
     "CSU, Fullerton SCAR Day 1st place",
-    "San Jose Sunstone 2023 3rd place winners",
-    "Sunstone 2023 3rd place winners",
-    "Sunstone 2023",
+    "San Jose Sunstone 3rd place winners",
+    "Sunstone 3rd place winners",
+    "Sunstone",
   ],
   icons: {
     icon: "/favicon.ico",

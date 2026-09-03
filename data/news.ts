@@ -12,9 +12,9 @@ export const newsData: NEWS[] = [
         }
     },
     {
-        title: "Pando Days 2024",
+        title: "Pando Days",
         date: "1/20/2025",
-        blurb: "Bag/Get returned to present at Pando Days 2024, marking another successful year with Pando. They showcased their software and shared their upcoming pilot plan for demonstrating the software in action.",
+        blurb: "Bag/Get returned to present at Pando Days, marking another successful year with Pando. They showcased their software and shared their upcoming pilot plan for demonstrating the software in action.",
         image: {
             url: "/news-pando.webp",
             alt: "Pando Days Logo"
@@ -24,11 +24,11 @@ export const newsData: NEWS[] = [
         title: "Larta Institute Demo Day",
         date: "12/9/2024",
         location: "Los Angeles",
-        blurb: "Bag/Get pitched at Larta Demo Day, marking the completion of our involvement as a Larta Institute Venture Fellow 2024. We showcased the progress we've made in our business model and prototype. ",
+        blurb: "Bag/Get pitched at Larta Demo Day, marking the completion of our involvement as a Larta Institute Venture Fellow. We showcased the progress we've made in our business model and prototype. ",
         link: "https://larta.org/ECO/?trk=public_post-text",
         image: {
             url: "/larta_venture_fellows.webp",
-            alt: "Alan and Rohan in the group picture of Larta Venture Fellows 2024 Cohort."
+            alt: "Alan and Rohan in the group picture of Larta Venture Fellows Cohort."
         }
     },
     {
@@ -72,13 +72,13 @@ export const newsData: NEWS[] = [
         }
     },
     {
-        title: "Food Access 2024",
+        title: "Food Access",
         location: "Sacramento",
         date: "5/16/2024",
-        blurb: "To gain a deeper understanding of food banks, Bag/Get traveled to Sacramento for the Food Access 2024 convention, where they connected with food banks across California.",
+        blurb: "To gain a deeper understanding of food banks, Bag/Get traveled to Sacramento for the Food Access convention, where they connected with food banks across California.",
         image: {
             url: "/food_access_24.webp",
-            alt: "Alan and Rohan posing in front of the Food Access 2024 wall."
+            alt: "Alan and Rohan posing in front of the Food Access wall."
         }
     },
     {
@@ -96,7 +96,7 @@ export const newsData: NEWS[] = [
         title: "SoCal Celebrates Entrepreneurship",
         date: "3/9/2024",
         location: "CSU, Fullerton",
-        blurb: "Bag/Get was honored to receive third place at SoCal Celebrates Entrepreneurs 2024 during the annual Lightning Pitch.",
+        blurb: "Bag/Get was honored to receive third place at SoCal Celebrates Entrepreneurs during the annual Lightning Pitch.",
         link: "https://www.socalentrepreneurship.org/scce-24",
         image: {
             url: "/lightning-pitch.webp",
@@ -104,9 +104,9 @@ export const newsData: NEWS[] = [
         }
     },
     {
-        title: "Pando Days 2023",
+        title: "Pando Days",
         date: "12/9/2023",
-        blurb: "Bag/Get wrapped up 2023 with a bang, showcasing all the research and progress made since the program's inception.",
+        blurb: "Bag/Get team showcasing all the research and progress made since the program's inception.",
         link: "https://pandopopulus.com/programs/pando-days-23/schools-projects-23/cal-state-university-fullerton/",
         image: {
             url: "/news-pando-2023.webp",
@@ -114,10 +114,10 @@ export const newsData: NEWS[] = [
         }
     },
     {
-        title: "Titan Fast Pitch 2023",
+        title: "Titan Fast Pitch",
         date: "11/11/2023",
         location: "CSU, Fullerton",
-        blurb: "Bag/Get secures first place in Titan Fast Pitch 2023 securing seed money to continue development.",
+        blurb: "Bag/Get secures first place in Titan Fast Pitch securing seed money to continue development.",
         link: "https://news.fullerton.edu/2023/12/student-entrepreneurs-take-first-place-for-food-bank-and-pantry-app/",
         image: {
             url: "/titanFastPitch.webp",
@@ -137,7 +137,7 @@ export const newsData: NEWS[] = [
         title: "CSUF Startup Incubator",
         date: "6/1/2023",
         location: "CSU, Fullerton",
-        blurb: "Bag/Get received an in-kind donation to join the 2023 CSUF Startup Incubator, working alongside their mentor, Jeff Greenberg, to elevate their business to the next level.",
+        blurb: "Bag/Get received an in-kind donation to join the CSUF Startup Incubator, working alongside their mentor, Jeff Greenberg, to elevate their business to the next level.",
         image: {
             url: "/news-csuf-incubator.webp",
             alt: "Image of the SGMH Business School in CSUF"
@@ -147,7 +147,7 @@ export const newsData: NEWS[] = [
         title: "Sunstone CSU Startup Launch",
         date: "5/5/2023",
         location: "San Jose",
-        blurb: "18 California State University campuses competed in the first CSU-wide startup launch at San José State University on May 5, 2023.",
+        blurb: "18 California State University campuses competed in the first CSU-wide startup launch at San José State University.",
         link: "https://csufentrepreneurship.com/csuf-students-make-social-impact-in-state-entrepreneurship-competition/",
         image: {
             url: "/sj.webp",

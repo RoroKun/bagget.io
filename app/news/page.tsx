@@ -38,7 +38,7 @@ function News() {
                     >
                         <div className="flex flex-col gap-5 relate z-10">
                             <Heading size="big">{news.title}</Heading>
-                            <Text>{news.location ? `${news.location} · ${news.date}` : news.date} </Text>
+                            {news.location && <Text>{news.location}</Text>}
                         </div>
                         <div className="flex flex-col gap-8 lg:w-1/2 justify-center items-center relate z-10">
                             <Text>{news.blurb}</Text>
