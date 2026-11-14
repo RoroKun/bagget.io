@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { NEWS, formatNewsDate } from "@/data/news"
+import { NEWS } from "@/data/news"
 
 export const dynamicParams = false
 
@@ -39,10 +39,7 @@ export default async function NewsArticlePage({ params }: PageProps<"/news/[slug
         <h1 className="text-[32px] font-bold leading-[1.1] tracking-[-0.04em] text-black min-[810px]:text-[40px]">
           {post.title}
         </h1>
-        <p className="leading-[1.6] tracking-[-0.02em] text-[#999]">
-          {post.location ? `${post.location} · ` : ""}
-          {formatNewsDate(post.date)}
-        </p>
+        {post.location && <p className="leading-[1.6] tracking-[-0.02em] text-[#999]">{post.location}</p>}
       </header>
 
       <div className="relative mx-auto mt-[50px] aspect-[7/4] max-w-[700px] overflow-hidden rounded-[20px]">

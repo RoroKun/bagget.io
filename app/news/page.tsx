@@ -5,7 +5,7 @@ import { ButtonLink } from "@/components/site/button-link"
 import { Contour } from "@/components/site/contour"
 import { PageHeader } from "@/components/site/page-header"
 import { Reveal } from "@/components/site/reveal"
-import { NEWS, formatNewsDate } from "@/data/news"
+import { NEWS } from "@/data/news"
 
 export const metadata: Metadata = {
   title: "News",
@@ -41,12 +41,9 @@ export default function NewsPage() {
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                 />
                 <div className="absolute inset-0 bg-ink/40" />
-                <div className="relative">
-                  <h2 className="text-2xl font-bold leading-[1.4] tracking-[-0.04em] text-paper-bright min-[810px]:text-[32px]">
-                    {post.title}
-                  </h2>
-                  <p className="leading-[1.6] tracking-[-0.02em] text-paper-bright">{formatNewsDate(post.date)}</p>
-                </div>
+                <h2 className="relative text-2xl font-bold leading-[1.4] tracking-[-0.04em] text-paper-bright min-[810px]:text-[32px]">
+                  {post.title}
+                </h2>
                 <span className="relative self-start rounded-md bg-mint/20 px-2 leading-[1.6] tracking-[-0.02em] text-paper-bright backdrop-blur-sm">
                   {post.category}
                 </span>

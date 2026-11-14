@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import { Inter, Plus_Jakarta_Sans } from "next/font/google"
 import "./globals.css"
-import { Toaster } from "@/components/ui/sonner"
 import NavBar from "@/components/site/navbar"
 import Footer from "@/components/site/footer"
 
@@ -90,7 +89,6 @@ export default function RootLayout({
         <NavBar />
         {children}
         <Footer />
-        <Toaster position="top-center" richColors />
       </body>
     </html>
   )

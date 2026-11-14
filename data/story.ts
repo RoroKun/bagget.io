@@ -1,14 +1,14 @@
-export type Milestone = { title: string; place: string; date: string; image: string; width: number; height: number }
+export type Milestone = { title: string; place: string; image: string; width: number; height: number }
 
 export const MILESTONES: Milestone[] = [
-  { title: "Inaugural Engineering Social Justice Competition", place: "CSU, Fullerton", date: "3/16/2023", image: "/framer/story/esj.png", width: 8256, height: 5504 },
-  { title: "Student Research (SCAR) Day", place: "CSU, Fullerton", date: "4/17/2023", image: "/framer/story/scar-day.webp", width: 4032, height: 3024 },
-  { title: "Sunstone", place: "San Jose", date: "5/5/2023", image: "/framer/story/sunstone.webp", width: 877, height: 676 },
-  { title: "Titan Fast Pitch", place: "CSU, Fullerton", date: "11/11/2023", image: "/framer/story/titan-fast-pitch.webp", width: 800, height: 500 },
-  { title: "SoCal Celebrates Entrepreneurship", place: "CSU, Fullerton", date: "3/9/2024", image: "/framer/story/socal-celebrates.webp", width: 2000, height: 1428 },
-  { title: "Pando Sustainability Awards", place: "Cal Tech", date: "4/14/2024", image: "/framer/story/pando.webp", width: 4032, height: 2268 },
-  { title: "Food Access 2024", place: "Sacramento", date: "5/16/2024", image: "/framer/story/food-access.webp", width: 2602, height: 2558 },
-  { title: "Larta Institute Demo Day", place: "Los Angeles", date: "12/9/2024", image: "/framer/story/larta.webp", width: 2200, height: 1467 },
+  { title: "Inaugural Engineering Social Justice Competition", place: "CSU, Fullerton", image: "/framer/story/esj.png", width: 8256, height: 5504 },
+  { title: "Student Research (SCAR) Day", place: "CSU, Fullerton", image: "/framer/story/scar-day.webp", width: 4032, height: 3024 },
+  { title: "Sunstone", place: "San Jose", image: "/framer/story/sunstone.webp", width: 877, height: 676 },
+  { title: "Titan Fast Pitch", place: "CSU, Fullerton", image: "/framer/story/titan-fast-pitch.webp", width: 800, height: 500 },
+  { title: "SoCal Celebrates Entrepreneurship", place: "CSU, Fullerton", image: "/framer/story/socal-celebrates.webp", width: 2000, height: 1428 },
+  { title: "Pando Sustainability Awards", place: "Cal Tech", image: "/framer/story/pando.webp", width: 4032, height: 2268 },
+  { title: "Food Access", place: "Sacramento", image: "/framer/story/food-access.webp", width: 2602, height: 2558 },
+  { title: "Larta Institute Demo Day", place: "Los Angeles", image: "/framer/story/larta.webp", width: 2200, height: 1467 },
 ]
 
 /**

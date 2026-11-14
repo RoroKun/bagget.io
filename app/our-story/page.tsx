@@ -19,7 +19,7 @@ type Chapter = { title: ReactNode; body: ReactNode; gradient: string; tall?: boo
 
 const CHAPTERS: Chapter[] = [
   {
-    title: "This all began in 2023",
+    title: "This is how it all began",
     body: "Cal State Fullerton computer science students  using the campus food pantry.",
     gradient: "bg-[linear-gradient(120deg,#171717_0%,#262626_148%)]",
   },
@@ -131,9 +131,7 @@ function Milestones() {
             </div>
             <figcaption className="mt-[27px] rounded-[20px] bg-ink-soft px-[22px] py-[17px] text-paper-bright">
               <p className="truncate font-medium leading-[1.2]">{m.title}</p>
-              <p className="mt-2 font-light leading-[1.2]">
-                {m.place} · {m.date}
-              </p>
+              <p className="mt-2 font-light leading-[1.2]">{m.place}</p>
             </figcaption>
           </figure>
         ))}

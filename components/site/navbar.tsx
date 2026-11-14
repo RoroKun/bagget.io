@@ -12,8 +12,7 @@ import { cn } from "@/lib/utils"
 const MOBILE_LINKS = [{ href: "/", label: "Home" }, ...NAV_LINKS, { href: "/contact", label: "Contact" }]
 
 export default function NavBar() {
-  // usePathname is nullable while the pages/ router (API routes) coexists with app/
-  const pathname = usePathname() ?? "/"
+  const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
