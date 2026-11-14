@@ -1,7 +1,12 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  async redirects() {
+    return [
+      // The old site's "The Challenge" page was folded into the new Product page.
+      { source: "/the-challenge", destination: "/product", permanent: true },
+    ]
+  },
+}
 
-export default nextConfig;
+export default nextConfig

@@ -1,12 +1,8 @@
-import { INFO_DATA } from '@/data/utility/types'
-import { NextApiRequest, NextApiResponse } from "next";
-const nodemailer = require('nodemailer');
+import type { NextApiRequest, NextApiResponse } from "next"
+import nodemailer from "nodemailer"
+import { emailRequestSchema } from "@/lib/schema"
 
-type ResponseData = {
-  message: string
-}
-
-// "use strict";
+type ResponseData = { message: string }
 
 const transporter = nodemailer.createTransport({
   host: "smtppro.zoho.com",
@@ -16,39 +12,60 @@ const transporter = nodemailer.createTransport({
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
-});
- 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<ResponseData>
-) {
-  
-  if(req.method === "POST") { 
+})
 
-    const bodyInfo: INFO_DATA = req.body;
+const escapeHtml = (s: string) =>
+  s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!)
 
-    const htmlMessage = `
-      <div>
-        <p><b>FROM:</b> ${bodyInfo.subject}</p>  
-        <p><b>NAME:</b> ${bodyInfo.name}</p>
-        <p><b>FROM:</b> ${bodyInfo.from}</p>
-        ${bodyInfo.phone && `<p><b>PHONE NUMBER:</b> ${bodyInfo.phone}</p>`}
-        <p><b>MESSAGE:</b> ${bodyInfo.message}</p>
-      </div>
-    `
-    
+async function verifyCaptcha(token: string) {
+  const params = new URLSearchParams({ secret: process.env.CAPTCHA_SECRET_KEY ?? "", response: token })
+  const res = await fetch("https://www.google.com/recaptcha/api/siteverify", { method: "POST", body: params })
+  const data: { success: boolean; "error-codes"?: string[] } = await res.json()
+  return data
+}
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse<ResponseData>) {
+  if (req.method !== "POST") {
+    res.setHeader("Allow", "POST")
+    return res.status(405).json({ message: "Method not allowed" })
+  }
+
+  const parsed = emailRequestSchema.safeParse(req.body)
+  if (!parsed.success) {
+    return res.status(400).json({ message: parsed.error.issues[0]?.message ?? "Invalid request" })
+  }
+  const { name, email, phone, subject, message, captchaToken } = parsed.data
+
+  try {
+    const captcha = await verifyCaptcha(captchaToken)
+    if (!captcha.success) {
+      return res.status(400).json({ message: `reCAPTCHA verification failed: ${captcha["error-codes"]?.[0] ?? "try again"}` })
+    }
+  } catch (error) {
+    return res.status(502).json({ message: `Could not verify reCAPTCHA: ${error}` })
+  }
+
+  const html = `
+    <div>
+      <p><b>SUBJECT:</b> ${escapeHtml(subject)}</p>
+      <p><b>NAME:</b> ${escapeHtml(name)}</p>
+      <p><b>FROM:</b> ${escapeHtml(email)}</p>
+      ${phone ? `<p><b>PHONE NUMBER:</b> ${escapeHtml(phone)}</p>` : ""}
+      <p><b>MESSAGE:</b> ${escapeHtml(message).replace(/\n/g, "<br/>")}</p>
+    </div>
+  `
+
+  try {
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: "rohan@bagget.io, alan@bagget.io",
-      subject: bodyInfo.subject, 
-      text: `${bodyInfo.message}`, 
-      html: htmlMessage, 
-    }, (error: Error | null) => {
-      if (error) {
-        res.status(400).send({message: `Email failed 🫠 Error Message: ${error.message}`})
-      } else {
-        res.status(200).send({message: `Email sent successfully!`})
-      }
-    }) 
+      replyTo: email,
+      subject,
+      text: `${message}\n\n— ${name} <${email}>${phone ? ` · ${phone}` : ""}`,
+      html,
+    })
+    return res.status(200).json({ message: "Email sent successfully!" })
+  } catch (error) {
+    return res.status(500).json({ message: `Email failed: ${(error as Error).message}` })
   }
 }
