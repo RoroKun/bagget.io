@@ -1,204 +1,184 @@
-"use client"
+import type { Metadata } from "next"
+import Image from "next/image"
+import type { ReactNode } from "react"
+import { ButtonLink } from "@/components/site/button-link"
+import { Contour } from "@/components/site/contour"
+import { Marquee } from "@/components/site/marquee"
+import { PageHeader } from "@/components/site/page-header"
+import { Reveal } from "@/components/site/reveal"
+import { MILESTONES, PARTNER_BADGES, TEAM } from "@/data/story"
+import { cn } from "@/lib/utils"
 
-import React from "react";
-import Hero from "@/components/sections/globalHero";
-import { Heading, Text, Highlight } from "@/components/utility/typography";
-import { companyValuesData } from "@/data/company-values"
-import Image from "next/image";
-import { teamData } from "@/data/team";
-import { fadeIn } from "@/lib/animate";
-import { motion } from "motion/react";
+export const metadata: Metadata = {
+  title: "Our Story",
+  description:
+    "How a group of Cal State Fullerton computer science students turned a campus food pantry into Bag/Get, a Public Benefit Corporation.",
+}
+
+type Chapter = { title: ReactNode; body: ReactNode; gradient: string; tall?: boolean }
+
+const CHAPTERS: Chapter[] = [
+  {
+    title: "This is how it all began",
+    body: "Cal State Fullerton computer science students  using the campus food pantry.",
+    gradient: "bg-[linear-gradient(120deg,#171717_0%,#262626_148%)]",
+  },
+  {
+    title: "That is when we heard about a competition",
+    body: (
+      <>
+        Putting our minds together we drafted, iterated and eventually proposed <strong className="font-black">BAG/GET</strong>.
+      </>
+    ),
+    gradient: "bg-[linear-gradient(220deg,#171717_0%,#262626_109%)]",
+  },
+  {
+    title: "But that is when the real work started",
+    body: "We researched, interviewed, and volunteered to understand everything about Food Pantries.",
+    gradient: "bg-[linear-gradient(152deg,#171717_0%,#262626_117%)]",
+  },
+  {
+    title: (
+      <>
+        We were no longer <em>just</em> Computer Science kids
+      </>
+    ),
+    body: "We took all we learned and created a production-ready application deployed to real Food Pantries. Now serving as a Public Benefit Corporation.",
+    gradient: "bg-[linear-gradient(2deg,#171717_0%,#262626_100%)]",
+    tall: true,
+  },
+  {
+    title: "We couldn't have gotten here alone",
+    body: "Thank you to our mentor Jeff Greenberg and everyone we met along the way. Our success is proof of your commitment and dedication to helping us.",
+    gradient: "bg-[linear-gradient(142deg,#0a0a0a_0%,#171717_100%)]",
+    tall: true,
+  },
+]
 
 export default function OurStoryPage() {
-    return (
-        <main>
-            <Hero image={{url: "/our-story-hero.webp", alt: "picture of baguettes in a brown paper bag"}}>
-                From idea to <Highlight>Impact</Highlight>
-            </Hero>
-            <History/>
-            <CompanyValues/>
-            <Team />
-        </main>
-    )
+  return (
+    <main className="relative overflow-hidden">
+      <Contour opacity={0.7} scribble={false} />
+      <div className="relative px-6 pt-[90px] min-[810px]:pt-[134px]">
+        <PageHeader title="OUR STORY" image="/framer/story/header-titan-fast-pitch.jpg" overlay={0.25} />
+      </div>
+
+      <Chapters />
+
+      <div className="relative mt-[60px] flex justify-center">
+        <Reveal duration={1}>
+          <ButtonLink href="/news">Read more here</ButtonLink>
+        </Reveal>
+      </div>
+
+      <Milestones />
+      <Team />
+    </main>
+  )
 }
 
-function History() {
-    return(
-        <section className="md:px-[15%] px-[10%] md:py-[2%] md:pb-[10%] pb-[7%] flex flex-col justify-center items-center bg-gradient-to-b from-green-950 to-emerald-950 text-center">
-            <motion.div 
-                variants={fadeIn}
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{ once: true}}
-                className="flex flex-col justify-center items-center md:gap-10 gap-5 lg:max-w-9/12 text-gray-50"
-            >
-                <Text>
-                    Our team was in college when we started this journey in early 2023. Like 40% of the students in the 
-                    California State University system, and a large percentage of students around the country, we were 
-                    regular patrons of the on-campus Food Pantry. Despite the indispensable role it played in our lives 
-                    at the time, the flaws of the arrangement felt glaring. The inaugural Engineering Social Justice 
-                    competition gave us the perfect opportunity to explore the root of the problems we were experiencing - 
-                    the difficult scheduling, inventory mismatch, the ineffectual communication. The research and interviews 
-                    that ensued led to brainstorming sessions. Through this process is where Bag/Get was born. 
-                </Text>
-                <Text>
-                    We went on to win 1st place at the ESJ competition, followed by a podium finish at the CSU-wide Startup 
-                    Competition in San Jose. Bag/Get was then invited to receive residency at the CSUF Business School{"'"}s 
-                    Startup Incubator. We began a formal market research phase consisting of hundreds of interviews with 
-                    food pantries and food banks as far north as Humboldt County, all the way down to San Diego. The team 
-                    continued to receive validation with wins at competitions such as Titan Fast Pitch and SoCal Entrepreneurship.
-                </Text>
-                <Text>
-                    This market research culminated in the start of development for us - the Bag/Get platform for staff, volunteers, 
-                    and neighbors (pantry clients). During this time we were also being supported by an emerging partnership with the 
-                    LA-based Pando Populus group during this period. We continued to strengthen relationships across California by attending
-                    our first Food Bank Convention in Sacramento, sponsored by the NSF{"'"}s I-Corp program.
-                </Text>
-                <Text>
-                    Shortly after that, the team was invited to apply to the Larta Institute{"'"}s Accelerator, the Venture Fellows program - a 
-                    natural progression for us having just graduated from the business school{"'"}s start up incubator. From hundreds of applicants, 
-                    our startup was chosen to join the 9 other LA & Miami-based companies that made up the 2024 cohort. We continued to refine 
-                    our MVP, whilst being to introduced to impact-oriented VC firms - this was valuable insight towards planning our pilot run 
-                    and establishing our KPI{"'"}s. 
-                </Text>
-                <Text>
-                    We successfully completed residency at Larta Institute, and today are soon to deploy our pilot at 3 different pantries in Orange 
-                    County and the Inland Empire. As we move along, Bag/Get will continue to grow and listen closely to what our community has to say. 
-                    Please join us, on our journey to modernize the food equity landscape and help our neighbors!
-                </Text>
-            </motion.div>
-        </section>
-    )
+function Chapters() {
+  return (
+    <div className="relative mx-auto mt-[60px] max-w-[1049px] px-6 min-[1100px]:px-0">
+      <div className="flex flex-col gap-[60px]">
+        {CHAPTERS.map((c, i) => (
+          <Reveal
+            key={i}
+            preset={i === 0 ? "fade" : "rise"}
+            trigger={i === 0 ? "load" : "view"}
+            replay={i > 0}
+            amount={0.1}
+            className={cn(
+              "flex flex-col items-center justify-center gap-5 rounded-[48px] px-6 py-10 text-center text-paper shadow-[0_8px_24px_rgb(0_0_0/0.25)] min-[810px]:rounded-full min-[810px]:px-16",
+              c.tall ? "min-[810px]:min-h-[265px]" : "min-[810px]:min-h-[236px]",
+              c.gradient,
+            )}
+          >
+            <h2 className="text-[26px] font-medium leading-[1.2] min-[810px]:text-[32px]">{c.title}</h2>
+            <p className="max-w-[600px] whitespace-pre-wrap font-display text-lg font-light leading-[1.2] min-[810px]:text-2xl">
+              {c.body}
+            </p>
+          </Reveal>
+        ))}
+      </div>
+
+      {/* Partner badges (desktop) */}
+      <div className="pointer-events-none absolute inset-0 hidden min-[1200px]:block" aria-hidden>
+        {PARTNER_BADGES.map((b) => (
+          <div
+            key={b.name}
+            className="absolute size-[150px]"
+            style={{ left: b.x - 75, top: b.y - 75, transform: `rotate(${b.rotate}deg)` }}
+          >
+            <Reveal className="size-full">
+              <Image src={b.src} alt="" width={731} height={731} sizes="150px" className="size-full rounded-full" />
+            </Reveal>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
 }
 
-function CompanyValues() {
-    return(
-        <section className="relative overflow-hidden md:px-[15%] px-[10%] py-[7%] flex flex-col md:gap-10 gap-10 justify-center items-center bg-gradient-to-t from-green-950 to-emerald-950 text-center text-gray-50">
-            <motion.div 
-                variants={fadeIn}
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{ once: true}}
-                className="relative z-10 flex flex-col md:gap-10 gap-2 lg:w-1/2"
-            >
-                <Heading size="big">
-                    Our Values
-                </Heading>
-                <Text>
-                    During this journey so far we came to a conclusion that Bag/Get should follow these core principles. 
-                    These factors are what drives our development and focus to deliver the best software.
-                </Text>
-            </motion.div>
-            <motion.div 
-                variants={fadeIn}
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{ once: true}}
-                className="relative z-10 flex flex-wrap justify-center items-center md:gap-30 gap-5"
-            >
-                {companyValuesData.map((value, i) => (
-                    <div key={`${value.title}-id-${i}`} className="flex flex-col flex-wrap justify-center items-center w-20 gap-5">
-                        <div className="lg:w-32 lg:h-32 md:w-20 md:h-20 w-10 h-10">
-                            <Image 
-                                src={value.icon}
-                                alt={`${value.title} icon`}
-                                width={1000}
-                                height={1000}
-                            />
-                        </div>
-                        <Heading size="small">
-                            {value.title}
-                        </Heading>
-                    </div>
-                ))}
-            </motion.div>
-            <div className="absolute z-0 w-full h-full">
-                <Image 
-                    src="/our-values.webp"
-                    alt="image of bag/get team members creating accessible software based on our market research"
-                    width={1920}
-                    height={1080}
-                    className="bg-lime-50"
-                />
-                <div className="absolute inset-0 bg-black opacity-90"></div>
+function Milestones() {
+  return (
+    <section aria-label="Milestones" className="relative mt-[60px]">
+      <Marquee direction="left" pauseOnHover>
+        {MILESTONES.map((m) => (
+          <figure key={m.title} className="mr-[27px] w-[300px] shrink-0 min-[810px]:w-[452px]">
+            <div className="relative aspect-[452/300] overflow-hidden rounded-[32px] min-[810px]:rounded-[40px]">
+              <Image src={m.image} alt={m.title} fill sizes="452px" className="object-cover" />
             </div>
-        </section>
-    )
+            <figcaption className="mt-[27px] rounded-[20px] bg-ink-soft px-[22px] py-[17px] text-paper-bright">
+              <p className="truncate font-medium leading-[1.2]">{m.title}</p>
+              <p className="mt-2 font-light leading-[1.2]">{m.place}</p>
+            </figcaption>
+          </figure>
+        ))}
+      </Marquee>
+    </section>
+  )
 }
+
+const panel = "bg-[linear-gradient(240deg,#e5e5e5_0%,#d4d4d4_100%)]"
 
 function Team() {
-    return (
-        <section className="lg:px-[24%] md:px-[15%] px-[10%] lg:pt-[2%] pt-[7%] pb-[5%] flex flex-col justify-center items-center lg:gap-22 md:gap-14 gap-3 bg-gradient-to-b from-green-950 to-emerald-950 text-center text-gray-50">
-            <motion.div 
-                variants={fadeIn}
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{ once: true}}
-                className="flex flex-col gap-5 lg:w-1/2"
-            >
-                <Heading size="big">
-                    The <Highlight>faces behind</Highlight> our values.
-                </Heading>
-                <Text>
-                    Meet the team who is actively programming, advocating and pushing this software to local communities 
-                    to <b>serve more people</b>, and <b>waste less.</b>
-                </Text>
-            </motion.div>
-            <div className="flex flex-col lg:gap-30 gap-0 justify-center items-center">
-                {teamData.map((member, i) => (
-                    <motion.div 
-                        key={`${member.name}-id-${i}`} 
-                        variants={fadeIn}
-                        initial="offscreen"
-                        whileInView="onscreen"
-                        viewport={{ once: true}}
-                        className={`lg:h-64 md:px-5 py-5 flex flex-col-reverse md:gap-8 gap-10 justify-between items-center ${i % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'}`}
-                    >
-                        <div className="md:w-1/2 flex flex-col gap-5 md:justify-start md:items-start justify-center items-center">
-                            <div className="flex flex-col text-gray-50 gap-2 md:justify-start md:items-start justify-center items-center">
-                                <Heading size="big" className="lg:text-2xl">
-                                    {member.name}
-                                </Heading>
-                                <Text>{member.title}</Text>
-                            </div>
-                            <div className="flex flex-wrap gap-5">
-                                <div className="flex gap-2 justify-center items-center">
-                                    <div className="lg:w-10 lg:h-10 md:w-7 md:h-7 w-5 h-5">
-                                        <Image
-                                            src="/mail.svg"
-                                            width={1000}
-                                            height={1000}
-                                            alt="email icon"
-                                        />
-                                    </div>
-                                    <Text>{member.email}</Text>
-                                </div>
-                                <div className="flex gap-2 justify-center items-center">
-                                    <div className="lg:w-10 lg:h-10 md:w-7 md:h-7 w-5 h-5">
-                                        <Image
-                                            src="/linkedin-icon.svg"
-                                            width={1000}
-                                            height={1000}
-                                            alt="linkedin logo"
-                                        />
-                                    </div>
-                                    <Text>{member.linkedIn}</Text>
-                                </div>
-                            </div>
-                            <Text className="md:text-start text-center">{member.blurb}</Text>
-                        </div>
-                        <div className="lg:w-[300px] lg:h-[300px] md:w-[200px] md:h-[300px] w-[200px] h-[250px] overflow-hidden rounded-full">
-                            <Image
-                                src={member.image}
-                                width={1920}
-                                height={1800}
-                                alt={`headshot of ${member.name}`}
-                                className="bg-lime-50"
-                            />
-                        </div>
-                    </motion.div>
-                ))}
-            </div>
-        </section>
-    )
+  return (
+    <section className="relative mx-auto mt-[90px] flex max-w-[1052px] flex-col gap-10 px-6 pb-[90px] min-[1100px]:px-0">
+      <Reveal className={cn("rounded-br-[40px] rounded-tl-[40px] px-[45px] py-6", panel)}>
+        <h2 className="text-[36px] font-semibold leading-[1.2] text-ink min-[810px]:text-[48px]">Meet the Team</h2>
+        <p className="mt-4 font-display font-light leading-[1.2] text-ink">
+          The faces who are actively advocating and pushing this software to <strong className="font-semibold">serve more</strong>{" "}
+          and <strong className="font-semibold">waste less</strong> in our local communities.
+        </p>
+      </Reveal>
+
+      {TEAM.map((m, i) => (
+        <Reveal
+          key={m.name}
+          className={cn(
+            "flex flex-col items-center gap-8 rounded-[40px] px-8 py-12 min-[810px]:min-h-[295px] min-[810px]:gap-[60px] min-[810px]:px-[97px]",
+            i % 2 ? "min-[810px]:flex-row-reverse" : "min-[810px]:flex-row",
+            panel,
+          )}
+        >
+          <Image
+            src={m.image}
+            alt={`${m.name}, ${m.role}`}
+            width={2768}
+            height={4160}
+            sizes="200px"
+            className="size-[200px] shrink-0 rounded-full object-cover object-top"
+          />
+          <div className="flex flex-col gap-4">
+            <h3 className="text-[28px] font-semibold leading-[1.2] text-ink min-[810px]:text-[32px]">
+              {m.name} · {m.role}
+            </h3>
+            <p className="font-display font-light leading-[1.2] text-black">{m.bio}</p>
+            <p className="font-display text-[8px] font-light italic leading-[1.2] text-black">{m.funFact}</p>
+          </div>
+        </Reveal>
+      ))}
+    </section>
+  )
 }

@@ -1,26 +1,32 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import { Text } from "@/components/utility/typography";
-import { Toaster } from "@/components/ui/sonner"
-import NavBar from "@/components/sections/navbar";
+import type { Metadata } from "next"
+import { Inter, Plus_Jakarta_Sans } from "next/font/google"
+import "./globals.css"
+import NavBar from "@/components/site/navbar"
+import Footer from "@/components/site/footer"
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-});
+  display: "swap",
+})
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin"],
-});
+  weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
+})
 
 export const metadata: Metadata = {
-  title: "Bag/Get",
+  metadataBase: new URL("https://bagget.io"),
+  title: {
+    default: "Bag/Get",
+    template: "%s | Bag/Get",
+  },
   description:
-    "Bag/Get the team building solutions to alleviate food insecurity",
+    "Case management software made simple to intake, manage, and serve our communities. Built for food pantries, food banks, and community resource centers.",
   authors: [
-    { name: "Rohan Kunchala", url: "linkedin.com/in/rohankunchala" },
+    { name: "Rohan Kunchala", url: "https://linkedin.com/in/rohankunchala" },
     { name: "Alan Cortez", url: "https://alancortez.dev/" },
   ],
   creator: "Alan Cortez",
@@ -28,76 +34,62 @@ export const metadata: Metadata = {
     "Bag/Get",
     "Bagget",
     "baggit",
-    "dashboard",
     "bag get",
     "bag get app",
     "bag/get application",
     "bag/get staff dashboard",
     "bag/get dashboard",
-    "software",
+    "case management software",
     "food pantry software",
+    "food bank software",
+    "community center software",
+    "volunteer management",
+    "offline check-in",
+    "QR code check-in",
     "serve more",
     "waste less",
     "Alan Cortez",
     "Rohan Kunchala",
-    "Cesar Rojas",
     "alleviating food insecurity",
     "Food Bank Solutions",
     "Food Pantry Solutions",
     "Pantry Solutions",
     "Engineering Social Justice",
-    "Engineering Social Justice 1st place",
     "CSUF Engineering Social Justice",
-    "CSU, Fullerton Engineering Social Justice",
-    "SCAR Day",
     "CSUF SCAR Day",
-    "CSU, Fullerton SCAR Day",
-    "CSU, Fullerton SCAR Day 1st place",
     "csuf incubator",
-    "startup",
-    "csuf lightning pitch",
-    "CSU, Fullerton SCAR Day 1st place",
-    "San Jose Sunstone 3rd place winners",
-    "Sunstone 3rd place winners",
+    "Titan Fast Pitch",
+    "Larta Institute",
+    "Pando Days",
     "Sunstone",
+    "Public Benefit Corporation",
   ],
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.svg",
     apple: "/favicon.svg",
-    other: {
-      rel: "bag-get-icon",
-      url: "/favicon.ico",
-    },
   },
-};
+  openGraph: {
+    title: "Bag/Get — All in one platform",
+    description: "Case management software made simple to intake, manage, and serve our communities.",
+    url: "https://bagget.io",
+    siteName: "Bag/Get",
+    type: "website",
+  },
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}
-      >
-        <NavBar/>
+    <html lang="en" className={`${inter.variable} ${jakarta.variable}`}>
+      <body className="relative overflow-x-clip">
+        <NavBar />
         {children}
-        <Footer/>
-        <Toaster position="top-center" richColors/>
+        <Footer />
       </body>
     </html>
-  );
-}
-
-function Footer() {
-  const date = new Date()
-  
-
-  return(
-    <footer className="flex justify-center items-center py-6 px-10 bg-green-950">
-      <Text className="text-lime-50">© {date.getFullYear()} All rights reserved.</Text>
-    </footer>
   )
 }

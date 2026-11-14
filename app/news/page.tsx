@@ -1,62 +1,61 @@
-"use client"
+import type { Metadata } from "next"
+import Image from "next/image"
+import Link from "next/link"
+import { ButtonLink } from "@/components/site/button-link"
+import { Contour } from "@/components/site/contour"
+import { PageHeader } from "@/components/site/page-header"
+import { Reveal } from "@/components/site/reveal"
+import { NEWS } from "@/data/news"
 
-import React from "react";
-import Hero from "@/components/sections/globalHero";
-import Image from "next/image";
-import { Heading, Text, Highlight } from "@/components/utility/typography";
-import { newsData } from "@/data/news";
-import { BetterButton } from "@/components/ui/button";
-import { fadeIn } from "@/lib/animate";
-import { motion } from "motion/react";
-
-export default function NewsPage() {
-    return (
-        <main>
-            <Hero image={{url: "/news-hero.webp", alt: "picture of newspapers"}}>
-                See what <Highlight>we{"'"}ve</Highlight> been up to.
-            </Hero>
-            <News/>
-            <div className="px-[15%] pt-[2%] pb-[5%] flex flex-col justify-center items-center bg-gradient-to-t from-green-950 to-emerald-900">
-                <BetterButton link={"/news"} variant="secondary"><Text>Jump to top</Text></BetterButton>
-            </div>
-        </main>
-    )
+export const metadata: Metadata = {
+  title: "News",
+  description: "Milestones, competitions and events that brought Bag/Get here.",
 }
 
-function News() {
-    return (
-        <section className="lg:px-[15%] px-[5%] py-[2%] flex flex-col gap-10 justify-center items-center bg-gradient-to-b from-green-950 to-emerald-900 text-center text-gray-50">
-            <div className="flex flex-col lg:gap-14 md:gap-10 gap-5">
-                {newsData.map((news, i) => (
-                    <motion.div 
-                        key={`${news.title}-id-${i}`} 
-                        variants={fadeIn}
-                        initial="offscreen"
-                        whileInView="onscreen"
-                        viewport={{ once: true}}
-                        className="relative flex flex-col justify-center items-center gap-6 bg-green-950 shadow-lg md:rounded-full rounded-3xl md:px-20 lg:py-28 px-15 py-10 overflow-hidden"
-                    >
-                        <div className="flex flex-col gap-5 relate z-10">
-                            <Heading size="big">{news.title}</Heading>
-                            {news.location && <Text>{news.location}</Text>}
-                        </div>
-                        <div className="flex flex-col gap-8 lg:w-1/2 justify-center items-center relate z-10">
-                            <Text>{news.blurb}</Text>
-                            {news.link && <BetterButton link={news.link} newPage variant="secondary"><Text>Read More</Text></BetterButton>}
-                        </div>
-                        <div className="absolute z-0 w-full h-full">
-                            <Image 
-                                src={news.image.url}
-                                alt={news.image.alt}
-                                width={1920}
-                                height={1080}
-                                className="bg-lime-50 w-full h-full object-cover"
-                            />
-                            <div className="absolute inset-0 bg-black opacity-70"></div>
-                        </div>
-                    </motion.div>
-                ))}
-            </div>
-        </section>
-    )
+export default function NewsPage() {
+  return (
+    <main id="top" className="relative overflow-hidden">
+      <Contour opacity={0.7} scribble={false} />
+      <div className="relative px-6 pt-[90px] min-[810px]:pt-[122px]">
+        <PageHeader title="News" image="/framer/brand/pantry-shelves.webp" overlay={0.4} />
+
+        <p className="mx-auto mt-[50px] max-w-[1000px] text-center text-lg leading-[1.2] text-black min-[810px]:text-2xl">
+          Explore the milestones that brought us here, from the accelerators and incubators that shaped us to the events
+          that helped get us off the ground. Click any card to read the full story. And this is only the beginning, so
+          stay tuned for what’s next.
+        </p>
+
+        <ul className="mx-auto mt-10 flex max-w-[1026px] flex-col gap-[60px]">
+          {NEWS.map((post, i) => (
+            <Reveal as="li" key={post.slug} amount={0.15}>
+              <Link
+                href={`/news/${post.slug}`}
+                className="group relative flex h-[260px] flex-col justify-between overflow-hidden rounded-[32px] border-[3px] border-white/70 p-5 min-[810px]:h-[400px] min-[810px]:rounded-[40px] min-[810px]:p-[25px]"
+              >
+                <Image
+                  src={post.cover}
+                  alt=""
+                  fill
+                  sizes="(min-width: 1080px) 1026px, 100vw"
+                  priority={i < 2}
+                  className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+                <div className="absolute inset-0 bg-ink/40" />
+                <h2 className="relative text-2xl font-bold leading-[1.4] tracking-[-0.04em] text-paper-bright min-[810px]:text-[32px]">
+                  {post.title}
+                </h2>
+                <span className="relative self-start rounded-md bg-mint/20 px-2 leading-[1.6] tracking-[-0.02em] text-paper-bright backdrop-blur-sm">
+                  {post.category}
+                </span>
+              </Link>
+            </Reveal>
+          ))}
+        </ul>
+
+        <div className="flex justify-center py-[70px]">
+          <ButtonLink href="#top">Jump to top of page</ButtonLink>
+        </div>
+      </div>
+    </main>
+  )
 }
