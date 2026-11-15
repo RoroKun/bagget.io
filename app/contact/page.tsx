@@ -3,7 +3,7 @@ import Image from "next/image"
 import { ArrowUpRight, Mail } from "lucide-react"
 import { Contour } from "@/components/site/contour"
 import { PageHeader } from "@/components/site/page-header"
-import { CONTACT_EMAIL, LINKEDIN_URL } from "@/data/site"
+import { CONTACT_EMAILS, LINKEDIN_URL } from "@/data/site"
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -18,7 +18,7 @@ const ctaCard =
 export default function ContactPage() {
   return (
     <main className="relative overflow-hidden bg-ink">
-      <Contour invert opacity={0.9} scribble={false} />
+      <Contour spin opacity={0.2} scribbleScale={2} tilt={40} perspective={1500} />
       <div className="relative px-6 pb-[70px] pt-[90px] min-[810px]:pt-[102px]">
         <PageHeader title="Contact Us" image="/framer/brand/pantry-shelves.webp" overlay={0.4} />
 
@@ -31,10 +31,12 @@ export default function ContactPage() {
                 talk.
               </p>
             </div>
-            <a href={`mailto:${CONTACT_EMAIL}`} className={`${ctaCard} bg-mint text-ink hover:bg-[#a7f3c3]`}>
+            <a href={`mailto:${CONTACT_EMAILS.join(",")}`} className={`${ctaCard} bg-mint text-ink hover:bg-[#a7f3c3]`}>
               <span className="flex flex-col gap-2">
                 Contact
-                <span className="text-base font-normal text-ink/70">{CONTACT_EMAIL}</span>
+                <span className="text-base font-normal text-ink/70">
+                  Let&apos;s brainstorm on how to serve more and waste less together!
+                </span>
               </span>
               <Mail className="size-8 shrink-0 transition-transform group-hover:-translate-y-0.5" strokeWidth={1.75} />
             </a>

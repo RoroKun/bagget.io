@@ -1,6 +1,6 @@
 export const APP_URL = "https://app.bagget.io"
 export const LINKEDIN_URL = "https://www.linkedin.com/company/bagget"
-export const CONTACT_EMAIL = "alan@bagget.io"
+export const CONTACT_EMAILS = ["alan@bagget.io", "rohan@bagget.io"]
 
 export const NAV_LINKS = [
   { href: "/product", label: "Product" },
