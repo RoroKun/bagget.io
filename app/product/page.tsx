@@ -112,7 +112,7 @@ function MissionOriented() {
         with simple, user-friendly tools.
       </SectionTitle>
 
-      <div className="mt-[100px] flex flex-col gap-[60px]">
+      <div className="mt-[100px] flex flex-col gap-[100px]">
         <Showcase
           title="Food Pantries"
           body="Everything your pantry needs, all in one place. Our intake tool checks in neighbors and volunteers whether you’re online or offline, and every distribution instantly becomes a dynamic report with live analytics."

@@ -16,7 +16,7 @@ export function Wordmark({ className, cutColor = "#171717" }: { className?: stri
       >
         BAGGET
       </text>
-      <rect x="202" y="69" width="160" height="23" fill={cutColor} transform="rotate(-49 282 80.5)" />
+      <rect x="202" y="63" width="160" height="23" fill={cutColor} transform="rotate(-57 282 80.5)" />
       <text
         x="530"
         y="125"

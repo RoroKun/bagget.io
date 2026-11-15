@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s | Bag/Get",
   },
   description:
-    "Case management software made simple to intake, manage, and serve our communities. Built for food pantries, food banks, and community resource centers.",
+    "Client management software made simple to intake, manage, and serve our communities. Built for food pantries, food banks, and community resource centers.",
   authors: [
     { name: "Rohan Kunchala", url: "https://linkedin.com/in/rohankunchala" },
     { name: "Alan Cortez", url: "https://alancortez.dev/" },
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     "bag/get application",
     "bag/get staff dashboard",
     "bag/get dashboard",
-    "case management software",
+    "client management software",
     "food pantry software",
     "food bank software",
     "community center software",
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Bag/Get — All in one platform",
-    description: "Case management software made simple to intake, manage, and serve our communities.",
+    description: "Client management software made simple to intake, manage, and serve our communities.",
     url: "https://bagget.io",
     siteName: "Bag/Get",
     type: "website",
