@@ -76,6 +76,9 @@ export const metadata: Metadata = {
     siteName: "Bag/Get",
     type: "website",
   },
+  verification: {
+    google: "ozaT9MoA1CsM-Go5nRHU_2edc13iAb9Tm2WPtqMZzPk",
+  },
 }
 
 export default function RootLayout({
