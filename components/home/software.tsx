@@ -192,7 +192,7 @@ const STEP_DELAYS = [0, 0.45, 1.1]
 export function Software() {
   return (
     <section className="relative -mt-[180px] overflow-hidden rounded-t-[48px] bg-[linear-gradient(204deg,rgb(7,15,8)_43%,rgb(7,18,9)_100%)] pb-24 pt-[230px] min-[810px]:-mt-[290px] min-[810px]:rounded-t-[80px] min-[810px]:pt-[360px]">
-      <Contour invert opacity={0.08} />
+      <Contour invert spin opacity={0.05} scribbleScale={2.2} tilt={30} perspective={900}/>
 
       <div className="relative">
         <SectionTitle title="Save time today and focus more on your people" className="max-w-[860px] [&>p]:max-w-[680px]">

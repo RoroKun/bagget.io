@@ -5,8 +5,8 @@ import { Reveal } from "@/components/site/reveal"
 export function ClosingCta() {
   return (
     <section className="bg-[#d4d4d4]">
-      <div className="relative mx-auto max-w-[1200px] overflow-hidden bg-paper px-6 py-[90px]">
-        <Contour opacity={0.27} />
+      <div className="relative mx-auto overflow-hidden bg-paper px-6 py-[120px]">
+        <Contour spin opacity={0.2} scribbleScale={2} tilt={50} perspective={2000}/>
         <div className="relative flex flex-col items-center gap-5 text-center">
           <Reveal className="flex flex-col items-center gap-5">
             <h2 className="text-[26px] font-semibold leading-[1.2] text-ink min-[810px]:text-[32px]">

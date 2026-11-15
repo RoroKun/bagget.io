@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function NewsPage() {
   return (
     <main id="top" className="relative overflow-hidden">
-      <Contour opacity={0.7} scribble={false} />
+      <Contour spin opacity={0.1} scribbleScale={4} tilt={20} perspective={1500} />
       <div className="relative px-6 pt-[90px] min-[810px]:pt-[122px]">
         <PageHeader title="News" image="/framer/brand/pantry-shelves.webp" overlay={0.4} />
 

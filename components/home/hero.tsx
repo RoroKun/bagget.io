@@ -13,7 +13,7 @@ const LINES = [
 export function Hero() {
   return (
     <section className="relative overflow-hidden pt-[120px] min-[810px]:pt-[150px]">
-      <Contour spin opacity={0.12} />
+      <Contour spin opacity={0.2} scribbleScale={2} tilt={40} perspective={1500}/>
       <div className="relative mx-auto flex max-w-[1100px] flex-col items-center px-6 text-center">
         <h1 className="text-[26px] font-semibold leading-[1.2] text-ink min-[400px]:text-[28px] min-[810px]:text-[52px] min-[1200px]:text-[64px]">
           {LINES.map((l) => (

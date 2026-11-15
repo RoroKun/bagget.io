@@ -58,8 +58,9 @@ const CHAPTERS: Chapter[] = [
 export default function OurStoryPage() {
   return (
     <main className="relative overflow-hidden">
-      <Contour opacity={0.7} scribble={false} />
-      <div className="relative px-6 pt-[90px] min-[810px]:pt-[134px]">
+      <Contour spin opacity={0.2} scribbleScale={2} tilt={40} perspective={1500} />
+      <div className="relative px-6 pt-[90px] min-[810px]:pt-[134px] overflow-visible">
+        <Contour spin opacity={0.1} scribbleScale={2.5} tilt={40} perspective={1500} overflow />
         <PageHeader title="OUR STORY" image="/framer/story/header-titan-fast-pitch.jpg" overlay={0.25} />
       </div>
 
@@ -144,41 +145,46 @@ const panel = "bg-[linear-gradient(240deg,#e5e5e5_0%,#d4d4d4_100%)]"
 
 function Team() {
   return (
-    <section className="relative mx-auto mt-[90px] flex max-w-[1052px] flex-col gap-10 px-6 pb-[90px] min-[1100px]:px-0">
-      <Reveal className={cn("rounded-br-[40px] rounded-tl-[40px] px-[45px] py-6", panel)}>
-        <h2 className="text-[36px] font-semibold leading-[1.2] text-ink min-[810px]:text-[48px]">Meet the Team</h2>
-        <p className="mt-4 font-display font-light leading-[1.2] text-ink">
-          The faces who are actively advocating and pushing this software to <strong className="font-semibold">serve more</strong>{" "}
-          and <strong className="font-semibold">waste less</strong> in our local communities.
-        </p>
-      </Reveal>
-
-      {TEAM.map((m, i) => (
-        <Reveal
-          key={m.name}
-          className={cn(
-            "flex flex-col items-center gap-8 rounded-[40px] px-8 py-12 min-[810px]:min-h-[295px] min-[810px]:gap-[60px] min-[810px]:px-[97px]",
-            i % 2 ? "min-[810px]:flex-row-reverse" : "min-[810px]:flex-row",
-            panel,
-          )}
-        >
-          <Image
-            src={m.image}
-            alt={`${m.name}, ${m.role}`}
-            width={2768}
-            height={4160}
-            sizes="200px"
-            className="size-[200px] shrink-0 rounded-full object-cover object-top"
-          />
-          <div className="flex flex-col gap-4">
-            <h3 className="text-[28px] font-semibold leading-[1.2] text-ink min-[810px]:text-[32px]">
-              {m.name} · {m.role}
-            </h3>
-            <p className="font-display font-light leading-[1.2] text-black">{m.bio}</p>
-            <p className="font-display text-[8px] font-light italic leading-[1.2] text-black">{m.funFact}</p>
-          </div>
+    // Full-width gradient wrapper: light at the top, darkening toward the footer.
+    <div className="relative bg-[linear-gradient(to_bottom,#f5f5f5,#d4d4d4)] pt-[90px]">
+      <Contour spin opacity={0.2} scribbleScale={2} tilt={50} perspective={1500} />
+      <section className="relative mx-auto flex max-w-[1052px] flex-col gap-10 px-6 pb-[90px] min-[1100px]:px-0">
+        <Reveal className={cn("rounded-[40px] px-[45px] py-6", panel)}>
+          <h2 className="text-[36px] font-semibold leading-[1.2] text-ink min-[810px]:text-[48px]">Meet the Founders</h2>
+          <p className="mt-4 font-display font-light leading-[1.2] text-ink">
+            The faces who are actively advocating and pushing this software to{" "}
+            <strong className="font-semibold">serve more</strong> and <strong className="font-semibold">waste less</strong> in
+            our local communities.
+          </p>
         </Reveal>
-      ))}
-    </section>
+
+        {TEAM.map((m, i) => (
+          <Reveal
+            key={m.name}
+            className={cn(
+              "flex flex-col items-center gap-8 rounded-[40px] px-8 py-12 min-[810px]:min-h-[295px] min-[810px]:gap-[60px] min-[810px]:px-[97px]",
+              i % 2 ? "min-[810px]:flex-row-reverse" : "min-[810px]:flex-row",
+              panel,
+            )}
+          >
+            <Image
+              src={m.image}
+              alt={`${m.name}, ${m.role}`}
+              width={2768}
+              height={4160}
+              sizes="200px"
+              className="size-[200px] shrink-0 rounded-full object-cover object-top"
+            />
+            <div className="flex flex-col gap-4">
+              <h3 className="text-[28px] font-semibold leading-[1.2] text-ink min-[810px]:text-[32px]">
+                {m.name} · {m.role}
+              </h3>
+              <p className="font-display font-light leading-[1.2] text-black">{m.bio}</p>
+              <p className="font-display text-[8px] font-light italic leading-[1.2] text-black">{m.funFact}</p>
+            </div>
+          </Reveal>
+        ))}
+      </section>
+    </div>
   )
 }

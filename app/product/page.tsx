@@ -33,7 +33,7 @@ export default function ProductPage() {
 function Audiences() {
   return (
     <section className="relative overflow-hidden px-6 pb-5 pt-[90px] min-[810px]:pt-[103px]">
-      <Contour spin opacity={0.85} scribble={false} />
+      <Contour spin opacity={0.2} scribbleScale={3} tilt={40} perspective={1500} />
       <div className="relative">
         <PageHeader
           title="Who do we serve?"
@@ -197,7 +197,7 @@ function Participant({
 function Participants() {
   return (
     <section className="relative -mt-[91px] overflow-hidden px-6 pb-20 pt-[100px]">
-      <Contour opacity={0.5} />
+      <Contour spin opacity={0.2} scribbleScale={1.25} tilt={20} perspective={800}/>
       <div className="relative">
         <SectionTitle tone="dark" title="Every Participant is Included" className="max-w-[920px]">
           Your volunteers and neighbors will all have access to a mobile application where they can stay up to date
@@ -243,7 +243,7 @@ function Participants() {
 function Privacy() {
   return (
     <section className="relative overflow-hidden px-6 pb-[70px] pt-10">
-      <Contour opacity={0.2} />
+      <Contour spin invert opacity={0.4} scribbleScale={1} tilt={40} perspective={200}/>
       <div className="relative">
         <SectionTitle tone="dark" title="Privacy Out of the Box" className="max-w-[1000px]">
           Your clients privacy is our priority. We will never sell your information, and we <em>don&apos;t</em> charge
