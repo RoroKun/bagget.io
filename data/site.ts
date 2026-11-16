@@ -14,6 +14,6 @@ export const FOOTER_LINKS = [
   { href: "/product", label: "Product" },
   { href: "/news", label: "News" },
   { href: LINKEDIN_URL, label: "LinkedIn" },
-  { href: null, label: "Legal" }, // no legal page exists yet (not linked on the Framer site either)
+  { href: "/legal", label: "Legal" },
   { href: "/contact", label: "Contact" },
 ] as const

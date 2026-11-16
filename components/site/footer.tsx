@@ -14,9 +14,7 @@ export default function Footer() {
         <ul className="flex flex-col items-center gap-3 font-light text-paper-bright min-[810px]:items-end">
           {FOOTER_LINKS.map((l) => (
             <li key={l.label}>
-              {l.href === null ? (
-                <span className="text-paper">{l.label}</span>
-              ) : l.href.startsWith("http") ? (
+              {l.href.startsWith("http") ? (
                 <a href={l.href} target="_blank" rel="noopener noreferrer" className="hover:text-paper">
                   {l.label}
                 </a>
