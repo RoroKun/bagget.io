@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
+import { Contour } from "@/components/site/contour"
 
 export const metadata: Metadata = {
   title: "Legal",
@@ -24,8 +25,11 @@ const DOCUMENTS = [
 
 export default function LegalPage() {
   return (
-    <main className="px-6 pb-24 pt-[130px] min-[810px]:pt-[160px]">
-      <div className="mx-auto max-w-[960px]">
+    // `relative overflow-hidden` keeps the contour inside <main> so it never reaches the footer;
+    // the content wrapper is `relative` so it paints above the (absolutely positioned) contour.
+    <main className="relative overflow-hidden px-6 pb-24 pt-[130px] min-[810px]:pt-[160px]">
+      <Contour spin opacity={0.15} scribbleScale={2.5} tilt={20} perspective={900} top="30%" />
+      <div className="relative mx-auto max-w-[960px]">
         <h1 className="text-[40px] font-semibold leading-[1.2] text-ink min-[810px]:text-[56px]">Legal</h1>
         <p className="mt-3 max-w-[560px] font-display text-lg font-light leading-[1.4] text-ink min-[810px]:text-2xl">
           The policies and terms that govern how Bag/Get works.

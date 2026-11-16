@@ -13,6 +13,8 @@ import { cn } from "@/lib/utils"
  * `perspective` (px) controls how strong that 3D effect looks; smaller = more dramatic.
  * `overflow` lets the artwork spill outside its container instead of being clipped to it
  * (any ancestor with overflow-hidden will still clip it).
+ * `top` moves the artwork's centre vertically within the container (default "50%"); smaller
+ * values move it up, e.g. top="30%" or top="200px".
  */
 export function Contour({
   className,
@@ -25,6 +27,7 @@ export function Contour({
   tilt = spin ? 25 : 0,
   perspective = 2000,
   overflow = false,
+  top = "50%",
 }: {
   className?: string
   opacity?: number
@@ -36,6 +39,7 @@ export function Contour({
   tilt?: number
   perspective?: number
   overflow?: boolean
+  top?: string
 }) {
   return (
     <div
@@ -45,8 +49,9 @@ export function Contour({
     >
       {/* Outer layer holds the static 3D tilt; inner layer does the flat (z-axis) spin inside it. */}
       <div
-        className="absolute left-1/2 top-1/2 aspect-[1.07] -translate-x-1/2 -translate-y-1/2"
+        className="absolute left-1/2 aspect-[1.07] -translate-x-1/2 -translate-y-1/2"
         style={{
+          top,
           width: `max(${260 * scale}%, ${2500 * scale}px)`,
           transform: tilt ? `rotateX(${tilt}deg)` : undefined,
         }}
